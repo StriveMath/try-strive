@@ -65,7 +65,7 @@ export default function Nav() {
     <nav ref={navRef} style={{ transform: navHidden ? 'translateY(-100%)' : 'translateY(0)' }}>
       <div className="nav-inner">
         <a href="https://strivemath.com" className="nav-logo">
-          <Image src="/images/main-logo.webp" alt="Strive" height={28} width={98} priority />
+          <Image src="/images/main-logo.webp" alt="Strive" height={24} width={84} priority />
         </a>
 
         {/* Right side: dropdowns + CTA + burger grouped together */}

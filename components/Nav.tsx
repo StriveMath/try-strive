@@ -83,9 +83,9 @@ export default function Nav() {
               <div className="nav-dropdown-menu">
                 <span className="nav-dropdown-heading">All courses:</span>
                 <a href="https://www.strivemath.com" onClick={closeAll}>Coding</a>
-                <Link href="/math" onClick={closeAll}>Mathematics</Link>
-                <Link href="/ai-first-software-development" onClick={closeAll}>AI-First Software Development</Link>
-                <Link href="/holidaycamps" onClick={closeAll}>Holiday Bootcamps</Link>
+                <Link href="/courses/math" onClick={closeAll}>Mathematics</Link>
+                <Link href="/courses/ai-coding" onClick={closeAll}>AI-First Software Development</Link>
+                <Link href="/courses/holiday-bootcamps" onClick={closeAll}>Holiday Bootcamps</Link>
               </div>
             )}
           </div>
@@ -126,9 +126,9 @@ export default function Nav() {
       <div className={`nav-mobile-menu${mobileOpen ? ' open' : ''}`} aria-hidden={!mobileOpen}>
         <ul>
           <li><a href="https://www.strivemath.com" onClick={closeAll}>Coding</a></li>
-          <li><Link href="/math" onClick={closeAll}>Mathematics</Link></li>
-          <li><Link href="/ai-first-software-development" onClick={closeAll}>AI-First Software Development</Link></li>
-          <li><Link href="/holidaycamps" onClick={closeAll}>Holiday Bootcamps</Link></li>
+          <li><Link href="/courses/math" onClick={closeAll}>Mathematics</Link></li>
+          <li><Link href="/courses/ai-coding" onClick={closeAll}>AI-First Software Development</Link></li>
+          <li><Link href="/courses/holiday-bootcamps" onClick={closeAll}>Holiday Bootcamps</Link></li>
           <li><Link href="/blog" onClick={closeAll}>Blog</Link></li>
         </ul>
       </div>

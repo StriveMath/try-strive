@@ -1,15 +1,61 @@
+import { useState, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 
+const stories = [
+  {
+    id: 'matias',
+    title: 'The Dark Ages',
+    body: [
+      'Matias spent two years as a Strive student. He loved video games and started coding because he wanted to make his own. By the end of his time with Strive, he had built The Dark Ages: a Minecraft-inspired, AI-assisted browser game built with JavaScript, React, and Next.js.',
+      'He designed the game logic, used AI to develop the visuals and test new ideas, and deployed it live to the internet. Matias went from spending hours playing games to spending hours building them.',
+    ],
+    tags: ['JavaScript', 'React', 'Next.js', 'AI-assisted', 'Live on the internet'],
+    avatar: 'M',
+    name: 'Matias',
+    detail: 'Strive student · 2 years',
+    blogUrl: '/blog/from-gamer-to-game-creator-how-matias-built-his-own-ai-powered-world',
+    gameUrl: 'https://v0-dark-ages-game.vercel.app/' as string | null,
+    githubUrl: null as string | null,
+  },
+  {
+    id: 'ethan',
+    title: 'A Browser from Scratch',
+    body: [
+      'Ethan was 13 when he built a working web browser from scratch. Not a school project: a real browser built in Java using JCEF (Java Chromium Embedded Framework), Swing, and JavaFX, the same technology stack used in professional desktop applications.',
+      'He planned the architecture first, used AI to generate code for the complex parts, and read every line before running it. The result is a fully themed, agentic browser with its own rendering engine.',
+    ],
+    tags: ['Java', 'JCEF', 'JavaFX', 'AI-assisted', 'Desktop app'],
+    avatar: 'E',
+    name: 'Ethan',
+    detail: 'Strive student · Age 13',
+    blogUrl: '/blog/ethan-built-a-browser-at-13',
+    gameUrl: null as string | null,
+    githubUrl: 'https://github.com/ingStudiosOfficial' as string | null,
+  },
+]
+
 export default function AiFirstCoding() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const touchStartX = useRef<number | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    if (dx < -50) setActiveIndex(i => Math.min(stories.length - 1, i + 1))
+    else if (dx > 50) setActiveIndex(i => Math.max(0, i - 1))
+    touchStartX.current = null
+  }
+
   return (
     <>
       <Head>
-        <title>AI-First Software Development for Kids — Strive</title>
-        <meta name="description" content="Build real apps with professional AI tools. Strive's advanced coding course for students aged 10–16 — 1-on-1, live, online. Deploy a full-stack product by the end." />
+        <title>AI Coding for Kids | Strive Math</title>
+        <meta name="description" content="Build real apps with professional AI tools. Strive's advanced AI coding course for students aged 10–16. 1-on-1, live, online. Deploy a full-stack product by the end." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
@@ -20,8 +66,7 @@ export default function AiFirstCoding() {
         <header className="hero">
           <div className="hero-tag">Advanced Track · Ages 10–16</div>
           <h1>
-            AI-First<br />
-            <span className="gradient-text">Software Development</span>
+            AI <span className="gradient-text">Coding</span>
           </h1>
           <p className="hero-sub">Build real apps the way professional developers do. AI-Assisted.</p>
           <div className="hero-actions">
@@ -60,7 +105,7 @@ export default function AiFirstCoding() {
                 AI assistance.
               </h2>
               <p className="section-lead">
-                AI-First Software Development is Strive&apos;s advanced course for students aged 10 to 16. Students learn to build real websites and web apps by working with AI tools the way professional software engineers do today.
+                AI Coding is Strive&apos;s advanced course for students aged 10 to 16. Students don&apos;t just write code with AI. They tackle the full challenges of software development: designing architecture, understanding security, debugging complex systems, and making real product decisions about what to build and why.
               </p>
             </div>
             <aside className="highlight-box">
@@ -122,56 +167,87 @@ export default function AiFirstCoding() {
                   &ldquo;AI can write code. It cannot yet decide what to build, catch its own mistakes, or know when the output is wrong.&rdquo;
                 </blockquote>
                 <p>Students who understand what&apos;s happening underneath AI get dramatically better results from it. They write better prompts because they understand what they&apos;re asking for. They spot errors because they can read the output. They build things that actually work because they understand the structure.</p>
-                <p>We don&apos;t teach children math so they can compete with calculators. We teach it because the thinking it builds makes them more capable in every area of life. Coding with AI works the same way.</p>
+                <p>We don&apos;t teach children math so they can compete with calculators. We teach it because the thinking it builds makes them more capable in every area of life. We recommend learning the coding fundamentals first, before Coding with AI for the same reason.</p>
+                <p>Coding with AI goes by different names: AI-first software development, AI-assisted coding, and others. The terminology is still settling because the field itself is moving fast. The tools students use in these classes evolve as the tools professionals use evolve: when a better AI coding assistant becomes available, we adopt it. What we teach isn&apos;t how to use one specific tool. It&apos;s how to evaluate, direct, and build on what AI produces, which transfers as the landscape changes.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* STUDENT SPOTLIGHT */}
+        {/* STUDENT SPOTLIGHT — carousel */}
         <section style={{ background: 'var(--bg-subtle)' }}>
           <div className="section-inner">
             <span className="section-tag">Student spotlight</span>
             <h2 className="section-title" style={{ marginBottom: '36px' }}>What students actually build</h2>
-            <article className="spotlight-card">
-              <div>
-                <h3>The Dark Ages</h3>
-                <p>
-                  Matias spent two years as a Strive student. He loved video games and started coding because he wanted to make his own. By the end of his time with Strive, he had built{' '}
-                  <strong style={{ color: 'white' }}>The Dark Ages</strong>{' '}
-                  — a Minecraft-inspired, AI-assisted browser game built with JavaScript, React, and Next.js.
-                </p>
-                <p>
-                  He designed the game logic, used AI to develop the visuals and test new ideas, and deployed it live to the internet. Matias went from spending hours{' '}
-                  <em>playing</em> games to spending hours <em>building</em> them.
-                </p>
-                <div className="spotlight-tags">
-                  <span className="tag">JavaScript</span>
-                  <span className="tag">React</span>
-                  <span className="tag">Next.js</span>
-                  <span className="tag">AI-assisted</span>
-                  <span className="tag">Live on the internet</span>
+            <div className="spotlight-carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+              <div className="spotlight-slide-wrap">
+                <div className="spotlight-track-outer">
+                  <div className="spotlight-track" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+                    {stories.map((story) => (
+                      <article className="spotlight-card" key={story.id}>
+                        <div>
+                          <h3>{story.title}</h3>
+                          {story.body.map((para, i) => <p key={i}>{para}</p>)}
+                          <div className="spotlight-tags">
+                            {story.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}
+                          </div>
+                          <div className="spotlight-actions">
+                            {story.gameUrl && (
+                              <a href={story.gameUrl} target="_blank" rel="noopener noreferrer" className="play-btn">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                  <path d="M3 2L13 8L3 14V2Z" fill="currentColor" />
+                                </svg>
+                                Play the game
+                              </a>
+                            )}
+                            {story.githubUrl && (
+                              <a href={story.githubUrl} target="_blank" rel="noopener noreferrer" className="play-btn">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                View GitHub
+                              </a>
+                            )}
+                            <Link href={story.blogUrl} className="story-link">Read the full story →</Link>
+                          </div>
+                        </div>
+                        <aside className="spotlight-visual">
+                          <div className="spotlight-avatar">{story.avatar}</div>
+                          <p className="spotlight-name">{story.name}</p>
+                          <p className="spotlight-detail">{story.detail}</p>
+                        </aside>
+                      </article>
+                    ))}
+                  </div>
                 </div>
-                <a
-                  href="https://v0-dark-ages-game.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="play-btn"
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                    <path d="M3 2L13 8L3 14V2Z" fill="currentColor" />
-                  </svg>
-                  Play the game
-                </a>
+                <button
+                  className="carousel-nav-btn carousel-prev"
+                  onClick={() => setActiveIndex(i => Math.max(0, i - 1))}
+                  disabled={activeIndex === 0}
+                  aria-label="Previous story"
+                >‹</button>
+                <button
+                  className="carousel-nav-btn carousel-next"
+                  onClick={() => setActiveIndex(i => Math.min(stories.length - 1, i + 1))}
+                  disabled={activeIndex === stories.length - 1}
+                  aria-label="Next story"
+                >›</button>
               </div>
-              <aside className="spotlight-visual">
-                <div className="spotlight-avatar">M</div>
-                <p className="spotlight-name">Matias</p>
-                <p className="spotlight-detail">Strive student<br />2 years</p>
-              </aside>
-            </article>
+              <div className="carousel-dots" role="tablist">
+                {stories.map((story, i) => (
+                  <button
+                    key={story.id}
+                    role="tab"
+                    aria-selected={i === activeIndex}
+                    aria-label={`${story.name}'s story`}
+                    className={`carousel-dot${i === activeIndex ? ' active' : ''}`}
+                    onClick={() => setActiveIndex(i)}
+                  />
+                ))}
+              </div>
+            </div>
             <p style={{ marginTop: '24px', fontSize: '15px', color: 'var(--text-dark)', textAlign: 'center' }}>
-              Students in AI Coding Unit 7 work toward the same outcome — a fully deployed product of their own, built around a real idea, with user accounts and payment integration.
+              Students in AI Coding Unit 7 work toward the same outcome: a fully deployed product of their own, built around a real idea, with user accounts and payment integration.
             </p>
           </div>
         </section>
@@ -189,12 +265,12 @@ export default function AiFirstCoding() {
 
             {/* Getting Started */}
             <div style={{ marginBottom: '32px' }}>
-              <span className="gs-label">Getting Started — 3 Sessions</span>
+              <span className="gs-label">Getting Started: 3 Sessions</span>
               <div className="getting-started">
                 <article className="gs-card">
                   <h3>Session A</h3>
                   <p className="session-name">Launch</p>
-                  <p>Students build and deploy a live website in their very first class. It goes live on the internet. From the start, students learn to read what AI produces and question it — not just accept it.</p>
+                  <p>Students build and deploy a live website in their very first class. It goes live on the internet. From the start, students learn to read what AI produces and question it, not just accept it.</p>
                 </article>
                 <article className="gs-card">
                   <h3>Session B</h3>
@@ -204,7 +280,7 @@ export default function AiFirstCoding() {
                 <article className="gs-card">
                   <h3>Session C</h3>
                   <p className="session-name">Professional Tools</p>
-                  <p>Students set up the same tools professional developers use — a local development environment, AI coding extensions, and the terminal commands used in real software teams.</p>
+                  <p>Students set up the same tools professional developers use: a local development environment, AI coding extensions, and the terminal commands used in real software teams.</p>
                 </article>
               </div>
             </div>
@@ -226,7 +302,7 @@ export default function AiFirstCoding() {
               <article className="unit-card">
                 <div className="unit-number">2</div>
                 <h3>GitHub and APIs</h3>
-                <p>Students learn version control and how to connect their apps to external services — integrating real data sources like weather feeds and deploying updates to live websites.</p>
+                <p>Students learn version control and how to connect their apps to external services, integrating real data sources like weather feeds and deploying updates to live websites.</p>
                 <div className="unit-skills">
                   <span className="skill-chip">Git</span>
                   <span className="skill-chip">GitHub</span>
@@ -237,7 +313,7 @@ export default function AiFirstCoding() {
               <article className="unit-card">
                 <div className="unit-number">3</div>
                 <h3>Databases</h3>
-                <p>Students build apps that store real user data and manage accounts. This is where complexity increases significantly — and where students with coding foundations have a clear advantage.</p>
+                <p>Students build apps that store real user data and manage accounts. This is where complexity increases significantly. Students with coding foundations have a clear advantage.</p>
                 <div className="unit-skills">
                   <span className="skill-chip">Next.js DB</span>
                   <span className="skill-chip">Auth</span>
@@ -297,14 +373,14 @@ export default function AiFirstCoding() {
         <section style={{ background: 'var(--bg-subtle)' }}>
           <div className="section-inner">
             <span className="section-tag">How it compares</span>
-            <h2 className="section-title" style={{ marginBottom: '36px' }}>AI-First vs Traditional Coding</h2>
+            <h2 className="section-title" style={{ marginBottom: '36px' }}>AI Coding vs Traditional Coding</h2>
             <div className="table-wrap">
               <table>
                 <thead>
                   <tr>
                     <th></th>
                     <th>Traditional Coding</th>
-                    <th className="highlight-col" style={{ background: 'var(--accent-purple)' }}>AI-First Coding</th>
+                    <th className="highlight-col" style={{ background: 'var(--accent-purple)' }}>AI Coding</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -342,7 +418,7 @@ export default function AiFirstCoding() {
               </table>
             </div>
             <p style={{ marginTop: '20px', fontSize: '14px', color: 'var(--text-muted)', textAlign: 'center' }}>
-              Both tracks are available at Strive. Most students complete the coding fundamentals track before moving to AI-First.
+              Both tracks are available at Strive. Most students complete the coding fundamentals track before moving to AI Coding.
             </p>
           </div>
         </section>
@@ -355,7 +431,7 @@ export default function AiFirstCoding() {
             <div className="faq-grid">
               <article className="faq-item">
                 <h3>Does my child need to know how to code already?</h3>
-                <p>We strongly recommend completing Strive&apos;s coding fundamentals track (Units 1 to 7) before starting AI-First. Students with equivalent experience from other courses can join directly. If you&apos;re unsure, book a trial class and we&apos;ll assess their level together.</p>
+                <p>We strongly recommend completing Strive&apos;s coding fundamentals track (Units 1 to 7) before starting AI Coding. Students with equivalent experience from other courses can join directly. If you&apos;re unsure, book a trial class and we&apos;ll assess their level together.</p>
               </article>
               <article className="faq-item">
                 <h3>What age group is this course for?</h3>
@@ -363,15 +439,15 @@ export default function AiFirstCoding() {
               </article>
               <article className="faq-item">
                 <h3>How are classes structured?</h3>
-                <p>All classes are 1-on-1 with a Strive teacher. Each class is one hour. The teacher adjusts the pace to your child — there&apos;s no class to keep up with.</p>
+                <p>All classes are 1-on-1 with a Strive teacher. Each class is one hour. The teacher adjusts the pace to your child. There&apos;s no class to keep up with.</p>
               </article>
               <article className="faq-item">
                 <h3>What does my child actually end up with?</h3>
-                <p>A live, deployed web application they built themselves — with user accounts, a real database, and payment integration. They also receive a Strive certificate they can attach to school or university applications.</p>
+                <p>A live, deployed web application they built themselves, with user accounts, a real database, and payment integration. They also receive a Strive certificate they can attach to school or university applications.</p>
               </article>
               <article className="faq-item">
                 <h3>How is this different from other coding courses for kids?</h3>
-                <p>Most coding courses for kids use simplified tools. Strive&apos;s AI-First course uses the same tools professional developers use: Next.js, React, GitHub, Vercel, and real AI coding assistants. Students finish with something they can actually show the world.</p>
+                <p>Most coding courses for kids use simplified tools and stop at writing code. Strive&apos;s AI Coding course uses the same tools professional developers use (Next.js, React, GitHub, Vercel, real AI coding assistants) and covers the challenges that go beyond code: architecture decisions, security, debugging, and product thinking. Those tools also get updated as better ones emerge, so students are always working with what&apos;s current.</p>
               </article>
               <article className="faq-item">
                 <h3>Can my child add this to their university application?</h3>
@@ -405,7 +481,7 @@ export default function AiFirstCoding() {
         <section className="cta-section" id="trial">
           <h2>Start with a free trial class</h2>
           <p>
-            Your child&apos;s first class is free. They&apos;ll build something in the session — not just talk about coding. After the class, you speak with us about next steps. No pressure to continue.
+            Your child&apos;s first class is free. They&apos;ll build something in the session, not just talk about coding. After the class, you speak with us about next steps. No pressure to continue.
           </p>
           <a href={trialUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }}>
             Book a Free Trial Class
@@ -418,7 +494,7 @@ export default function AiFirstCoding() {
         <div className="footer-inner">
           <p className="footer-logo">Strive<span>.</span></p>
           <p>Online coding school for students aged 8 to 16.</p>
-          <p>1-on-1 classes in coding fundamentals and AI-First software development, taught live by experienced teachers.</p>
+          <p>1-on-1 classes in coding fundamentals and AI-assisted coding, taught live by experienced teachers.</p>
           <p style={{ marginTop: '20px', fontSize: '12px' }}>
             Classes are online and open to students worldwide. Strong community in Singapore.
           </p>

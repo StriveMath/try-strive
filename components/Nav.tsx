@@ -84,7 +84,7 @@ export default function Nav() {
                 <span className="nav-dropdown-heading">All courses:</span>
                 <a href="https://www.strivemath.com" onClick={closeAll}>Coding</a>
                 <Link href="/courses/math" onClick={closeAll}>Mathematics</Link>
-                <Link href="/courses/ai-coding" onClick={closeAll}>AI-First Software Development</Link>
+                <Link href="/courses/ai-coding" onClick={closeAll}>AI Coding</Link>
                 <Link href="/courses/holiday-bootcamps" onClick={closeAll}>Holiday Bootcamps</Link>
               </div>
             )}
@@ -127,7 +127,7 @@ export default function Nav() {
         <ul>
           <li><a href="https://www.strivemath.com" onClick={closeAll}>Coding</a></li>
           <li><Link href="/courses/math" onClick={closeAll}>Mathematics</Link></li>
-          <li><Link href="/courses/ai-coding" onClick={closeAll}>AI-First Software Development</Link></li>
+          <li><Link href="/courses/ai-coding" onClick={closeAll}>AI Coding</Link></li>
           <li><Link href="/courses/holiday-bootcamps" onClick={closeAll}>Holiday Bootcamps</Link></li>
           <li><Link href="/blog" onClick={closeAll}>Blog</Link></li>
         </ul>

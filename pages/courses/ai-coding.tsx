@@ -80,10 +80,27 @@ const stories = [
     screenshot: '/images/courses/spotlight/ethan-browser.webp' as string | null,
     name: 'Ethan',
     detail: 'Age 13',
-    blogUrl: '/blog/ethan-built-a-browser-at-13',
+    blogUrl: '/blog/ethan-built-a-browser-at-13' as string | null,
     gameUrl: null as string | null,
     gameUrlLabel: '',
     githubUrl: 'https://github.com/ingStudiosOfficial' as string | null,
+  },
+  {
+    id: 'vasco',
+    title: 'Sustainable Squad',
+    body: [
+      'Vasco, Grade 10, built "Sustainable Squad", a platform game about ocean clean-up and coral restoration. It\'s grown to 8 levels with full controller support, and he\'s built versions for iPhone, iPad, Mac and Apple TV.',
+      'By the final stretch, he was working like a real studio: recording a professional trailer, checking frame rates and file sizes, and prepping for an App Store submission.',
+    ],
+    tags: ['Platform game', 'iOS · macOS · tvOS', 'App Store', 'AI-assisted', 'Controller support'],
+    avatar: 'V',
+    screenshot: '/images/courses/spotlight/vasco-sustainable-squad.webp' as string | null,
+    name: 'Vasco',
+    detail: 'Age 14',
+    blogUrl: null as string | null,
+    gameUrl: 'https://www.thesustainablesquad.com/' as string | null,
+    gameUrlLabel: 'Play the game',
+    githubUrl: null as string | null,
   },
 ]
 
@@ -256,7 +273,7 @@ export default function AiFirstCoding() {
                                 View GitHub
                               </a>
                             )}
-                            <Link href={story.blogUrl} className="story-link">Read the full story →</Link>
+                            {story.blogUrl && <Link href={story.blogUrl} className="story-link">Read the full story →</Link>}
                           </div>
                         </div>
                         <aside className="spotlight-visual">

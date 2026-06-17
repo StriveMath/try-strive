@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
@@ -33,7 +34,90 @@ const faqs = [
   },
 ]
 
+const stories = [
+  {
+    id: 'neil',
+    title: 'Nearby Notary',
+    body: [
+      "Neil was 16 when he rebuilt Singapore's official notary directory — because his dad couldn't use it. The SAL Directory had the data but was clunky and couldn't search by location, so Neil set out to fix it.",
+      'Using AI-assisted coding, he built a full-stack location-based search tool with Google Maps integration in just 5 hours. The result, nearbynotary.sg, makes public data actually usable. Neil is now approaching the government to see if they\'d like to adopt his design.',
+    ],
+    tags: ['Full-stack', 'Google Maps API', 'Location search', 'AI-assisted', 'Live on the internet'],
+    avatar: 'N',
+    screenshot: '/images/courses/spotlight/neil-nearby-notary.webp' as string | null,
+    name: 'Neil',
+    detail: 'Age 16',
+    blogUrl: '/blog/how-a-16-year-old-used-ai-to-rebuild-a-government-website',
+    gameUrl: 'https://www.nearbynotary.sg/' as string | null,
+    gameUrlLabel: 'Visit the website',
+    githubUrl: null as string | null,
+  },
+  {
+    id: 'matias',
+    title: 'The Dark Ages',
+    body: [
+      'Matias loved video games and started coding because he wanted to make his own. By the end of his time with Strive, he had built The Dark Ages: a Minecraft-inspired, AI-assisted browser game built with JavaScript, React, and Next.js.',
+      'He designed the game logic, used AI to develop the visuals and test new ideas, and deployed it live to the internet. Matias went from spending hours playing games to spending hours building them.',
+    ],
+    tags: ['JavaScript', 'React', 'Next.js', 'AI-assisted', 'Live on the internet'],
+    avatar: 'M',
+    screenshot: '/images/courses/spotlight/matias-dark-ages.webp' as string | null,
+    name: 'Matias',
+    detail: 'Age 13',
+    blogUrl: '/blog/from-gamer-to-game-creator-how-matias-built-his-own-ai-powered-world',
+    gameUrl: 'https://v0-dark-ages-game.vercel.app/' as string | null,
+    gameUrlLabel: 'Play the game',
+    githubUrl: null as string | null,
+  },
+  {
+    id: 'ethan',
+    title: 'A Browser from Scratch',
+    body: [
+      'Ethan was 13 when he built a working web browser from scratch. Not a school project: a real browser built in Java using JCEF (Java Chromium Embedded Framework), Swing, and JavaFX, the same technology stack used in professional desktop applications.',
+      'He planned the architecture first, used AI to generate code for the complex parts, and read every line before running it. The result is a fully themed, agentic browser with its own rendering engine.',
+    ],
+    tags: ['Java', 'JCEF', 'JavaFX', 'AI-assisted', 'Desktop app'],
+    avatar: 'E',
+    screenshot: '/images/courses/spotlight/ethan-browser.webp' as string | null,
+    name: 'Ethan',
+    detail: 'Age 13',
+    blogUrl: '/blog/ethan-built-a-browser-at-13' as string | null,
+    gameUrl: null as string | null,
+    gameUrlLabel: '',
+    githubUrl: 'https://github.com/ingStudiosOfficial' as string | null,
+  },
+  {
+    id: 'vasco',
+    title: 'Sustainable Squad',
+    body: [
+      'Vasco, Grade 10, built "Sustainable Squad", a platform game about ocean clean-up and coral restoration. It\'s grown to 8 levels with full controller support, and he\'s built versions for iPhone, iPad, Mac and Apple TV.',
+      'By the final stretch, he was working like a real studio: recording a professional trailer, checking frame rates and file sizes, and prepping for an App Store submission.',
+    ],
+    tags: ['Platform game', 'iOS · macOS · tvOS', 'App Store', 'AI-assisted', 'Controller support'],
+    avatar: 'V',
+    screenshot: '/images/courses/spotlight/vasco-sustainable-squad.webp' as string | null,
+    name: 'Vasco',
+    detail: 'Age 14',
+    blogUrl: null as string | null,
+    gameUrl: 'https://www.thesustainablesquad.com/' as string | null,
+    gameUrlLabel: 'Play the game',
+    githubUrl: null as string | null,
+  },
+]
+
 export default function AIFirstCodingBootcamp() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const touchStartX = useRef<number | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    if (dx < -50) setActiveIndex(i => Math.min(stories.length - 1, i + 1))
+    else if (dx > 50) setActiveIndex(i => Math.max(0, i - 1))
+    touchStartX.current = null
+  }
+
   return (
     <>
       <Head>
@@ -97,44 +181,89 @@ export default function AIFirstCodingBootcamp() {
           </div>
         </section>
 
-        {/* PROJECT SHOWCASE */}
+        {/* STUDENT SPOTLIGHT — carousel */}
         <section style={{ background: 'white' }}>
           <div className="section-inner">
-            <span className="section-tag">See it to believe it</span>
-            <h2 className="section-title">Real projects built by Strive students</h2>
-            <p className="section-lead" style={{ maxWidth: '640px' }}>
-              These projects were built using AI-first development techniques — by real Strive students during the bootcamp.
-            </p>
-            <div className="project-showcase" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-              <div className="project-card">
-                <div className="project-card-header" style={{ padding: 0 }}><img src="/images/holidaycamps/flappy-bird-ai.gif" alt="Flappy Bird" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /></div>
-                <div className="project-card-body">
-                  <span className="project-card-badge">Made with AI · Real project by Strive students</span>
-                  <h3>Flappy Bird</h3>
+            <span className="section-tag">Student spotlight</span>
+            <h2 className="section-title" style={{ marginBottom: '36px' }}>What students actually build</h2>
+            <div className="spotlight-carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+              <div className="spotlight-slide-wrap">
+                <div className="spotlight-track-outer">
+                  <div className="spotlight-track" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+                    {stories.map((story) => (
+                      <article className="spotlight-card" key={story.id}>
+                        <div>
+                          <h3>{story.title}</h3>
+                          {story.body.map((para, i) => <p key={i}>{para}</p>)}
+                          <div className="spotlight-tags">
+                            {story.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}
+                          </div>
+                          <div className="spotlight-actions">
+                            {story.gameUrl && (
+                              <a href={story.gameUrl} target="_blank" rel="noopener noreferrer" className="play-btn">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                  <path d="M3 2L13 8L3 14V2Z" fill="currentColor" />
+                                </svg>
+                                {story.gameUrlLabel}
+                              </a>
+                            )}
+                            {story.githubUrl && (
+                              <a href={story.githubUrl} target="_blank" rel="noopener noreferrer" className="play-btn">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                View GitHub
+                              </a>
+                            )}
+                            {story.blogUrl && <Link href={story.blogUrl} className="story-link">Read the full story →</Link>}
+                          </div>
+                        </div>
+                        <aside className="spotlight-visual">
+                          {story.screenshot ? (
+                            <img
+                              src={story.screenshot}
+                              alt={`${story.name}'s ${story.title} project`}
+                              className="spotlight-screenshot"
+                            />
+                          ) : (
+                            <div className="spotlight-avatar">{story.avatar}</div>
+                          )}
+                          <p className="spotlight-built-by">Built by</p>
+                          <p className="spotlight-label">{story.name} · {story.detail}</p>
+                        </aside>
+                      </article>
+                    ))}
+                  </div>
                 </div>
+                <button
+                  className="carousel-nav-btn carousel-prev"
+                  onClick={() => setActiveIndex(i => Math.max(0, i - 1))}
+                  disabled={activeIndex === 0}
+                  aria-label="Previous story"
+                >‹</button>
+                <button
+                  className="carousel-nav-btn carousel-next"
+                  onClick={() => setActiveIndex(i => Math.min(stories.length - 1, i + 1))}
+                  disabled={activeIndex === stories.length - 1}
+                  aria-label="Next story"
+                >›</button>
               </div>
-              <div className="project-card">
-                <div className="project-card-header" style={{ padding: 0 }}><img src="/images/holidaycamps/angry-birds-ai.gif" alt="Angry Birds" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /></div>
-                <div className="project-card-body">
-                  <span className="project-card-badge">Made with AI · Real project by Strive students</span>
-                  <h3>Angry Birds</h3>
-                </div>
-              </div>
-              <div className="project-card">
-                <div className="project-card-header" style={{ padding: 0 }}><img src="/images/holidaycamps/vizualizer-ai.gif" alt="Visualizer" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /></div>
-                <div className="project-card-body">
-                  <span className="project-card-badge">Made with AI · Real project by Strive students</span>
-                  <h3>Visualizer</h3>
-                </div>
-              </div>
-              <div className="project-card">
-                <div className="project-card-header" style={{ padding: 0 }}><img src="/images/holidaycamps/pixel-warrior-ai.gif" alt="Pixel Warrior" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /></div>
-                <div className="project-card-body">
-                  <span className="project-card-badge">Made with AI · Real project by Strive students</span>
-                  <h3>Pixel Warrior</h3>
-                </div>
+              <div className="carousel-dots" role="tablist">
+                {stories.map((story, i) => (
+                  <button
+                    key={story.id}
+                    role="tab"
+                    aria-selected={i === activeIndex}
+                    aria-label={`${story.name}'s story`}
+                    className={`carousel-dot${i === activeIndex ? ' active' : ''}`}
+                    onClick={() => setActiveIndex(i)}
+                  />
+                ))}
               </div>
             </div>
+            <p style={{ marginTop: '24px', fontSize: '15px', color: 'var(--text-dark)', textAlign: 'center' }}>
+              These are just a few examples of projects built by AI coding students, with user accounts, APIs and payment integration.
+            </p>
           </div>
         </section>
 

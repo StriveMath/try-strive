@@ -409,14 +409,21 @@ export default function MathClasses() {
                 <p className="testimonial-role">International educator and Strive parent</p>
               </article>
               <article className="testimonial-card">
-                <blockquote className="testimonial-text">It&apos;s the only class where my kid is asking for more classes.</blockquote>
-                <p className="testimonial-author">Parent of a Strive student</p>
-                <p className="testimonial-role">Singapore</p>
+                <blockquote className="testimonial-text">We couldn&apos;t be happier with our experience at Strive Math! My son has been taking private online tutoring sessions that cover both math and coding, and his progress over the past few months has been incredible... What really stands out is his teacher&apos;s enthusiasm and encouragement. You can tell they genuinely care about my son&apos;s learning, and it&apos;s made all the difference. He&apos;s gained so much confidence in his abilities</blockquote>
+                <p className="testimonial-author">Colm</p>
+                <p className="testimonial-role">Father of a Strive student</p>
               </article>
               <article className="testimonial-card">
-                <blockquote className="testimonial-text">The teachers are fantastic. They&apos;re more like mentors and friends than lecturers.</blockquote>
-                <p className="testimonial-author">Parent of a Strive student</p>
-                <p className="testimonial-role">Singapore</p>
+                <blockquote className="testimonial-text">My son looks forward to his lessons. He relates to his coach who is much younger person than his parents. Its also a great break from his studies while still improving his ability. He scored 90% in his math exam. The teachers are fantastic.</blockquote>
+                <p className="testimonial-author">Chitra</p>
+                <p className="testimonial-role">Mom of a Strive student</p>
+              </article>
+                           <article className="testimonial-card wide">
+                <blockquote className="testimonial-text">
+                  Highly recommend StriveMath for kids who struggle with math. The classes are fun, and have changed my son&apos;s attitude towards math and his math performance at school. He looks forward to the Strive classes and is pumped afterwards. I love the detailed reports after each class and the videos of him presenting his work.
+                </blockquote>
+                <p className="testimonial-author">Jennifer Gessner</p>
+                <p className="testimonial-role">Mom of a Strive student</p>
               </article>
             </div>
           </div>

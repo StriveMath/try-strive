@@ -506,14 +506,14 @@ export default function AiFirstCoding() {
             <h2 className="section-title">Families who&apos;ve seen the difference</h2>
             <div className="testimonials-grid">
               <article className="testimonial-card">
-                <blockquote className="testimonial-text">It&apos;s the only class where my kid is asking for more classes.</blockquote>
-                <p className="testimonial-author">Parent of a Strive student</p>
-                <p className="testimonial-role">Singapore</p>
+                <blockquote className="testimonial-text">My child has been taking coding lessons with Strive for some time now, and has really enjoyed every single lesson. She is paired with a teacher that connects well with her.</blockquote>
+                <p className="testimonial-author">Rachel</p>
+                <p className="testimonial-role">Mom of a Strive student</p>
               </article>
               <article className="testimonial-card">
-                <blockquote className="testimonial-text">The teachers are fantastic. They&apos;re more like mentors and friends than lecturers.</blockquote>
-                <p className="testimonial-author">Parent of a Strive student</p>
-                <p className="testimonial-role">Singapore</p>
+                <blockquote className="testimonial-text">My child really enjoys this coding class and always looks forward to attending. The teacher is patient, encouraging, and good at guiding the students step by step. The lessons are engaging and help build both creativity and confidence. Highly recommended for kids who are interested in coding.</blockquote>
+                <p className="testimonial-author">Ding Ding</p>
+                <p className="testimonial-role">Parent of Strive student</p>
               </article>
             </div>
           </div>

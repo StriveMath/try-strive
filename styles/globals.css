@@ -2229,7 +2229,7 @@ footer p {
 .cca2 .btn-sm { padding: 10px 22px; font-size: 15px; }
 
 /* Hero (renamed from .hero to avoid the site-wide navy .hero background/overlay) */
-.cca2 .cca-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; padding: 56px 0 40px; background: none; text-align: left; }
+.cca2 .cca-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; padding-top: 56px; padding-bottom: 40px; background: none; text-align: left; }
 .cca2 .cca-hero p.lead { font-size: 18px; margin: 16px 0 0; max-width: 90%; }
 .cca2 .cca-hero .photo { min-height: 240px; }
 
@@ -2287,7 +2287,7 @@ footer p {
 @media (max-width: 760px) {
   .cca2 h1 { font-size: 32px; }
   .cca2 h2 { font-size: 25px; }
-  .cca2 .cca-hero { grid-template-columns: 1fr; gap: 24px; padding: 36px 0 28px; }
+  .cca2 .cca-hero { grid-template-columns: 1fr; gap: 24px; padding-top: 36px; padding-bottom: 28px; }
   .cca2 .cca-hero .photo { min-height: 200px; order: -1; }
   .cca2 .courses { grid-template-columns: 1fr; }
   .cca2 .proof { grid-template-columns: 1fr; }

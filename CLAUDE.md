@@ -53,21 +53,31 @@ pages/
     [slug].tsx                    — Blog post page (SSG via getStaticPaths/getStaticProps)
   other/
     isa-webinar.tsx               — ISA webinar landing page
+    privacy-policy.tsx            — Static privacy policy page (/other/privacy-policy)
     paidcodewithai-80.tsx         — Paid landing page
     paidcodewithai-680.tsx
     paidpythonapps-80.tsx
     paidpythonapps-680.tsx
     paidpythongames-80.tsx
     paidpythongames-680.tsx
+    careers/
+      index.tsx                   — Careers landing (active roles grid + About Strive + YouTube)
+      teach-at-strive.tsx         — Static "Teach at Strive" marketing page (not MDX-driven)
+      [slug].tsx                  — Individual role page (MDX via next-mdx-remote)
 
 components/
   Nav.tsx                         — Shared nav component (used by all pages)
   blog/
     YouTubeEmbed.tsx              — Responsive 16:9 iframe, uses youtube-nocookie.com
     CodeEmbed.tsx                 — Generic sandboxed iframe for GeoGebra, CodePen, p5.js etc.
+  careers/
+    AboutStrive.tsx               — Shared About Strive blurb; accepts className for page-specific sizing
 
 content/blog/
   *.mdx                           — ~27 blog posts; slug = filename without extension
+
+content/careers/
+  *.mdx                           — One file per role; slug = filename without extension
 
 public/images/blog/
   <slug>/                         — Per-post image folders (cover.jpg + any inline images)
@@ -90,6 +100,8 @@ const NAV_CTA_URL = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 ```
 
 Current nav links: Mathematics `/courses/math`, AI Coding `/courses/ai-coding`, Blog `/blog`.
+
+The "Everything else" desktop dropdown also includes Careers (`/other/careers`). Careers is intentionally **excluded from the mobile menu** to keep it uncluttered.
 
 ---
 
@@ -231,6 +243,76 @@ Blog posts are produced from LinkedIn content using the `linkedin-to-blog` Claud
 7. If Notion source: updates the record's `State`, `Blog link`, and backfill date properties
 
 **Cover image spec:** exactly 1200×675 (16:9), WebP. The CSS enforces `aspect-ratio: 16/9` with `object-fit: cover` — keep subject matter in the centre 80%.
+
+---
+
+## Careers system
+
+### Content location
+All roles live in `content/careers/<slug>.mdx`. The slug becomes the URL: `content/careers/teacher-part-time.mdx` → `/other/careers/teacher-part-time`.
+
+### Frontmatter schema
+
+```yaml
+title: "Role Title | External suffix"   # required — suffix after " | " is stripped in the UI
+status: "Active"                        # required — only "Active" roles are shown and accessible
+locations: ["South Africa", "Remote"]   # required — shown as blue tag pills
+type: ["Full Time"]                     # required — shown as purple tag pills
+description: "..."                      # required — shown on the landing page role card
+applyUrl: "https://airtable.com/..."    # optional — drives the "Apply now →" button in the page header
+```
+
+### Role visibility and redirects
+
+- Only `status: "Active"` roles appear on the `/other/careers` landing page.
+- `getStaticPaths` in `[slug].tsx` generates pages for **all** MDX files regardless of status.
+- `getStaticProps` checks `status` at build time: if not `"Active"`, it returns a **307 redirect to `/other/careers`** instead of rendering the page.
+- This means: set `status: "Closed"` (or any non-`"Active"` value) and the role disappears from the listing **and** its URL redirects to the careers landing page.
+- Unknown slugs (no file) return 404 because `fallback: false`.
+- Status changes only take effect on the next Vercel deploy (SSG).
+
+### MDX custom components
+
+Registered in `pages/other/careers/[slug].tsx`:
+
+| Component | Usage in MDX | Purpose |
+|---|---|---|
+| `ApplyCallout` | `<ApplyCallout>\n\n**[Apply](url)** (time)\n\n</ApplyCallout>` | Gray callout box at top of role — must have blank lines around markdown children |
+| `AboutStriveBlock` | `<AboutStriveBlock />` | Renders "About Strive" `<h2>` + the shared `AboutStrive` component |
+| `a` → `RoleLink` | Automatic | Opens external links in new tab |
+
+### MDX structure for a role page
+
+```mdx
+---
+frontmatter here
+---
+
+<ApplyCallout>
+
+**[Click here to apply](url)** (Should take ~10 minutes)
+
+</ApplyCallout>
+
+<AboutStriveBlock />
+
+## Role | Description heading
+
+...role content...
+```
+
+### teach-at-strive.tsx
+
+`pages/other/careers/teach-at-strive.tsx` is a **static TSX page**, not MDX-driven. It's a marketing page linking to the teacher role posts. Next.js gives it priority over `[slug].tsx` because static filenames resolve before dynamic segments — no exclusion list needed.
+
+---
+
+## Adding a new role
+
+1. Create `content/careers/<slug>.mdx` with required frontmatter and `status: "Active"`
+2. Use the MDX structure above: `<ApplyCallout>` → `<AboutStriveBlock />` → role content
+3. The role appears automatically on `/other/careers` (no code changes needed)
+4. To close a role: change `status` to `"Closed"` (or any non-`"Active"` value) and redeploy
 
 ---
 

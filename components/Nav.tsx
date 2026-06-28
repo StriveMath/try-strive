@@ -101,6 +101,7 @@ export default function Nav() {
             {everythingOpen && (
               <div className="nav-dropdown-menu">
                 <Link href="/blog" onClick={closeAll}>Blog</Link>
+                <Link href="/other/careers" onClick={closeAll}>Careers</Link>
               </div>
             )}
           </div>

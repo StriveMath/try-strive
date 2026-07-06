@@ -25,12 +25,6 @@ const courseJsonLd = {
     '@type': 'CourseInstance',
     courseMode: 'online',
   },
-  offers: {
-    '@type': 'Offer',
-    priceCurrency: 'SGD',
-    price: '80',
-    url: `${pageUrl}#pricing`,
-  },
 }
 
 const faqs = [

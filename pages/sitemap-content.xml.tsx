@@ -21,8 +21,8 @@ const COURSE_URLS = [
 ]
 
 const STATIC_URLS = [
-  '/other/isa-webinar',
   '/other/privacy-policy',
+  '/other/careers/teach-at-strive',
 ]
 
 interface UrlEntry {

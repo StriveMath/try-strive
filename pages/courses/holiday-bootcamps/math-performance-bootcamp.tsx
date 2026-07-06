@@ -27,12 +27,6 @@ const courseJsonLd = {
     courseMode: 'online',
     courseWorkload: '8 hours total, scheduled flexibly',
   },
-  offers: {
-    '@type': 'Offer',
-    priceCurrency: 'SGD',
-    price: '640',
-    url: pageUrl,
-  },
 }
 
 const faqs = [

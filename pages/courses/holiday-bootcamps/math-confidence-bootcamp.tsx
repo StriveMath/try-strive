@@ -2,9 +2,32 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import FaqSection from '@/components/FaqSection'
+import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
 const stripeUrl = 'https://buy.stripe.com/3cIdR899Zg3r3Ay6mG93y1v'
+const pageTitle = 'Math Confidence Bootcamp — Strive'
+const pageDescription = '8-session 1-on-1 Math Confidence bootcamp for grades 4–9. Diagnostic assessment, curriculum-aligned coaching, and a detailed progress report. SGD 640.'
+const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/math-confidence-bootcamp'
+
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Math Confidence Bootcamp',
+  description: "An 8-hour, 1-on-1 online holiday bootcamp for students who've lost confidence in math. Includes a diagnostic assessment, curriculum-aligned coaching using Singapore Math methods, and a detailed progress report mapped to specific learning outcomes.",
+  provider: {
+    '@type': 'EducationalOrganization',
+    '@id': 'https://www.strivemath.com/#organization',
+    name: 'Strive Math',
+    url: 'https://www.strivemath.com',
+  },
+  url: pageUrl,
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    courseWorkload: '8 hours total, scheduled flexibly',
+  },
+}
 
 const faqs = [
   {
@@ -37,9 +60,22 @@ export default function MathConfidence() {
   return (
     <>
       <Head>
-        <title>Math Confidence Bootcamp — Strive</title>
-        <meta name="description" content="8-session 1-on-1 Math Confidence bootcamp for grades 4–9. Diagnostic assessment, curriculum-aligned coaching, and a detailed progress report. SGD 640." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />      </Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+        />
+      </Head>
+      <OrganizationSchema />
 
       <Nav />
 

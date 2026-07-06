@@ -2,8 +2,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import FaqSection from '@/components/FaqSection'
+import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
+const pageTitle = 'Holiday Bootcamps for Kids — Strive'
+const pageDescription = '8-class holiday bootcamps in Math and Coding for students aged 8–16. 1-on-1 online sessions, flexible scheduling, and a completion certificate.'
+const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps'
 
 const faqs = [
   {
@@ -32,9 +36,18 @@ export default function HolidayCamps() {
   return (
     <>
       <Head>
-        <title>Holiday Bootcamps for Kids — Strive</title>
-        <meta name="description" content="8-class holiday bootcamps in Math and Coding for students aged 8–16. 1-on-1 online sessions, flexible scheduling, and a completion certificate." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />      </Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+      </Head>
+      <OrganizationSchema />
 
       <Nav />
 

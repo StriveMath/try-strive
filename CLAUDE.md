@@ -2,11 +2,11 @@
 
 ## Project overview
 
-Next.js 14 (Pages Router) marketing + blog site for Strive, an edtech company teaching math and AI Coding. Currently deployed to Vercel. This repo is `try.strivemath.com` — the plan is to eventually serve its content under `strivemath.com/blog` and `strivemath.com/courses/` via a reverse proxy (see [Reverse proxy plan](#reverse-proxy-plan) below).
+Next.js 14 (Pages Router) marketing + blog site for Strive, an edtech company teaching math and AI Coding. Currently deployed to Vercel. This repo is served via `images.strivemath.com` — the plan is to eventually serve its content under `www.strivemath.com/blog` and `www.strivemath.com/courses/` via a reverse proxy (see [Reverse proxy plan](#reverse-proxy-plan) below).
 
 **Domain setup:**
 - `images.strivemath.com` — live Vercel custom domain on this project. Used as `assetPrefix` (serves `_next/static/*` JS/CSS bundles) and as the base URL for all OG and JSON-LD image references in blog posts. Configured in `next.config.js` and via the `IMAGES_BASE` constant in `pages/blog/[slug].tsx`.
-- `try.strivemath.com` — this app is accessible here, but it is NOT registered as a Vercel custom domain for this project. Do not add it in Vercel — `images.strivemath.com` is the Vercel domain; `try.strivemath.com` is forwarded at the DNS level.
+- `try.strivemath.com` — retired. It permanently redirects to `strivemath.com` (which itself redirects to `www.strivemath.com`) at the domain-provider level. It is not, and should not be, registered as a Vercel domain for this project — do not add it in Vercel.
 
 **Dev server:** `npm run dev` — usually starts on port 3000, but falls back to 3001/3002 if ports are occupied.
 
@@ -85,7 +85,7 @@ public/images/blog/
 styles/
   globals.css                     — Single stylesheet: design tokens, reset, nav, all page sections, blog
 
-reverse-proxy-plan.md             — Full plan for proxying this app under strivemath.com (do not delete)
+reverse-proxy-plan.md             — Full plan for proxying this app under www.strivemath.com (do not delete)
 design-extract-output/            — Figma/design token exports (reference only, not imported)
 ```
 
@@ -107,7 +107,7 @@ The "Everything else" desktop dropdown also includes Careers (`/other/careers`).
 
 ## URL redirects
 
-`next.config.js` contains 17 temporary (`permanent: false`) redirect rules that map all legacy flat URLs to the current nested structure. These are `307` redirects intentionally — they will be updated to `301` and pointed at `strivemath.com` once the reverse proxy goes live (see Phase 5 of the reverse proxy plan).
+`next.config.js` contains 17 temporary (`permanent: false`) redirect rules that map all legacy flat URLs to the current nested structure. These are `307` redirects intentionally — they will be updated to `301` and pointed at `www.strivemath.com` once the reverse proxy goes live (see Phase 5 of the reverse proxy plan).
 
 Key redirects:
 - `/` → `/courses`
@@ -131,20 +131,21 @@ Key redirects:
 
 Full plan is in `reverse-proxy-plan.md`. Summary:
 
-**Goal:** Serve `strivemath.com/blog` and `strivemath.com/courses/*` by proxying requests from the main site to this repo, consolidating domain authority.
+**Goal:** Serve `www.strivemath.com/blog` and `www.strivemath.com/courses/*` by proxying requests from the main site to this repo, consolidating domain authority.
 
 **Already done in this repo:**
 - `assetPrefix: 'https://images.strivemath.com'` in `next.config.js` (production only) — ensures proxied pages load JS/CSS correctly
-- Canonical tags pointing to `strivemath.com` — implemented globally in `pages/_app.tsx` via the `isContentPath` regex (`/^\/(blog|courses|other)(\/|$)/`). Any page under `/blog`, `/courses`, or `/other` automatically gets a `strivemath.com` canonical. Individual blog post pages also have an explicit canonical in `[slug].tsx` as belt-and-suspenders.
-- JSON-LD `url` fields in blog posts already use `strivemath.com`
+- Canonical tags pointing to `www.strivemath.com` — implemented globally in `pages/_app.tsx` via the `isContentPath` regex (`/^\/(blog|courses|other)(\/|$)/`). Any page under `/blog`, `/courses`, or `/other` automatically gets a `www.strivemath.com` canonical. Individual blog post pages also have an explicit canonical in `[slug].tsx` as belt-and-suspenders.
+- JSON-LD `url` fields in blog posts already use `www.strivemath.com`
 - `og:image` on all blog posts (served via `images.strivemath.com`)
-- `public/robots.txt` created (currently allows all crawlers — tighten in Phase 4)
+- `pages/sitemap-content.xml.tsx` — a server-rendered sitemap *fragment* (not a full sitemap) exposing every `/blog`, `/courses`, and active `/other/careers` URL as `https://www.strivemath.com/...`. Repo A fetches this server-to-server and merges it into the public sitemap.xml it serves; this repo doesn't know or care about that merge logic. Excludes the 6 `paidcodewithai-*`/`paidpythonapps-*`/`paidpythongames-*` pages (already `noindex,nofollow`) and any career role where `status !== 'Active'`.
+- `public/robots.txt` now fully disallows all crawlers (`Disallow: /`) — this domain (`images.strivemath.com` / `try-strive.vercel.app`) should never be crawled or indexed directly; all indexing happens via the `www.strivemath.com` reverse proxy. This has no effect on Repo A's own crawlability (robots.txt is scoped per-domain) or on Repo A's server-to-server fetch of `sitemap-content.xml` (not a crawler).
 
-**Pending phases (work in Repo A — strivemath.com):**
+**Pending phases (work in Repo A — www.strivemath.com):**
 - Phase 1: Move coding level pages into `/courses/coding/` and add 301 redirects
 - Phase 2: Add fallback rewrite rules in Repo A to proxy `/blog/*` and `/courses/*` to this app
-- Phase 4: Add sitemap to Repo A, update `robots.txt` here to disallow proxied paths
-- Phase 5 (optional): Add 301 redirects from this repo pointing to `strivemath.com`
+- Phase 4: Repo A fetches `sitemap-content.xml` from this repo and merges it into its own public `sitemap.xml`
+- Phase 5 (optional): Add 301 redirects from this repo pointing to `www.strivemath.com`
 
 **Do not do Phase 4–5 until Phase 2 is confirmed working.**
 
@@ -333,7 +334,7 @@ If the new page replaces a legacy flat URL (e.g. `/foo`), add a redirect in `nex
 ```
 Keep it `permanent: false` until the reverse proxy is live.
 
-**Canonical tags:** Pages under `/blog`, `/courses`, and `/other` get a `strivemath.com` canonical automatically via `_app.tsx`. If you add a new top-level section (e.g. `/teachers/`), you must add it to the `isContentPath` regex in `pages/_app.tsx`, otherwise those pages will silently have no canonical tag:
+**Canonical tags:** Pages under `/blog`, `/courses`, and `/other` get a `www.strivemath.com` canonical automatically via `_app.tsx`. If you add a new top-level section (e.g. `/teachers/`), you must add it to the `isContentPath` regex in `pages/_app.tsx`, otherwise those pages will silently have no canonical tag:
 
 ```ts
 // pages/_app.tsx

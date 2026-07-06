@@ -64,7 +64,7 @@ export default function Nav() {
   return (
     <nav ref={navRef} style={{ transform: navHidden ? 'translateY(-100%)' : 'translateY(0)' }}>
       <div className="nav-inner">
-        <a href="https://strivemath.com" className="nav-logo">
+        <a href="https://www.strivemath.com" className="nav-logo">
           <Image src="/images/main-logo.webp" alt="Strive" height={24} width={84} priority />
         </a>
 
@@ -100,8 +100,16 @@ export default function Nav() {
             </button>
             {everythingOpen && (
               <div className="nav-dropdown-menu">
+                <a href="https://www.strivemath.com/about" onClick={closeAll}>About</a>
                 <Link href="/blog" onClick={closeAll}>Blog</Link>
                 <Link href="/other/careers" onClick={closeAll}>Careers</Link>
+                <div className="nav-dropdown-divider" />
+                <span className="nav-dropdown-heading">Socials</span>
+                <a href="https://www.linkedin.com/company/strivemath/" target="_blank" rel="noopener noreferrer" onClick={closeAll}>LinkedIn</a>
+                <a href="https://www.youtube.com/c/Strivemath" target="_blank" rel="noopener noreferrer" onClick={closeAll}>YouTube</a>
+                <div className="nav-dropdown-divider" />
+                <span className="nav-dropdown-heading">For Parents</span>
+                <a href="https://www.strivemath.com/join" onClick={closeAll}>Join Class</a>
               </div>
             )}
           </div>

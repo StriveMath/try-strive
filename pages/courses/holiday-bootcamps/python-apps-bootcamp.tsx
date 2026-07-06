@@ -2,9 +2,32 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import FaqSection from '@/components/FaqSection'
+import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 const stripeUrl = 'https://book.stripe.com/9AQ02T22m2L57Ha9Bk'
+const pageTitle = 'Python App & Game Development Bootcamp — Strive'
+const pageDescription = '8-session 1-on-1 Python bootcamp for ages 8+. Build real apps and games — Flappy Bird, puzzle apps, and more. SGD 680.'
+const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/python-apps-bootcamp'
+
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Python App & Game Development Bootcamp',
+  description: 'An 8-session, 1-on-1 online holiday bootcamp for ages 8+. Students build real apps and games from scratch in Python, covering GUI elements, data models, and navigation, and leave with a portfolio project.',
+  provider: {
+    '@type': 'EducationalOrganization',
+    '@id': 'https://www.strivemath.com/#organization',
+    name: 'Strive Math',
+    url: 'https://www.strivemath.com',
+  },
+  url: pageUrl,
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    courseWorkload: '8 hours total, scheduled flexibly',
+  },
+}
 
 const faqs = [
   {
@@ -37,9 +60,22 @@ export default function MakePythonApps() {
   return (
     <>
       <Head>
-        <title>Python App &amp; Game Development Bootcamp — Strive</title>
-        <meta name="description" content="8-session 1-on-1 Python bootcamp for ages 8+. Build real apps and games — Flappy Bird, puzzle apps, and more. SGD 680." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />      </Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+        />
+      </Head>
+      <OrganizationSchema />
 
       <Nav />
 

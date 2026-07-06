@@ -75,9 +75,9 @@ export default function BlogPost({ source, frontmatter, slug }: BlogPostProps) {
     description: frontmatter.description,
     datePublished: publishDate.toISOString(),
     dateModified: modifiedDate.toISOString(),
-    url: `https://strivemath.com/blog/${slug}`,
-    author: { '@type': 'Organization', name: 'Strive', url: 'https://strivemath.com' },
-    publisher: { '@type': 'Organization', name: 'Strive', url: 'https://strivemath.com' },
+    url: `https://www.strivemath.com/blog/${slug}`,
+    author: { '@type': 'Organization', name: 'Strive', url: 'https://www.strivemath.com' },
+    publisher: { '@type': 'Organization', name: 'Strive', url: 'https://www.strivemath.com' },
   }
   if (frontmatter.coverImage) jsonLd.image = `${IMAGES_BASE}${frontmatter.coverImage}`
   if (frontmatter.tags?.length) jsonLd.keywords = frontmatter.tags.join(', ')
@@ -88,7 +88,7 @@ export default function BlogPost({ source, frontmatter, slug }: BlogPostProps) {
         <title>{`${frontmatter.title} — Strive Blog`}</title>
         <meta name="description" content={frontmatter.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" key="canonical" href={`https://strivemath.com/blog/${slug}`} />
+        <link rel="canonical" key="canonical" href={`https://www.strivemath.com/blog/${slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={frontmatter.title} />
         <meta property="og:description" content={frontmatter.description} />

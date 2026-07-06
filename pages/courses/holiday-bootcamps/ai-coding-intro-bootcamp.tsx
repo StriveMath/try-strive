@@ -2,9 +2,38 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import FaqSection from '@/components/FaqSection'
+import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 const stripeUrl = 'https://book.stripe.com/eVa5nd4au0CX2mQ14T'
+const pageTitle = 'Using AI to Code Bootcamp — Strive'
+const pageDescription = '8-session 1-on-1 coding bootcamp for ages 8+. Use AI tools to build real games, apps, and websites. An intro to coding through the power of AI. SGD 680.'
+const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/ai-coding-intro-bootcamp'
+
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Using AI to Code Bootcamp',
+  description: 'An 8-session, 1-on-1 online holiday bootcamp for ages 8+. Students use AI tools to build real games, apps, and websites, then learn core Python programming to understand where AI still needs a human who can code.',
+  provider: {
+    '@type': 'EducationalOrganization',
+    '@id': 'https://www.strivemath.com/#organization',
+    name: 'Strive Math',
+    url: 'https://www.strivemath.com',
+  },
+  url: pageUrl,
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    courseWorkload: '8 hours total, scheduled flexibly',
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'SGD',
+    price: '680',
+    url: pageUrl,
+  },
+}
 
 const faqs = [
   {
@@ -37,9 +66,22 @@ export default function CodeWithAI() {
   return (
     <>
       <Head>
-        <title>Using AI to Code Bootcamp — Strive</title>
-        <meta name="description" content="8-session 1-on-1 coding bootcamp for ages 8+. Use AI tools to build real games, apps, and websites. An intro to coding through the power of AI. SGD 680." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />      </Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+        />
+      </Head>
+      <OrganizationSchema />
 
       <Nav />
 

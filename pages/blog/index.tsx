@@ -36,11 +36,11 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
               '@type': 'Blog',
               name: 'Strive Blog',
               description: 'Tips, guides and learning resources for maths and AI-first software development.',
-              url: 'https://strivemath.com/blog',
+              url: 'https://www.strivemath.com/blog',
               publisher: {
                 '@type': 'Organization',
                 name: 'Strive',
-                url: 'https://strivemath.com',
+                url: 'https://www.strivemath.com',
               },
             }),
           }}

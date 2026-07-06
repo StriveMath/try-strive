@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={theme} resetCSS={false}>
       {isContentPath && (
         <Head>
-          <link rel="canonical" key="canonical" href={`https://strivemath.com${canonicalPath}`} />
+          <link rel="canonical" key="canonical" href={`https://www.strivemath.com${canonicalPath}`} />
         </Head>
       )}
       <Component {...pageProps} />

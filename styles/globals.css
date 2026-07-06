@@ -182,6 +182,11 @@ nav {
   transition: background 0.12s, color 0.12s;
 }
 .nav-dropdown-menu a:hover { background: var(--bg-subtle); color: var(--accent-purple); }
+.nav-dropdown-divider {
+  height: 1px;
+  margin: 6px 0;
+  background: rgba(15,21,116,0.1);
+}
 .nav-cta {
   background: var(--gradient-cta);
   color: white;

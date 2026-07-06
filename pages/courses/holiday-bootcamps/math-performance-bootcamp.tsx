@@ -2,9 +2,38 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import FaqSection from '@/components/FaqSection'
+import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
 const stripeUrl = 'https://buy.stripe.com/3cIdR899Zg3r3Ay6mG93y1v'
+const pageTitle = 'Math Performance Bootcamp — Strive'
+const pageDescription = '8-session 1-on-1 Math Performance bootcamp for grades 4–9. Olympiad techniques, competition prep, and a global diagnostic benchmark. SGD 640.'
+const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/math-performance-bootcamp'
+
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Math Performance Bootcamp',
+  description: 'An 8-hour, 1-on-1 online holiday bootcamp for high-achieving math students who find school math unchallenging. Covers Olympiad-level problem solving and competition preparation, with a diagnostic benchmark of the student’s standing globally.',
+  provider: {
+    '@type': 'EducationalOrganization',
+    '@id': 'https://www.strivemath.com/#organization',
+    name: 'Strive Math',
+    url: 'https://www.strivemath.com',
+  },
+  url: pageUrl,
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    courseWorkload: '8 hours total, scheduled flexibly',
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'SGD',
+    price: '640',
+    url: pageUrl,
+  },
+}
 
 const faqs = [
   {
@@ -37,9 +66,22 @@ export default function MathPerformance() {
   return (
     <>
       <Head>
-        <title>Math Performance Bootcamp — Strive</title>
-        <meta name="description" content="8-session 1-on-1 Math Performance bootcamp for grades 4–9. Olympiad techniques, competition prep, and a global diagnostic benchmark. SGD 640." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />      </Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+        />
+      </Head>
+      <OrganizationSchema />
 
       <Nav />
 

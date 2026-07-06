@@ -2,8 +2,36 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import FaqSection from '@/components/FaqSection'
+import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
+const pageTitle = '1-on-1 Math Classes for Kids in Singapore — Strive'
+const pageDescription = 'Live, 1-on-1 math tutoring for students in grades 4–9. Curriculum-aligned, fully online, SGD 80/hr. Serving UWCSEA, SAS, Dover Court and more.'
+const pageUrl = 'https://www.strivemath.com/courses/math'
+
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: '1-on-1 Math Tutoring',
+  description: "Live, online, private math tutoring for students in grades 4 to 9. Each student works with the same teacher every week through Strive's math platform, with lesson plans aligned to IB, IGCSE, and Singapore curriculum requirements and a written progress report after every session.",
+  provider: {
+    '@type': 'EducationalOrganization',
+    '@id': 'https://www.strivemath.com/#organization',
+    name: 'Strive Math',
+    url: 'https://www.strivemath.com',
+  },
+  url: pageUrl,
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'SGD',
+    price: '80',
+    url: `${pageUrl}#pricing`,
+  },
+}
 
 const faqs = [
   {
@@ -36,9 +64,22 @@ export default function MathClasses() {
   return (
     <>
       <Head>
-        <title>1-on-1 Math Classes for Kids in Singapore — Strive</title>
-        <meta name="description" content="Live, 1-on-1 math tutoring for students in grades 4–9. Curriculum-aligned, fully online, SGD 80/hr. Serving UWCSEA, SAS, Dover Court and more." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />      </Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+        />
+      </Head>
+      <OrganizationSchema />
 
       <Nav />
 

@@ -1,0 +1,135 @@
+import Head from 'next/head'
+import Image from 'next/image'
+import Nav from '@/components/Nav'
+import styles from '@/styles/MathCompetitionStudents.module.css'
+import schoolStyles from '@/styles/MathCompetitionSchools.module.css'
+
+const REGISTER_URL = 'mailto:lauren@strivemath.com?subject=Strive%20Mathematics%20Competition%20Entry&body=Dear%20Strive%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20enter%20my%20school%20to%20Strive%27s%20Mathematics%20Competition%20on%205%20September.%0D%0A%0D%0ASchool%20Name%3A%0D%0ASchool%20Contact%20Person%3A%0D%0ASchool%20Contact%20Details%3A'
+
+const benefits = [
+  ['A', 'Fully online', 'No venue, paper, or invigilation setup required. Students join from their own homes on their own devices.'],
+  ['B', 'School recognition', 'Winning school and top 3 performers per school will be announced.'],
+  ['C', 'Detailed Results', 'At Strive, we believe in celebrating growth, not just numbers. After the competition, every student receives a personalized feedback packet, an in-depth report, and a certificate to honor their hard work.'],
+]
+
+const processSteps = [
+  ['Register the school', <>Confirm participation and share your school contact details via email.</>],
+  ['Share student signup', <><strong>Our Part:</strong> The Strive Team will send you all the event details and materials.<br /><strong>Your Part:</strong> We ask schools to share the competition details and signup page with eligible families so students can register individually.</>],
+  ['Compete online', <>Students join the online competition. No venue, paper, or invigilation setup is required from the schools — Strive takes care of it all.</>],
+  ['Celebrate results', <>Winners are recognised by grade and by school. Strive will reach out directly with your school&apos;s results.</>],
+]
+
+const photos = [
+  ['/images/math-competition-2026/photo-online-meet-clean.png', 'Student joining the online competition on a video call'],
+  ['/images/math-competition-2026/photo-worksheet-platform.png', 'Strive worksheet platform with visual math questions'],
+  ['/images/math-competition-2026/photo-school-trophy.png', 'Students celebrating school competition recognition with a trophy'],
+]
+
+export default function MathCompetitionSchool() {
+  return (
+    <>
+      <Head>
+        <title>School Signup · 2026 Strive Math Competition</title>
+        <meta
+          name="description"
+          content="Register your school for the 2026 Strive Math Competition, a fully online mathematics competition for international schools in Singapore."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+
+      <Nav />
+
+      <main className={`${styles.page} ${schoolStyles.page}`}>
+        <section className={styles.hero}>
+          <div className={styles.heroCopy}>
+            <span className={styles.eyebrow}>Friendly Competition between<br />international Schools in Singapore</span>
+            <h1><span>2026</span> Strive Math Competition</h1>
+            <p>An interschools competition that tests mathematics mastery &amp; critical thinking through visual code &amp; innovative problems.</p>
+
+            <div className={styles.infoTableWrap}>
+              <table className={styles.infoTable} aria-label="Competition facts">
+                <thead><tr><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Duration</th><th scope="col">Format</th></tr></thead>
+                <tbody><tr><td>Sat 5 Sep</td><td>10:00am SGT</td><td>1.5 hours</td><td>Fully online</td></tr></tbody>
+              </table>
+            </div>
+
+            <a className={styles.primaryButton} href={REGISTER_URL}>Register your school</a>
+          </div>
+
+          <div className={styles.heroVisual}>
+            <Image
+              src="/images/math-competition-2026/competition-hero-report.png"
+              alt="Online math competition worksheet with a student performance report"
+              width={1672}
+              height={941}
+              priority
+            />
+          </div>
+        </section>
+
+        <section className={`${styles.section} ${schoolStyles.aboutPanel}`}>
+          <div className={styles.sectionHeader}>
+            <div className={schoolStyles.aboutTitle}>
+              <span className={styles.eyebrow}>About Strive&apos;s competitions</span>
+              <h2>Simple for schools, meaningful for students.</h2>
+            </div>
+            <p>Strive Math is a Singapore-based math education provider that runs online competitions through its own Worksheet platform. We handle the competition setup, student experience, parent communication, and post-competition feedback so schools can focus on getting their students involved.</p>
+          </div>
+          <div className={schoolStyles.benefitGrid}>
+            {benefits.map(([letter, title, description]) => (
+              <article className={schoolStyles.card} key={title}>
+                <span className={schoolStyles.cardLetter}>{letter}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className={`${styles.section} ${schoolStyles.processSection}`}>
+          <h2>How to compete</h2>
+          <table className={styles.processTable} aria-label="School competition process">
+            <tbody>
+              {processSteps.map(([title, description], index) => (
+                <tr key={title as string}>
+                  <th scope="row"><span>{index + 1}</span>{title}</th>
+                  <td>{description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className={schoolStyles.sectionCta}>
+            <a className={styles.primaryButton} href={REGISTER_URL}>Register your school</a>
+          </div>
+        </section>
+
+        <section className={`${styles.section} ${styles.photoStrip} ${schoolStyles.photoSection}`} aria-label="Competition photos">
+          {photos.map(([src, alt]) => <Image src={src} alt={alt} width={1448} height={1086} key={src} />)}
+        </section>
+
+        <section className={`${styles.section} ${styles.winnersPanel} ${schoolStyles.winnersPanel}`}>
+          <h2>Previous Competition Winners</h2>
+          <p>Strive competitions celebrate both individual excellence and school achievement. See a previous winners announcement on <a href="https://www.instagram.com/p/C8L9wDWIKPl/" target="_blank" rel="noopener noreferrer">Instagram</a>, and read about UWCSEA East winning the inter-schools mathematics competition in <a href="https://www.thechillmom.com/2024/06/uwcsea-east-wins-inter-schools-mathematics-competition-in-singapore/" target="_blank" rel="noopener noreferrer">The Chill Mom</a>.</p>
+        </section>
+
+        <section className={`${styles.section} ${styles.faqSection}`}>
+          <h2>FAQs</h2>
+          <div className={styles.faq}>
+            <details><summary>Does the school need to host the competition?</summary><p>No. The competition is run fully by Strive. All the school needs to do is share the sign up details with their school community.</p></details>
+            <details><summary>Can students sign up before the school registers?</summary><p>The intended flow is school signup first, then student signup. This keeps school-level recognition clean.</p></details>
+            <details><summary>What will schools receive after the competition?</summary><p>The winning school will receive a trophy! All students will receive certificates, with the top 3 students from each grade and each school receiving recognition.</p></details>
+            <details><summary>Do parents need to attend the talk?</summary><p>The parent talk is completely optional. Held after the competition, this session will discuss math education in the digital age, the core philosophy behind our competition design, and an overview of how the students performed.</p></details>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div className="footer-inner">
+          <p className="footer-logo">Strive<span>.</span></p>
+          <p>1-on-1 live classes in Math and Coding for students aged 8–18.</p>
+          <p>Online and open to students worldwide.</p>
+        </div>
+      </footer>
+    </>
+  )
+}

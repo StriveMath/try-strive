@@ -1,0 +1,72 @@
+.page { padding-bottom: 40px; }
+
+.aboutPanel {
+  margin-top: 0;
+  padding: 40px 36px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(15, 21, 116, 0.08);
+}
+
+.aboutTitle h2 { margin-top: 16px; }
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  padding: 26px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(15, 21, 116, 0.08);
+}
+
+.cardLetter {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  color: #2c81ed;
+  background: rgba(44, 129, 237, 0.1);
+  font-weight: 900;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  color: #0f1574;
+  font-size: 21px;
+}
+
+.card p {
+  color: #575863;
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.processSection > h2 { margin-bottom: 28px; }
+
+.sectionCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.photoSection { padding-top: 20px; }
+
+.winnersPanel { margin-top: 20px; }
+
+@media (max-width: 900px) {
+  .benefitGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .page { padding-bottom: 28px; }
+  .aboutPanel { padding: 24px; }
+  .photoSection { padding-top: 16px; }
+  .winnersPanel { margin-top: 16px; }
+}

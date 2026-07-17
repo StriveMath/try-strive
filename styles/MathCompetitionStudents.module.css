@@ -108,17 +108,17 @@
 }
 
 .primaryButton {
-  min-height: 48px;
+  min-height: 56px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 22px;
-  padding: 13px 22px;
+  padding: 16px 30px;
   border-radius: 999px;
   color: #fff;
   background: var(--competition-blue);
   box-shadow: 0 4px 11px rgba(44, 129, 237, 0.22);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   line-height: 1;
   text-decoration: none;

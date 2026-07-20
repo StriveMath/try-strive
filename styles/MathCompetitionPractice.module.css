@@ -1,0 +1,131 @@
+.page {
+  min-height: calc(100vh - 68px);
+  display: grid;
+  place-items: center;
+  padding: 72px 16px;
+  color: #0f1574;
+  background: #f3f3f8;
+}
+
+.panel {
+  width: min(760px, 100%);
+  padding: clamp(28px, 5vw, 52px);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 15px 40px rgba(15, 21, 116, 0.1);
+}
+
+.eyebrow {
+  color: #2c81ed;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.panel h1 {
+  margin: 10px 0 14px;
+  color: #0f1574;
+  font-size: clamp(36px, 6vw, 54px);
+  line-height: 1.08;
+}
+
+.intro {
+  max-width: 620px;
+  color: #575863;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.options {
+  display: grid;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.option {
+  min-height: 104px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid #2c81ed;
+  border-radius: 18px;
+  color: #0f1574;
+  background: #fff;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(44, 129, 237, 0.15);
+}
+
+.optionPrimary {
+  color: #fff;
+  background: #2c81ed;
+}
+
+.optionNumber {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #2c81ed;
+  font-weight: 900;
+}
+
+.optionPrimary .optionNumber {
+  color: #2c81ed;
+  background: #fff;
+}
+
+.option strong {
+  display: block;
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.option small {
+  display: block;
+  margin-top: 5px;
+  color: #575863;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.optionPrimary small { color: rgba(255, 255, 255, 0.85); }
+
+.arrow {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 28px;
+  color: #2c81ed;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.backLink:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.option:focus-visible,
+.backLink:focus-visible {
+  outline: 3px solid rgba(44, 129, 237, 0.28);
+  outline-offset: 3px;
+}
+
+@media (max-width: 620px) {
+  .page { padding: 40px 16px; }
+  .option { grid-template-columns: auto minmax(0, 1fr); }
+  .arrow { display: none; }
+}

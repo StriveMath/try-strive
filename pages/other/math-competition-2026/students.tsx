@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import Nav from '@/components/Nav'
 import styles from '@/styles/MathCompetitionStudents.module.css'
 
 const REGISTER_URL = 'https://airtable.com/appaYCParRb93bseW/pagj0osHIZNfSOXj9/form?prefill_Competition=Math%20Competition%20-%20September%202026'
-const WHATSAPP_NUMBER = '6589204220'
 
 const processSteps = [
   ['Sign up', 'Complete the student entry form via the “Register” button.'],
@@ -29,11 +29,6 @@ const photos = [
   ['/images/math-competition-2026/photo-school-trophy.png', 'Students celebrating school competition recognition with a trophy'],
 ]
 
-function practiceUrl(grade: number) {
-  const message = `Please can I receive the practice questions for Grade ${grade}, as well as my username and password to login to the Strive Platform`
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
-}
-
 export default function MathCompetitionStudents() {
   return (
     <>
@@ -48,12 +43,14 @@ export default function MathCompetitionStudents() {
 
       <Nav />
 
-      <main className={styles.page}>
+      <main className={`${styles.page} ${styles.studentPage}`}>
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>Friendly Competition between<br />international Schools in Singapore</span>
-            <h1><span>2026</span> Strive Math Competition</h1>
-            <p>An interschools competition that tests mathematics mastery &amp; critical thinking through visual code &amp; innovative problems. Students, it&apos;s time to sharpen your skills, embrace problem-solving, and bring math to life through code!</p>
+            <h1 className={styles.heroTitle}>
+              <span className={styles.heroTitleLine}>Singapore-Wide Interschools</span>
+              <span className={styles.heroTitleLine}>Mathematics Competition</span>
+            </h1>
+            <p>A friendly interschools competition that tests mathematics mastery &amp; critical thinking through visual code &amp; innovative problems. Students, it&apos;s time to sharpen your skills, embrace problem-solving, and bring math to life through code!</p>
 
             <div className={styles.infoTableWrap}>
               <table className={styles.infoTable} aria-label="Competition facts">
@@ -112,7 +109,7 @@ export default function MathCompetitionStudents() {
             <p className={styles.supportNote}>Need login help? Contact our team at <a href="tel:+6589204220">+65 8920 4220</a>.</p>
           </div>
           <div className={styles.gradeLinks} aria-label="Practice question links by grade">
-            {[4, 5, 6, 7, 8, 9].map(grade => <a href={practiceUrl(grade)} key={grade} target="_blank" rel="noopener noreferrer">Grade {grade}</a>)}
+            {[4, 5, 6, 7, 8, 9].map(grade => <Link href={`/other/math-competition-2026/practice-access?grade=${grade}`} key={grade}>Grade {grade}</Link>)}
           </div>
         </section>
 

@@ -42,9 +42,11 @@ export default function MathCompetitionSchool() {
       <main className={`${styles.page} ${schoolStyles.page}`}>
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>Friendly Competition between<br />international Schools in Singapore</span>
-            <h1><span>2026</span> Strive Math Competition</h1>
-            <p>An interschools competition that tests mathematics mastery &amp; critical thinking through visual code &amp; innovative problems.</p>
+            <h1 className={styles.heroTitle}>
+              <span className={styles.heroTitleLine}>Singapore-Wide Interschools</span>
+              <span className={styles.heroTitleLine}>Mathematics Competition</span>
+            </h1>
+            <p>A friendly interschools competition that tests mathematics mastery &amp; critical thinking through visual code &amp; innovative problems. Students, it&apos;s time to sharpen your skills, embrace problem-solving, and bring math to life through code!</p>
 
             <div className={styles.infoTableWrap}>
               <table className={styles.infoTable} aria-label="Competition facts">

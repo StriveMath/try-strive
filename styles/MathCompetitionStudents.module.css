@@ -44,6 +44,21 @@
 
 .hero h1 span { color: var(--competition-blue); }
 
+.hero h1.heroTitle {
+  margin-top: 0;
+  font-size: clamp(27px, 3.6vw, 46px);
+}
+
+.hero h1 .heroTitleLine {
+  display: block;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.hero h1 .heroTitleLine + .heroTitleLine {
+  color: var(--competition-blue);
+}
+
 .heroCopy > p {
   max-width: 650px;
   color: var(--competition-ink);
@@ -209,13 +224,14 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
   padding: 16px 0 40px;
 }
 
 .agenda::before {
   content: '';
   position: absolute;
-  top: 72px;
+  top: 88px;
   right: 10%;
   left: 10%;
   height: 8px;
@@ -227,7 +243,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-rows: minmax(46px, auto) 44px auto;
+  grid-template-rows: 46px 44px auto;
   justify-items: center;
   gap: 8px;
   padding: 0 10px;
@@ -336,6 +352,24 @@
 .faq ul { margin-top: 12px; color: var(--competition-ink); font-family: Roboto, Arial, sans-serif; line-height: 1.6; }
 .faq ul { padding-left: 22px; }
 
+.studentPage { padding-bottom: 40px; }
+
+.studentPage .primaryButton {
+  min-height: 64px;
+  padding: 19px 36px;
+  font-size: 20px;
+}
+
+.studentPage .hero { padding-bottom: 32px; }
+.studentPage .band { margin-top: 32px; }
+.studentPage .agendaSection { padding-top: 40px; }
+.studentPage .agenda { padding-bottom: 16px; }
+.studentPage .practicePanel { margin-top: 12px; }
+.studentPage .ctaBand { margin-top: 24px; }
+.studentPage .photoStrip { padding-top: 32px; }
+.studentPage .winnersPanel { margin-top: 32px; }
+.studentPage .faqSection { padding-top: 40px; }
+
 @media (max-width: 900px) {
   .hero,
   .sectionHeader,
@@ -358,6 +392,7 @@
 @media (max-width: 620px) {
   .page { padding-bottom: 56px; }
   .hero h1 { font-size: 40px; }
+  .hero h1.heroTitle { font-size: clamp(24px, 7vw, 28px); }
   .band,
   .practicePanel,
   .winnersPanel,
@@ -375,4 +410,14 @@
   .agendaRow time { grid-column: 2; }
   .timelineDot { grid-column: 1; }
   .agendaRow > span:last-child { grid-column: 2; grid-row: 2; }
+  .studentPage { padding-bottom: 28px; }
+  .studentPage .hero { padding-bottom: 24px; }
+  .studentPage .band { margin-top: 24px; }
+  .studentPage .agendaSection { padding-top: 32px; }
+  .studentPage .agenda { padding-bottom: 8px; }
+  .studentPage .practicePanel { margin-top: 12px; }
+  .studentPage .ctaBand { margin-top: 20px; }
+  .studentPage .photoStrip { padding-top: 20px; }
+  .studentPage .winnersPanel { margin-top: 20px; }
+  .studentPage .faqSection { padding-top: 32px; }
 }

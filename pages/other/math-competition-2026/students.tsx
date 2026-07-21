@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Nav from '@/components/Nav'
 import styles from '@/styles/MathCompetitionStudents.module.css'
 
-const REGISTER_URL = 'https://airtable.com/appaYCParRb93bseW/pagj0osHIZNfSOXj9/form?prefill_Competition=Math%20Competition%20-%20September%202026'
+const REGISTER_URL = 'https://airtable.com/appaYCParRb93bseW/pagj0osHIZNfSOXj9/form?prefill_Competition=Strive%27s%20Interschools%20Mathematics%20Competition%20-%20September%202026'
 
 const processSteps = [
   ['Sign up', 'Complete the student entry form via the “Register” button.'],
@@ -27,6 +27,21 @@ const photos = [
   ['/images/math-competition-2026/photo-online-meet-clean.png', 'Student joining the online competition on a video call'],
   ['/images/math-competition-2026/photo-worksheet-platform.png', 'Strive worksheet platform with visual math questions'],
   ['/images/math-competition-2026/photo-school-trophy.png', 'Students celebrating school competition recognition with a trophy'],
+]
+
+const winnerPosts = [
+  {
+    href: 'https://www.instagram.com/p/C8L9wDWIKPl/',
+    src: '/images/math-competition-2026/winner-instagram-post.png',
+    alt: 'Instagram post announcing UWCSEA East as a previous Strive mathematics competition winner',
+    label: 'View the winners announcement on Instagram',
+  },
+  {
+    href: 'https://www.thechillmom.com/2024/06/uwcsea-east-wins-inter-schools-mathematics-competition-in-singapore/',
+    src: '/images/math-competition-2026/winner-chill-mom-story.png',
+    alt: 'The Chill Mom article about UWCSEA East winning the inter-schools mathematics competition',
+    label: 'Read the winners story on The Chill Mom',
+  },
 ]
 
 export default function MathCompetitionStudents() {
@@ -124,7 +139,14 @@ export default function MathCompetitionStudents() {
 
         <section className={`${styles.section} ${styles.winnersPanel}`}>
           <h2>Previous Competition Winners</h2>
-          <p>Strive competitions have brought together students from schools across Singapore, with school winners and top performers recognised after the event. See a previous winners announcement on <a href="https://www.instagram.com/p/C8L9wDWIKPl/" target="_blank" rel="noopener noreferrer">Instagram</a>, and read more about UWCSEA East&apos;s win in <a href="https://www.thechillmom.com/2024/06/uwcsea-east-wins-inter-schools-mathematics-competition-in-singapore/" target="_blank" rel="noopener noreferrer">The Chill Mom</a>.</p>
+          <p className={styles.winnerSubtitle}>Explore publications from Strive&apos;s Mathematics Competition previous winner!</p>
+          <div className={styles.winnerPostGrid}>
+            {winnerPosts.map(post => (
+              <a className={styles.winnerPost} href={post.href} target="_blank" rel="noopener noreferrer" aria-label={post.label} key={post.href}>
+                <Image src={post.src} alt={post.alt} width={1280} height={720} />
+              </a>
+            ))}
+          </div>
         </section>
 
         <section className={`${styles.section} ${styles.faqSection}`}>

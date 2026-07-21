@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Nav from '@/components/Nav'
 import styles from '@/styles/MathCompetitionPractice.module.css'
 
-const REGISTER_URL = 'https://airtable.com/appaYCParRb93bseW/pagj0osHIZNfSOXj9/form?prefill_Competition=Math%20Competition%20-%20September%202026'
+const REGISTER_URL = 'https://airtable.com/appaYCParRb93bseW/pagj0osHIZNfSOXj9/form?prefill_Competition=Strive%27s%20Interschools%20Mathematics%20Competition%20-%20September%202026'
 const WHATSAPP_NUMBER = '6589204220'
 const VALID_GRADES = new Set(['4', '5', '6', '7', '8', '9'])
 

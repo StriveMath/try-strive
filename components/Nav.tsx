@@ -86,6 +86,7 @@ export default function Nav() {
                 <Link href="/courses/math" onClick={closeAll}>Mathematics</Link>
                 <Link href="/courses/ai-coding" onClick={closeAll}>AI Coding</Link>
                 <Link href="/courses/holiday-bootcamps" onClick={closeAll}>Holiday Bootcamps</Link>
+                <Link href="/courses/cca" onClick={closeAll}>CCA</Link>
               </div>
             )}
           </div>
@@ -138,6 +139,7 @@ export default function Nav() {
           <li><Link href="/courses/math" onClick={closeAll}>Mathematics</Link></li>
           <li><Link href="/courses/ai-coding" onClick={closeAll}>AI Coding</Link></li>
           <li><Link href="/courses/holiday-bootcamps" onClick={closeAll}>Holiday Bootcamps</Link></li>
+          <li><Link href="/courses/cca" onClick={closeAll}>CCA</Link></li>
           <li><Link href="/blog" onClick={closeAll}>Blog</Link></li>
         </ul>
       </div>

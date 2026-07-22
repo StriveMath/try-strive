@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import FaqSection from '@/components/FaqSection'
 import OrganizationSchema from '@/components/OrganizationSchema'
 
@@ -475,16 +476,7 @@ export default function MathClasses() {
         </section>
       </main>
 
-      <footer>
-        <div className="footer-inner">
-          <p className="footer-logo">Strive<span>.</span></p>
-          <p>Online math tutoring for students in grades 4 to 9.</p>
-          <p>1-on-1 live classes with expert teachers. Online and open to students worldwide.</p>
-          <p style={{ marginTop: '20px', fontSize: '12px' }}>
-            Strong community of students in Singapore, including families at UWCSEA, SAS, and Dover Court.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

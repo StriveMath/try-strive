@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import styles from '@/styles/MathCompetitionPractice.module.css'
 
 const REGISTER_URL = 'https://airtable.com/appaYCParRb93bseW/pagj0osHIZNfSOXj9/form?prefill_Competition=Strive%27s%20Interschools%20Mathematics%20Competition%20-%20September%202026'
@@ -59,13 +60,7 @@ export default function MathCompetitionPracticeAccess() {
         </section>
       </main>
 
-      <footer>
-        <div className="footer-inner">
-          <p className="footer-logo">Strive<span>.</span></p>
-          <p>1-on-1 live classes in Math and Coding for students aged 8–18.</p>
-          <p>Online and open to students worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

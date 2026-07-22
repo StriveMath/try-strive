@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import YouTubeEmbed from '@/components/blog/YouTubeEmbed'
 
 const testimonials = [
@@ -134,6 +135,8 @@ export default function TeachAtStrive() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </>
   )
 }

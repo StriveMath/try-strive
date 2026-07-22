@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import FaqSection from '@/components/FaqSection'
 import OrganizationSchema from '@/components/OrganizationSchema'
 
@@ -568,16 +569,7 @@ export default function AiFirstCoding() {
         </section>
       </main>
 
-      <footer>
-        <div className="footer-inner">
-          <p className="footer-logo">Strive<span>.</span></p>
-          <p>Online coding school for students aged 8 to 16.</p>
-          <p>1-on-1 classes in coding fundamentals and AI-assisted coding, taught live by experienced teachers.</p>
-          <p style={{ marginTop: '20px', fontSize: '12px' }}>
-            Classes are online and open to students worldwide. Strong community in Singapore.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

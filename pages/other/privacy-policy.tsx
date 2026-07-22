@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 
 export default function PrivacyPolicy() {
   return (
@@ -214,6 +215,8 @@ export default function PrivacyPolicy() {
 
         <p className="privacy-last-updated">Last updated: 21/10/2022</p>
       </main>
+
+      <Footer />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 
 const contactEmail = 'CCA@strivemath.com'
 
@@ -152,10 +153,7 @@ export default function CCAIndex() {
         </section>
       </main>
 
-      <footer className="cca2-footer">
-        For international schools in Singapore · Ages 8&ndash;16 · Laptops provided · No setup required<br />
-        &copy; Strive · {contactEmail.toLowerCase()}
-      </footer>
+      <Footer />
     </>
   )
 }

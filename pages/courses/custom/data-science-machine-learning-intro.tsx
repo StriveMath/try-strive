@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import FaqSection from '@/components/FaqSection'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
@@ -251,13 +252,7 @@ export default function AdvancedAICourse() {
         </section>
       </main>
 
-      <footer>
-        <div className="footer-inner">
-          <p className="footer-logo">Strive<span>.</span></p>
-          <p>Advanced AI &amp; Machine Learning course for students aged 10–16.</p>
-          <p>1-on-1 live classes with expert teachers. Online and open to students worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

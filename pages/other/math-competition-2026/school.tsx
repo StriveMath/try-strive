@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import styles from '@/styles/MathCompetitionStudents.module.css'
 import schoolStyles from '@/styles/MathCompetitionSchools.module.css'
 
@@ -147,13 +148,7 @@ export default function MathCompetitionSchool() {
         </section>
       </main>
 
-      <footer>
-        <div className="footer-inner">
-          <p className="footer-logo">Strive<span>.</span></p>
-          <p>1-on-1 live classes in Math and Coding for students aged 8–18.</p>
-          <p>Online and open to students worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

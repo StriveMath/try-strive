@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import FaqSection from '@/components/FaqSection'
 import OrganizationSchema from '@/components/OrganizationSchema'
 
@@ -433,13 +434,7 @@ export default function AIFirstCodingBootcamp() {
         </section>
       </main>
 
-      <footer>
-        <div className="footer-inner">
-          <p className="footer-logo">Strive<span>.</span></p>
-          <p>AI Web Development bootcamp for students aged 13–18.</p>
-          <p>1-on-1 live classes with expert teachers. Online and open to students worldwide.</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

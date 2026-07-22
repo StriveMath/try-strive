@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 
@@ -80,6 +81,8 @@ export default function CoursesIndex() {
             </div>
           </div>
         </main>
+
+        <Footer />
       </div>
     </>
   )

@@ -18,12 +18,24 @@ Next.js 14 (Pages Router) marketing + blog site for Strive, an edtech company te
 |---|---|
 | Framework | Next.js 14 (Pages Router, SSG) |
 | Styling | Custom CSS in `styles/globals.css` — no Tailwind |
-| UI library | Chakra UI v2 — installed but barely used; deep component theming deferred to main site |
+| UI library | Chakra UI v2 — used for the shared `Footer`; otherwise mostly untouched, deep component theming deferred to main site |
+| Icons (Footer only) | `react-icons` (`react-icons/fa`) — LinkedIn/Facebook/YouTube/email/phone icons in `components/Footer.tsx` |
 | Blog content | MDX via `next-mdx-remote` v4 (`serialize` + `MDXRemote`) |
 | Frontmatter parsing | `gray-matter` |
 | Fonts | Jost (headings/body), Roboto (body fallback), Inconsolata (mono) — loaded via Google Fonts in `_document.tsx` |
 | Path alias | `@/*` → `./*` (configured in tsconfig.json) |
 | Deployment | Vercel (`vercel.json` contains only `{ "framework": "nextjs" }`) |
+
+---
+
+## Spelling convention
+
+All user-facing copy on this site (page text, headings, meta descriptions, blog posts, MDX content) uses **UK/British spelling**, not American — e.g. `personalised` not `personalized`, `organisation` not `organization`, `programme` not `program` (in the curriculum/course sense), `colour`/`favourite`/`centre` etc. when writing prose. When adding or editing copy, check for the common American forms (`-ize`/`-ify` → `-ise`, `-or` → `-our`, `-er` → `-re`, `-og` → `-ogue` where applicable) and convert them.
+
+This does **not** apply to:
+- CSS/JS property names and values (`color`, `background-color`, `fontSize`, `center` as a `text-align`/`justify-content` value) — these are fixed by the CSS and DOM specs and must stay as-is.
+- Third-party package/API names (`gray-matter`, `serialize` from `next-mdx-remote`, Schema.org types like `Organization`/`EducationalOrganization`) — these are fixed external identifiers.
+- Code identifiers (function/variable names) — spelling consistency there is a normal JS naming choice, not a site-copy concern.
 
 ---
 
@@ -39,6 +51,8 @@ pages/
     ai-coding.tsx                 — AI Coding course page
     cca/
       index.tsx                   — CCA (co-curricular activity) programme page
+      what-comes-next-after-cca.tsx        — Student-facing post-completion landing page (linked from email)
+      parent-what-comes-next-after-cca.tsx — Parent-facing equivalent, gender-neutral third-person copy
     custom/
       data-science-machine-learning-intro.tsx  — Hidden/custom course page
     holiday-bootcamps/
@@ -91,17 +105,21 @@ design-extract-output/            — Figma/design token exports (reference only
 
 ---
 
-## Shared nav
+## Shared nav and footer
 
-All pages import and render `<Nav />` from `components/Nav.tsx`. There is no shared `<Layout>` component — nav is the only shared component. `Nav.tsx` hardcodes the CTA URL as:
+All pages import and render `<Nav />` from `components/Nav.tsx`, and `<Footer />` from `components/Footer.tsx` (added at the end of the page). There is no shared `<Layout>` component wrapping both — each page renders them individually. `Nav.tsx` hardcodes the CTA URL as:
 
 ```ts
 const NAV_CTA_URL = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 ```
 
-Current nav links: Mathematics `/courses/math`, AI Coding `/courses/ai-coding`, Blog `/blog`.
+Current "Courses" dropdown links (desktop and mobile menus are kept in sync): Mathematics `/courses/math`, AI Coding `/courses/ai-coding`, Holiday Bootcamps `/courses/holiday-bootcamps`, CCA `/courses/cca`. Blog `/blog` also appears in both.
 
 The "Everything else" desktop dropdown also includes Careers (`/other/careers`). Careers is intentionally **excluded from the mobile menu** to keep it uncluttered.
+
+**Exceptions — pages with no `<Nav />` or `<Footer />`:** the six `/other/paidcodewithai-*` / `/other/paidpythonapps-*` / `/other/paidpythongames-*` payment-confirmation pages are deliberately bare, standalone "Payment Successful" splash screens (`noindex,nofollow`) — do not add site chrome to them.
+
+`Footer` (`components/Footer.tsx`) is a Chakra UI component (the only place in this repo where Chakra actually renders meaningful UI). It links to `www.strivemath.com` for pages that only exist on the main site (Home, About Us, Student Toy), and to relative paths for pages that live in this repo (`/other/careers`, `/other/careers/teach-at-strive`, `/other/privacy-policy`) — follow that same split when adding new footer links. Logo image uses `/images/main-logo-large.webp` (412×118, higher-res than the small nav logo) to avoid upscaling blur at the footer's larger display size.
 
 ---
 
@@ -317,6 +335,32 @@ frontmatter here
 
 ---
 
+## CCA "what comes next" personalisation
+
+`pages/courses/cca/what-comes-next-after-cca.tsx` (student-facing) and `pages/courses/cca/parent-what-comes-next-after-cca.tsx` (parent-facing) are linked from the post-completion email sent to students who finish a school's CCA/ECA/ASA programme. Both are plain SSG pages (no `getStaticProps`) personalised client-side via query params, using the shared `hooks/useCcaPersonalization.ts` hook.
+
+### Query params
+
+| Param | Meaning | Example |
+|---|---|---|
+| `name` | Student's first name | `?name=Alex` |
+| `school` | Student's school name | `?school=ACS%20International%20School` |
+| `term` | The word the student's school uses for the programme — `cca`, `eca`, or `asa` (case-insensitive) | `?term=eca` |
+
+All three are optional. Blank or unrecognised values fall back to generic copy — never render `undefined` or an empty clause. `term` always resolves to `CCA`/`ECA`/`ASA`/`programme` (never arbitrary user text in a heading). `name`/`school` are capitalised/truncated (40 chars) by the hook and rendered via normal JSX interpolation (React escapes them automatically — safe against injection).
+
+Because personalisation happens in a `useEffect` after `router.isReady`, the server-rendered HTML (and anything a crawler sees) is always the generic version — this is intentional, not a bug.
+
+### Student vs. parent wording
+
+The student page addresses the reader directly ("Hi Alex!"). The parent page never greets the parent by name — it greets generically and refers to the child in third person: `Hi, {name} just completed...` if `name` is present, `Your child just completed...` if not. Parent-page copy must stay **gender-neutral** ("their"/"them", never "his"/"her") since the child's gender isn't known from these params.
+
+### Trial link
+
+Both pages link to `https://www.strivemath.com/?show_form=true&gift=card&promoCode=freeECAtrial` — sales-confirmed combination where `gift=card` (any truthy value) skips the Stripe deposit step in the main site's booking flow (see `Step5Form.tsx` in the `frontend` repo), and `promoCode=freeECAtrial` tags the lead for the ECA continuation package pricing. `name`/`school`/`term` are **not** forwarded to this URL — personalisation is display-only on the landing page itself.
+
+---
+
 ## Adding a new blog post
 
 1. Create `content/blog/<slug>.mdx` with required frontmatter
@@ -326,7 +370,7 @@ frontmatter here
 
 ## Adding a new page
 
-Pages live under `pages/courses/`, `pages/other/`, or `pages/blog/` depending on their purpose. Import and render `<Nav />` from `components/Nav.tsx`. No shared `<Layout>` component exists — nav is the only shared component.
+Pages live under `pages/courses/`, `pages/other/`, or `pages/blog/` depending on their purpose. Import and render `<Nav />` from `components/Nav.tsx` at the top and `<Footer />` from `components/Footer.tsx` at the end. No shared `<Layout>` component exists — each page renders both individually. (Exception: standalone splash pages with no site chrome at all, like the payment-confirmation pages — see "Shared nav and footer" above.)
 
 If the new page replaces a legacy flat URL (e.g. `/foo`), add a redirect in `next.config.js`:
 ```js

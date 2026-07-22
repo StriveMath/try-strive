@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import { GetStaticProps } from 'next'
 import fs from 'fs'
 import path from 'path'
@@ -75,6 +76,8 @@ export default function CareersIndex({ roles }: CareersProps) {
           )}
         </section>
       </main>
+
+      <Footer />
     </>
   )
 }

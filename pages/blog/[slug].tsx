@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import fs from 'fs'
 import path from 'path'
@@ -170,6 +171,8 @@ export default function BlogPost({ source, frontmatter, slug }: BlogPostProps) {
           </div>
         </article>
       </main>
+
+      <Footer />
     </>
   )
 }

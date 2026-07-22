@@ -34,10 +34,10 @@ export default function WhatComesNextAfterCCA() {
           <div>
             <p className="eyebrow">{eyebrowText}</p>
             <h1>You&rsquo;ve built the <span className="grad-text">foundations</span>.<br />Let&rsquo;s keep building.</h1>
-            <p className="lead" style={{ maxWidth: '640px', margin: '16px auto 0' }}>{greeting}You&rsquo;ve completed {schoolPhrase} Strive coding {term} &mdash; nice work! Ready to keep levelling up? Continue with 1-on-1 classes, personalised to your pace, starting with a free trial class.</p>
+            <p className="lead" style={{ maxWidth: '640px', margin: '16px auto 0' }}>{greeting}You&rsquo;ve completed {schoolPhrase} Strive coding {term}. Nice work! Ready to keep levelling up? Continue with 1-on-1 classes personalised to your pace, starting with a free trial class.</p>
             <div className="center mt28">
               <a href={trialUrl} className="btn btn-primary">Book your free trial class</a>
-              <p style={{ fontSize: '14px', color: 'var(--c-muted)', marginTop: '10px' }}>No cost, no obligation &mdash; just an hour with one of our expert teachers.</p>
+              <p style={{ fontSize: '14px', color: 'var(--c-muted)', marginTop: '10px' }}>No cost, no obligation. Just an hour with one of our expert teachers.</p>
             </div>
           </div>
         </section>
@@ -49,7 +49,7 @@ export default function WhatComesNextAfterCCA() {
             <h2>You&rsquo;re partway through Foundations</h2>
           </div>
           <div className="about-card">
-            <p>In your {term} classes, you completed Headstart and made real progress through Foundations &mdash; including Variables and the start of Logic (if-statements and comparison operators). Fluency comes next: Loops, Functions, and Objects.</p>
+            <p>In your {term} classes, you completed Headstart and made real progress through Foundations, including Variables and the start of Logic (if-statements and comparison operators). Fluency comes next: Loops, Functions, and Objects.</p>
             <div className="levels">
               <span className="level-pill done">Headstart</span>
               <span className="level-pill current">Foundations</span>
@@ -88,7 +88,7 @@ export default function WhatComesNextAfterCCA() {
               <div className="price-total">15 hours &middot; $975 total</div>
             </div>
             <ul>
-              <li>Flexible scheduling &mdash; cancel or reschedule anytime</li>
+              <li>Flexible scheduling, so you can cancel or reschedule anytime</li>
               <li>Access to 100+ practice projects and tutorials</li>
               <li>Attentive support from our team, 7 days a week</li>
             </ul>
@@ -125,7 +125,7 @@ export default function WhatComesNextAfterCCA() {
           </details>
           <details>
             <summary>Do you only teach online classes? <i className="ti ti-chevron-down"></i></summary>
-            <div className="answer">Yes, all our 1-on-1 classes are conducted online &mdash; all you need is a computer with internet access, audio, microphone, and camera.</div>
+            <div className="answer">Yes, all our 1-on-1 classes are conducted online. All you need is a computer with internet access, audio, microphone, and camera.</div>
           </details>
         </section>
 
@@ -133,7 +133,7 @@ export default function WhatComesNextAfterCCA() {
         <section className="wrap section">
           <div className="cta">
             <h2>Ready to pick up where you left off?</h2>
-            <p>Book a free 1-hour trial class with one of our expert teachers &mdash; no cost, no obligation.</p>
+            <p>Book a free 1-hour trial class with one of our expert teachers. No cost, no obligation.</p>
             <a href={trialUrl} className="btn btn-primary">Book your free trial class</a>
           </div>
         </section>

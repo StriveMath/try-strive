@@ -16,6 +16,7 @@ interface RoleMeta {
   locations: string[]
   type: string[]
   description: string
+  priority: number
 }
 
 interface CareersProps {
@@ -101,8 +102,10 @@ export const getStaticProps: GetStaticProps = async () => {
       locations: data.locations || [],
       type: data.type || [],
       description: data.description || '',
+      priority: typeof data.priority === 'number' ? data.priority : 100,
     }
   }).filter(role => role.status === 'Active')
+    .sort((a, b) => a.priority - b.priority)
 
   return { props: { roles } }
 }

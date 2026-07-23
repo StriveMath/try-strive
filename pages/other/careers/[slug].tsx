@@ -33,15 +33,6 @@ function RoleLink({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLA
   return <a href={href} {...props}>{children}</a>
 }
 
-function ApplyCallout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="role-apply-callout">
-      <span className="role-apply-callout-icon">📝</span>
-      <div className="role-apply-callout-body">{children}</div>
-    </div>
-  )
-}
-
 function AboutStriveBlock() {
   return (
     <>
@@ -51,9 +42,30 @@ function AboutStriveBlock() {
   )
 }
 
-const components = { a: RoleLink, ApplyCallout, AboutStriveBlock }
-
 export default function RolePage({ source, frontmatter }: RolePageProps) {
+  const isAccepting = frontmatter.status === 'Active'
+
+  function ApplyCallout({ children }: { children: React.ReactNode }) {
+    if (!isAccepting) {
+      return (
+        <div className="role-apply-callout role-apply-callout--closed">
+          <span className="role-apply-callout-icon">🚫</span>
+          <div className="role-apply-callout-body">
+            <strong>This role is no longer accepting applications.</strong> Check our <Link href="/other/careers">open positions</Link> for current openings.
+          </div>
+        </div>
+      )
+    }
+    return (
+      <div className="role-apply-callout">
+        <span className="role-apply-callout-icon">📝</span>
+        <div className="role-apply-callout-body">{children}</div>
+      </div>
+    )
+  }
+
+  const components = { a: RoleLink, ApplyCallout, AboutStriveBlock }
+
   return (
     <>
       <Head>
@@ -78,7 +90,7 @@ export default function RolePage({ source, frontmatter }: RolePageProps) {
                 <span key={t} className="careers-tag careers-tag--type">{t}</span>
               ))}
             </div>
-            {frontmatter.applyUrl && (
+            {isAccepting && frontmatter.applyUrl && (
               <a href={frontmatter.applyUrl} target="_blank" rel="noopener noreferrer" className="role-apply-btn">
                 Apply now →
               </a>
@@ -123,7 +135,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const raw = fs.readFileSync(filePath, 'utf8')
   const { data: frontmatter, content } = matter(raw)
 
-  if (frontmatter.status !== 'Active') {
+  if (frontmatter.status !== 'Active' && frontmatter.status !== 'Filled') {
     return { redirect: { destination: '/other/careers', permanent: false } }
   }
 

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import styles from '@/styles/MathCompetitionStudents.module.css'
@@ -24,6 +25,13 @@ const photos = [
   ['/images/math-competition-2026/photo-online-meet-clean.png', 'Student joining the online competition on a video call'],
   ['/images/math-competition-2026/photo-worksheet-platform.png', 'Strive worksheet platform with visual math questions'],
   ['/images/math-competition-2026/photo-school-trophy.png', 'Students celebrating school competition recognition with a trophy'],
+]
+
+const competitionFacts = [
+  ['Date', 'Sat 5 Sep'],
+  ['Time', '10:00am SGT'],
+  ['Duration', '1.5 hours'],
+  ['Format', 'Fully online'],
 ]
 
 const winnerPosts = [
@@ -65,13 +73,20 @@ export default function MathCompetitionSchool() {
             <p>A friendly interschools competition that tests mathematics mastery &amp; critical thinking through visual code &amp; innovative problems. Students, it&apos;s time to sharpen your skills, embrace problem-solving, and bring math to life through code!</p>
 
             <div className={styles.infoTableWrap}>
-              <table className={styles.infoTable} aria-label="Competition facts">
-                <thead><tr><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Duration</th><th scope="col">Format</th></tr></thead>
-                <tbody><tr><td>Sat 5 Sep</td><td>10:00am SGT</td><td>1.5 hours</td><td>Fully online</td></tr></tbody>
-              </table>
+              <dl className={styles.infoTable} aria-label="Competition facts">
+                {competitionFacts.map(([label, value]) => (
+                  <div className={styles.infoFact} key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
-            <a className={styles.primaryButton} href={REGISTER_URL}>Register your school</a>
+            <div className={schoolStyles.heroActions}>
+              <a className={styles.primaryButton} href={REGISTER_URL}>Register your school</a>
+              <Link className={schoolStyles.studentSignupLink} href="/other/math-competition-2026/students">Are you a student? Sign up here</Link>
+            </div>
           </div>
 
           <div className={styles.heroVisual}>
@@ -121,7 +136,7 @@ export default function MathCompetitionSchool() {
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.photoStrip} ${schoolStyles.photoSection}`} aria-label="Competition photos">
+        <section className={`${styles.section} ${styles.photoStrip} ${schoolStyles.photoSection}`} aria-label="Competition photos" tabIndex={0}>
           {photos.map(([src, alt]) => <Image src={src} alt={alt} width={1448} height={1086} key={src} />)}
         </section>
 

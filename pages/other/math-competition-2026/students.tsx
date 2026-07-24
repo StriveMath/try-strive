@@ -30,6 +30,13 @@ const photos = [
   ['/images/math-competition-2026/photo-school-trophy.png', 'Students celebrating school competition recognition with a trophy'],
 ]
 
+const competitionFacts = [
+  ['Date', 'Sat 5 Sep'],
+  ['Time', '10:00am SGT'],
+  ['Duration', '1.5 hours'],
+  ['Format', 'Fully online'],
+]
+
 const winnerPosts = [
   {
     href: 'https://www.instagram.com/p/C8L9wDWIKPl/',
@@ -69,10 +76,14 @@ export default function MathCompetitionStudents() {
             <p>A friendly interschools competition that tests mathematics mastery &amp; critical thinking through visual code &amp; innovative problems. Students, it&apos;s time to sharpen your skills, embrace problem-solving, and bring math to life through code!</p>
 
             <div className={styles.infoTableWrap}>
-              <table className={styles.infoTable} aria-label="Competition facts">
-                <thead><tr><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Duration</th><th scope="col">Format</th></tr></thead>
-                <tbody><tr><td>Sat 5 Sep</td><td>10:00am SGT</td><td>1.5 hours</td><td>Fully online</td></tr></tbody>
-              </table>
+              <dl className={styles.infoTable} aria-label="Competition facts">
+                {competitionFacts.map(([label, value]) => (
+                  <div className={styles.infoFact} key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
             <a className={styles.primaryButton} href={REGISTER_URL}>Register</a>
@@ -134,7 +145,7 @@ export default function MathCompetitionStudents() {
           <a className={styles.primaryButton} href={REGISTER_URL}>Register</a>
         </section>
 
-        <section className={`${styles.section} ${styles.photoStrip}`} aria-label="Competition photos">
+        <section className={`${styles.section} ${styles.photoStrip}`} aria-label="Competition photos" tabIndex={0}>
           {photos.map(([src, alt]) => <Image src={src} alt={alt} width={1448} height={1086} key={src} />)}
         </section>
 

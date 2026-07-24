@@ -91,36 +91,38 @@
   box-shadow: var(--competition-shadow);
 }
 
-.infoTable,
-.processTable { width: 100%; border-collapse: collapse; }
+.infoTable {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 
-.infoTable { table-layout: fixed; }
-
-.infoTable th,
-.infoTable td {
-  width: 25%;
-  padding: 11px 10px;
-  border-right: 1px solid var(--competition-line);
+.infoFact {
+  min-width: 0;
   text-align: center;
 }
 
-.infoTable th:last-child,
-.infoTable td:last-child { border-right: 0; }
+.infoFact + .infoFact { border-left: 1px solid var(--competition-line); }
 
-.infoTable th {
+.infoFact dt {
+  padding: 11px 10px;
   color: var(--competition-blue);
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-.infoTable td {
+.infoFact dd {
+  margin: 0;
+  padding: 11px 10px;
   border-top: 1px solid var(--competition-line);
   color: var(--competition-navy);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
 }
+
+.processTable { width: 100%; border-collapse: collapse; }
 
 .primaryButton {
   min-height: 56px;
@@ -317,6 +319,7 @@
 
 .photoStrip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .photoStrip img { width: 100%; height: auto; aspect-ratio: 4 / 3; display: block; object-fit: cover; border-radius: 24px; box-shadow: var(--competition-shadow); }
+.photoStrip:focus-visible { outline: 3px solid rgba(44, 129, 237, 0.28); outline-offset: 6px; }
 
 .winnersPanel {
   margin-top: 72px;
@@ -433,8 +436,13 @@
   .winnersPanel,
   .ctaBand { padding: 24px; }
   .gradeLinks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .infoTable th,
-  .infoTable td { padding-inline: 4px; font-size: 11px; }
+  .infoTable { grid-template-columns: 1fr; }
+  .infoFact { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); text-align: left; }
+  .infoFact + .infoFact { border-top: 1px solid var(--competition-line); border-left: 0; }
+  .infoFact dt,
+  .infoFact dd { display: flex; align-items: center; padding: 13px 14px; font-size: 14px; }
+  .infoFact dt { border-right: 1px solid var(--competition-line); }
+  .infoFact dd { border-top: 0; font-size: 15px; }
   .processTable th,
   .processTable td { display: block; width: 100%; padding: 12px 14px; border-right: 0; }
   .processTable th { padding-bottom: 4px; border-bottom: 0; }
@@ -445,6 +453,18 @@
   .agendaRow time { grid-column: 2; }
   .timelineDot { grid-column: 1; }
   .agendaRow > span:last-child { grid-column: 2; grid-row: 2; }
+  .photoStrip {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-padding-inline: 6%;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .photoStrip::-webkit-scrollbar { display: none; }
+  .photoStrip img { width: 88%; flex: 0 0 88%; scroll-snap-align: center; }
   .winnerPostGrid { grid-template-columns: 1fr; }
   .studentPage { padding-bottom: 28px; }
   .studentPage .hero { padding-bottom: 24px; }
@@ -452,7 +472,8 @@
   .studentPage .agendaSection { padding-top: 32px; }
   .studentPage .agenda { padding-bottom: 8px; }
   .studentPage .practicePanel { margin-top: 12px; }
-  .studentPage .ctaBand { margin-top: 20px; }
+  .studentPage .ctaBand { align-items: center; margin-top: 20px; text-align: center; }
+  .studentPage .ctaBand .primaryButton { align-self: center; }
   .studentPage .photoStrip { padding-top: 20px; }
   .studentPage .winnersPanel { margin-top: 20px; }
   .studentPage .faqSection { padding-top: 32px; }

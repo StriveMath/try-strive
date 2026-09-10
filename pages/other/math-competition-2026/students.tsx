@@ -165,12 +165,12 @@ export default function MathCompetitionStudents() {
           <h2>FAQs</h2>
           <div className={styles.faq}>
             <details><summary>What do I need to compete?</summary><p>A laptop and connection to the internet. You do not need to download any fancy programs for this competition.</p></details>
-            <details><summary>How are winners chosen?</summary><p>Points are awarded for each correct answer. Winners are determined in two categories:</p><ul><li><strong>School Category:</strong> The school with the highest cumulative point total wins.</li><li><strong>Individual Category:</strong> The students with the highest point totals in each grade will win first, second, and third place.</li></ul></details>
+            <details><summary>How do we find out the winners?</summary><ul><li><strong>School Winner:</strong> Announced live on the Zoom call at the end of the competition.</li><li><strong>Individual Participants:</strong> While we do not name individual winners, all participants will receive a detailed performance report.</li></ul></details>
             <details><summary>Do I have to be good at math to compete?</summary><p>No! All levels of mathematics are welcome.</p></details>
             <details><summary>Where can we find practice papers?</summary><p><a href="#practice">Here</a> you can access the practice links for your grade.</p></details>
             <details><summary>Where does the competition happen?</summary><p>The competition takes place fully online via Google Meet.</p></details>
             <details><summary>What happens after signup?</summary><p>The Strive team will call to confirm entry, create the student&apos;s profile, and schedule the post-competition feedback call.</p></details>
-            <details><summary>Will students get a certificate?</summary><p>Yes. All students receive a certificate, full report, and personalised feedback after the competition.</p></details>
+            <details><summary>Will students get a certificate?</summary><p>Certificates are available upon request! If you would like one, please contact us after the competition, and we will send it to you along with your personalized report and learning map.</p></details>
           </div>
         </section>
       </main>

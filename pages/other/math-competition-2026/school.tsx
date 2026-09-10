@@ -157,7 +157,7 @@ export default function MathCompetitionSchool() {
           <div className={styles.faq}>
             <details><summary>Does the school need to host the competition?</summary><p>No. The competition is run fully by Strive. All the school needs to do is share the sign up details with their school community.</p></details>
             <details><summary>Can students sign up before the school registers?</summary><p>The intended flow is school signup first, then student signup. This keeps school-level recognition clean.</p></details>
-            <details><summary>What will schools receive after the competition?</summary><p>The winning school will receive a trophy! All students will receive certificates, with the top 3 students from each grade and each school receiving recognition.</p></details>
+            <details><summary>What will schools receive after the competition?</summary><ul><li>In addition to the announcement of the winning school, each participating school will receive a list of their top-performing students along with a few detailed student performance reports.</li></ul></details>
             <details><summary>Do parents need to attend the talk?</summary><p>The parent talk is completely optional. Held after the competition, this session will discuss math education in the digital age, the core philosophy behind our competition design, and an overview of how the students performed.</p></details>
           </div>
         </section>

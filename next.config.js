@@ -1,3 +1,25 @@
+const fs = require('fs')
+const path = require('path')
+const matter = require('gray-matter')
+
+// Careers roles whose status is neither "Active" nor "Filled" (e.g. "Closed") redirect to the
+// careers landing page. [slug].tsx skips them in getStaticPaths so they aren't prerendered.
+function closedCareerRedirects() {
+  const rolesDir = path.join(__dirname, 'content', 'careers')
+  if (!fs.existsSync(rolesDir)) return []
+  return fs.readdirSync(rolesDir)
+    .filter(f => f.endsWith('.mdx') || f.endsWith('.md'))
+    .filter(f => {
+      const { status } = matter(fs.readFileSync(path.join(rolesDir, f), 'utf8')).data
+      return status !== 'Active' && status !== 'Filled'
+    })
+    .map(f => ({
+      source: `/other/careers/${f.replace(/\.(mdx|md)$/, '')}`,
+      destination: '/other/careers',
+      permanent: false,
+    }))
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -44,6 +66,9 @@ const nextConfig = {
       { source: '/paidpythonapps-680', destination: '/other/paidpythonapps-680', permanent: false },
       { source: '/paidpythongames-80', destination: '/other/paidpythongames-80', permanent: false },
       { source: '/paidpythongames-680', destination: '/other/paidpythongames-680', permanent: false },
+
+      // Closed careers roles → careers landing
+      ...closedCareerRedirects(),
     ]
   },
 }

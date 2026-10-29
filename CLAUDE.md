@@ -286,11 +286,10 @@ priority: 0                             # optional — sort order on the landing
 
 - Only `status: "Active"` roles appear on the `/other/careers` landing page.
 - Roles are sorted by `priority` ascending (default `100` if omitted); ties keep filesystem read order.
-- `getStaticPaths` in `[slug].tsx` generates pages for **all** MDX files regardless of status.
-- `getStaticProps` checks `status` at build time:
+- `getStaticPaths` in `[slug].tsx` only generates pages for `"Active"` and `"Filled"` roles. Behaviour by `status`:
   - `"Active"` — renders normally, listed on the landing page, Apply now button and `<ApplyCallout>` show live.
   - `"Filled"` — hidden from the landing page listing, but the role's URL still renders (no redirect) with the Apply now button hidden and `<ApplyCallout>` automatically replaced by a "no longer accepting applications" notice. Use this for roles you want to stop accepting applicants for while keeping the existing link (e.g. shared in job ads or emails) working.
-  - Anything else (e.g. `"Closed"`, `"Draft"`) — hidden from the listing **and** the URL returns a **307 redirect to `/other/careers`** instead of rendering the page.
+  - Anything else (e.g. `"Closed"`, `"Draft"`) — hidden from the listing **and** the URL returns a **307 redirect to `/other/careers`** instead of rendering the page. These redirects are generated in `next.config.js` (`closedCareerRedirects()`) by scanning `content/careers/`, because Next.js doesn't allow `getStaticProps` to return a redirect during prerendering — doing so fails the build.
 - Unknown slugs (no file) return 404 because `fallback: false`.
 - Status changes only take effect on the next Vercel deploy (SSG).
 

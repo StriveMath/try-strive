@@ -115,8 +115,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return { paths: [], fallback: false }
   }
 
-  // Generate paths for all files — getStaticProps handles the Active check and redirects
-  const files = fs.readdirSync(rolesDir).filter(f => f.endsWith('.mdx') || f.endsWith('.md'))
+  // Only Active and Filled roles get a page. Other statuses (e.g. Closed) are redirected
+  // to /other/careers by next.config.js — getStaticProps can't redirect during prerendering.
+  const files = fs.readdirSync(rolesDir)
+    .filter(f => f.endsWith('.mdx') || f.endsWith('.md'))
+    .filter(f => {
+      const { status } = matter(fs.readFileSync(path.join(rolesDir, f), 'utf8')).data
+      return status === 'Active' || status === 'Filled'
+    })
   return {
     paths: files.map(f => ({ params: { slug: f.replace(/\.(mdx|md)$/, '') } })),
     fallback: false,

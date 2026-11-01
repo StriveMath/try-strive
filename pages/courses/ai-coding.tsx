@@ -8,14 +8,14 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 const pageTitle = 'AI Coding for Kids | Strive Math'
-const pageDescription = "Build real apps with professional AI tools. Strive's advanced AI coding course for students aged 10–16. 1-on-1, live, online. Deploy a full-stack product by the end."
+const pageDescription = "Build real apps with professional AI tools. Strive's advanced AI coding course for students aged 10–18. 1-on-1, live, online. Deploy a full-stack product by the end."
 const pageUrl = 'https://www.strivemath.com/courses/ai-coding'
 
 const courseJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   name: '1-on-1 AI Coding Classes',
-  description: 'Live, private, 1-on-1 AI-assisted software development classes for students aged 10 to 16 who already have coding fundamentals. Students use industry-standard AI coding tools to design, build, and deploy a real full-stack web application with user accounts, a database, and payment integration.',
+  description: 'Live, private, 1-on-1 AI-assisted software development classes for students aged 10 to 18 who already have coding fundamentals. Students use industry-standard AI coding tools to design, build, and deploy a real full-stack web application with user accounts, a database, and payment integration.',
   provider: {
     '@type': 'EducationalOrganization',
     '@id': 'https://www.strivemath.com/#organization',
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: 'What age group is this course for?',
-    answer: 'Students aged 10 to 16. Classes are online, so your child can join from anywhere in the world. We have a strong community of students in Singapore.',
+    answer: 'Students aged 10 to 18. Classes are online, so your child can join from anywhere in the world. We have a strong community of students in Singapore.',
   },
   {
     question: 'How are classes structured?',
@@ -166,7 +166,7 @@ export default function AiFirstCoding() {
       <main>
         {/* HERO */}
         <header className="hero">
-          <div className="hero-tag">Advanced Track · Ages 10–16</div>
+          <div className="hero-tag">Advanced Track · Ages 10–18</div>
           <h1>
             AI <span className="gradient-text">Coding</span>
           </h1>
@@ -185,7 +185,7 @@ export default function AiFirstCoding() {
               <span className="hero-stat-label">Live Classes</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-value">10–16</span>
+              <span className="hero-stat-value">10–18</span>
               <span className="hero-stat-label">Age Range</span>
             </div>
             <div className="hero-stat">
@@ -207,7 +207,7 @@ export default function AiFirstCoding() {
                 AI assistance.
               </h2>
               <p className="section-lead">
-                AI Coding is Strive&apos;s advanced course for students aged 10 to 16. Students don&apos;t just write code with AI. They tackle the full challenges of software development: designing architecture, understanding security, debugging complex systems, and making real product decisions about what to build and why.
+                AI Coding is Strive&apos;s advanced course for students aged 10 to 18. Students don&apos;t just write code with AI. They tackle the full challenges of software development: designing architecture, understanding security, debugging complex systems, and making real product decisions about what to build and why.
               </p>
             </div>
             <aside className="highlight-box">
@@ -231,7 +231,7 @@ export default function AiFirstCoding() {
                 <h3>Good fit if your child...</h3>
                 <ul className="fit-list">
                   <li>Has completed Strive&apos;s coding fundamentals track, or has prior coding experience</li>
-                  <li>Is aged 10 to 16</li>
+                  <li>Is aged 10 to 18</li>
                   <li>Wants to build real products, not just learn theory</li>
                   <li>Is interested in how apps, websites, and AI tools actually work underneath</li>
                 </ul>
@@ -565,7 +565,7 @@ export default function AiFirstCoding() {
           <a href={trialUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }}>
             Book a Free Trial Class
           </a>
-          <p className="cta-note">1-on-1 · Online · Ages 10–16</p>
+          <p className="cta-note">1-on-1 · Online · Ages 10–18</p>
         </section>
       </main>
 

@@ -8,14 +8,14 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 const stripeUrl = 'https://book.stripe.com/eVa5nd4au0CX2mQ14T'
 const pageTitle = 'Using AI to Code Bootcamp — Strive'
-const pageDescription = '8-session 1-on-1 coding bootcamp for ages 8+. Use AI tools to build real games, apps, and websites. An intro to coding through the power of AI. SGD 680.'
+const pageDescription = '8-session 1-on-1 coding bootcamp for ages 10–18. Use AI tools to build real games, apps, and websites. An intro to coding through the power of AI. SGD 680.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/ai-coding-intro-bootcamp'
 
 const courseJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   name: 'Using AI to Code Bootcamp',
-  description: 'An 8-session, 1-on-1 online holiday bootcamp for ages 8+. Students use AI tools to build real games, apps, and websites, then learn core Python programming to understand where AI still needs a human who can code.',
+  description: 'An 8-session, 1-on-1 online holiday bootcamp for ages 10–18. Students use AI tools to build real games, apps, and websites, then learn core Python programming to understand where AI still needs a human who can code.',
   provider: {
     '@type': 'EducationalOrganization',
     '@id': 'https://www.strivemath.com/#organization',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: 'Are the classes 1 on 1?',
-    answer: 'Yes, all of our classes are 1:1.',
+    answer: 'Yes, all of our online classes are 1:1.',
   },
   {
     question: 'Do the classes expire?',
@@ -83,7 +83,7 @@ export default function CodeWithAI() {
       <main>
         {/* HERO */}
         <header className="hero hero-bootcamp">
-          <div className="hero-tag">8 Classes · Ages 8+ · Online · Beginner Friendly</div>
+          <div className="hero-tag">8 Classes · Ages 10–18 · Online · Beginner Friendly</div>
           <h1>
             Using AI<br />
             <span className="gradient-text">to Code</span>
@@ -105,7 +105,7 @@ export default function CodeWithAI() {
               <span className="hero-stat-label">AI Tools</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-value">8+</span>
+              <span className="hero-stat-value">10–18</span>
               <span className="hero-stat-label">Ages</span>
             </div>
             <div className="hero-stat">
@@ -126,7 +126,7 @@ export default function CodeWithAI() {
             </p>
             <div className="course-info-strip">
               <span className="course-info-chip">📚 All Levels</span>
-              <span className="course-info-chip">👥 Ages 8+</span>
+              <span className="course-info-chip">👥 Ages 10–18</span>
               <span className="course-info-chip">🧑‍🏫 1 Student · 1 Teacher</span>
               <span className="course-info-chip">🌐 Fully Online</span>
               <span className="course-info-chip">💰 SGD 680</span>
@@ -277,7 +277,7 @@ export default function CodeWithAI() {
             <span className="section-tag">Requirements</span>
             <h2 className="section-title">What you need to get started</h2>
             <ul className="track-list" style={{ fontSize: '15px', lineHeight: 1.7, marginTop: '24px' }}>
-              <li>Ages 8+</li>
+              <li>Ages 10–18</li>
               <li>Comfortable with using a mouse and trackpad</li>
             </ul>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -297,7 +297,7 @@ export default function CodeWithAI() {
           <h2>Ready to build with AI?</h2>
           <p>8 flexible 1-on-1 sessions, a real project portfolio, and a certificate — for SGD 680.</p>
           <a href={stripeUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }} target="_blank" rel="noopener noreferrer">Sign Up Now</a>
-          <p className="cta-note">8 Classes · 1-on-1 · Ages 8+ · AI Tools · Online</p>
+          <p className="cta-note">8 Classes · 1-on-1 · Ages 10–18 · AI Tools · Online</p>
         </section>
       </main>
 

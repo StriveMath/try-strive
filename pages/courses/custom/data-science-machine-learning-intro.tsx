@@ -54,7 +54,7 @@ export default function AdvancedAICourse() {
     <>
       <Head>
         <title>Advanced AI &amp; Machine Learning Course — Strive</title>
-        <meta name="description" content="Advanced 1-on-1 AI and machine learning course for students aged 10–16. Deep dive into neural networks, deep learning, and reinforcement learning through hands-on projects." />
+        <meta name="description" content="Advanced 1-on-1 AI and machine learning course for students aged 10–18. Deep dive into neural networks, deep learning, and reinforcement learning through hands-on projects." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />      </Head>
 
       <Nav />
@@ -62,13 +62,13 @@ export default function AdvancedAICourse() {
       <main>
         {/* HERO */}
         <header className="hero">
-          <div className="hero-tag">Advanced Track · Ages 10–16 · 1-on-1 · Online</div>
+          <div className="hero-tag">Advanced Track · Ages 10–18 · 1-on-1 · Online</div>
           <h1>
             Don&apos;t Just Use AI.<br />
             <span className="gradient-text">Build AI.</span>
           </h1>
           <p className="hero-sub">
-            An advanced course for students aged 10–16 to master AI and machine learning — a deep dive into neural networks, deep learning, and generative AI through hands-on projects and real datasets.
+            An advanced course for students aged 10–18 to master AI and machine learning — a deep dive into neural networks, deep learning, and generative AI through hands-on projects and real datasets.
           </p>
           <div className="hero-actions">
             <a href={trialUrl} className="btn-primary">Book a Trial Class</a>
@@ -84,7 +84,7 @@ export default function AdvancedAICourse() {
               <span className="hero-stat-label">Live Classes</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-value">10–16</span>
+              <span className="hero-stat-value">10–18</span>
               <span className="hero-stat-label">Age Range</span>
             </div>
             <div className="hero-stat">
@@ -211,7 +211,7 @@ export default function AdvancedAICourse() {
                 <h3>Good fit if your child...</h3>
                 <ul className="fit-list">
                   <li>Has completed Strive&apos;s AI Coding course, or has equivalent coding experience</li>
-                  <li>Is aged 10 to 16</li>
+                  <li>Is aged 10 to 18</li>
                   <li>Wants to understand how AI actually works, not just use it</li>
                   <li>Is comfortable reading and writing code independently</li>
                 </ul>
@@ -246,9 +246,9 @@ export default function AdvancedAICourse() {
         {/* CTA */}
         <section className="cta-section">
           <h2>Ready to build AI, not just use it?</h2>
-          <p>1-on-1 live classes for students aged 10–16 — flexible scheduling, no expiring hours.</p>
+          <p>1-on-1 live classes for students aged 10–18 — flexible scheduling, no expiring hours.</p>
           <a href={trialUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }}>Book a Trial Class</a>
-          <p className="cta-note">Advanced Track · Ages 10–16 · 1-on-1 · Online</p>
+          <p className="cta-note">Advanced Track · Ages 10–18 · 1-on-1 · Online</p>
         </section>
       </main>
 

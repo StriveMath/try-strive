@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     question: 'How much does it cost?',
-    answer: 'The price of this course is SGD 640. This includes: Diagnostic assessment, 8 Classes (1 on 1), Completion Certificate, and Continuous Support.',
+    answer: 'The price of this course is SGD 640. This includes: Diagnostic assessment, 8 Classes (1 on 1), Homework after each class, Completion Certificate, and Continuous Support.',
   },
   {
     question: 'Is this bootcamp for IB Diploma students?',
@@ -271,6 +271,7 @@ export default function MathConfidence() {
                 <ul className="track-list" style={{ textAlign: 'left', marginTop: '20px', marginBottom: '24px' }}>
                   <li>Diagnostic assessment to pinpoint specific gaps (complete at home)</li>
                   <li>8 hours of 1:1 personalised online coaching</li>
+                  <li>Homework after each class to reinforce what was taught</li>
                   <li>All learning materials &amp; visual aids</li>
                   <li>Alignment with your school&apos;s curriculum</li>
                   <li>Flexible scheduling throughout the holidays</li>

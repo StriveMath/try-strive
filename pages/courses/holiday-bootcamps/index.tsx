@@ -7,7 +7,7 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 const pageTitle = 'Holiday Bootcamps for Kids — Strive'
-const pageDescription = '8-class holiday bootcamps in Math and Coding for students aged 8–16. 1-on-1 online sessions, flexible scheduling, and a completion certificate.'
+const pageDescription = '8-class holiday bootcamps in Math and Coding for students aged 8–18. 1-on-1 online sessions, flexible scheduling, and a completion certificate.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps'
 
 const faqs = [
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: 'Are the classes 1 on 1?',
-    answer: 'Yes, all of our classes are 1 on 1.',
+    answer: 'Yes, all of our online classes are 1 on 1.',
   },
   {
     question: 'Do the classes expire?',
@@ -55,7 +55,7 @@ export default function HolidayCamps() {
       <main>
         {/* HERO */}
         <header className="hero hero-bootcamp">
-          <div className="hero-tag">8 Classes · Ages 8–16 · Online</div>
+          <div className="hero-tag">8 Classes · Ages 8–18 · Online</div>
           <h1>
             Holiday<br />
             <span className="gradient-text">Bootcamps</span>
@@ -77,7 +77,7 @@ export default function HolidayCamps() {
               <span className="hero-stat-label">Completion Certificate</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-value">8–16</span>
+              <span className="hero-stat-value">8–18</span>
               <span className="hero-stat-label">Ages</span>
             </div>
             <div className="hero-stat">
@@ -94,7 +94,7 @@ export default function HolidayCamps() {
             <h2 className="section-title">Math Bootcamps</h2>
             <p className="bootcamp-section-sub">Choose the track that matches your child&apos;s goals and learning style</p>
             <div className="bootcamp-grid bootcamp-grid-2">
-              <Link href="/math-confidence" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+              <Link href="/courses/holiday-bootcamps/math-confidence-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <article className="bootcamp-card">
                   <div className="bootcamp-card-header bh-math-confidence">
                     <span className="bootcamp-card-header-icon">📐</span>
@@ -105,7 +105,7 @@ export default function HolidayCamps() {
                     <h3>Math Confidence</h3>
                     <p className="bootcamp-card-tagline">Patient 1:1 coaching that makes math finally make sense</p>
                     <div className="bootcamp-card-meta">
-                      <span className="bootcamp-meta-chip">👥 Ages 8–16</span>
+                      <span className="bootcamp-meta-chip">👥 Grades 3–12</span>
                       <span className="bootcamp-meta-chip">⏱ 8 Hours</span>
                       <span className="bootcamp-meta-chip">🌐 Fully Online</span>
                       <span className="bootcamp-meta-chip">💰 SGD 640</span>
@@ -114,7 +114,7 @@ export default function HolidayCamps() {
                   </div>
                 </article>
               </Link>
-              <Link href="/math-performance" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+              <Link href="/courses/holiday-bootcamps/math-performance-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <article className="bootcamp-card">
                   <div className="bootcamp-card-header bh-math-performance">
                     <span className="bootcamp-card-header-icon">🏆</span>
@@ -125,7 +125,7 @@ export default function HolidayCamps() {
                     <h3>Math Performance</h3>
                     <p className="bootcamp-card-tagline">8 hours of elite math coaching</p>
                     <div className="bootcamp-card-meta">
-                      <span className="bootcamp-meta-chip">👥 Ages 8–16</span>
+                      <span className="bootcamp-meta-chip">👥 Grades 3–12</span>
                       <span className="bootcamp-meta-chip">⏱ 8 Hours</span>
                       <span className="bootcamp-meta-chip">🌐 Fully Online</span>
                       <span className="bootcamp-meta-chip">💰 SGD 640</span>
@@ -144,7 +144,7 @@ export default function HolidayCamps() {
             <h2 className="section-title">Coding Bootcamps</h2>
             <p className="bootcamp-section-sub">Build real projects and develop in-demand programming skills</p>
             <div className="bootcamp-grid bootcamp-grid-3">
-              <Link href="/codewithai" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+              <Link href="/courses/holiday-bootcamps/ai-coding-intro-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <article className="bootcamp-card">
                   <div className="bootcamp-card-header bh-ai-intro">
                     <span className="bootcamp-card-header-icon">🤖</span>
@@ -155,7 +155,7 @@ export default function HolidayCamps() {
                     <h3>Using AI to Code</h3>
                     <p className="bootcamp-card-tagline">An intro to coding using the power of AI tools</p>
                     <div className="bootcamp-card-meta">
-                      <span className="bootcamp-meta-chip">👥 Ages 10–16</span>
+                      <span className="bootcamp-meta-chip">👥 Ages 10–18</span>
                       <span className="bootcamp-meta-chip">⏱ 8 Hours</span>
                       <span className="bootcamp-meta-chip">🌐 Fully Online</span>
                       <span className="bootcamp-meta-chip">💰 SGD 680</span>
@@ -164,7 +164,7 @@ export default function HolidayCamps() {
                   </div>
                 </article>
               </Link>
-              <Link href="/makepythonapps" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+              <Link href="/courses/holiday-bootcamps/python-apps-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <article className="bootcamp-card">
                   <div className="bootcamp-card-header bh-python">
                     <span className="bootcamp-popular-badge">Most Popular</span>
@@ -176,7 +176,7 @@ export default function HolidayCamps() {
                     <h3>App + Game Dev in Python</h3>
                     <p className="bootcamp-card-tagline">Build real apps and games using Python from scratch</p>
                     <div className="bootcamp-card-meta">
-                      <span className="bootcamp-meta-chip">👥 Ages 8–16</span>
+                      <span className="bootcamp-meta-chip">👥 Ages 8–18</span>
                       <span className="bootcamp-meta-chip">⏱ 8 Hours</span>
                       <span className="bootcamp-meta-chip">🌐 Fully Online</span>
                       <span className="bootcamp-meta-chip">💰 SGD 680</span>
@@ -185,7 +185,7 @@ export default function HolidayCamps() {
                   </div>
                 </article>
               </Link>
-              <Link href="/ai-first-coding-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+              <Link href="/courses/holiday-bootcamps/ai-coding-advanced-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <article className="bootcamp-card">
                   <div className="bootcamp-card-header bh-ai-advanced">
                     <span className="bootcamp-card-header-icon">🚀</span>
@@ -260,7 +260,7 @@ export default function HolidayCamps() {
           <a href={trialUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }}>
             Book Now
           </a>
-          <p className="cta-note">8 Classes · 1-on-1 · Ages 8–16 · Online</p>
+          <p className="cta-note">8 Classes · 1-on-1 · Ages 8–18 · Online</p>
         </section>
       </main>
 

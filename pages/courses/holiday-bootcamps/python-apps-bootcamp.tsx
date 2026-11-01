@@ -8,14 +8,14 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 const stripeUrl = 'https://book.stripe.com/9AQ02T22m2L57Ha9Bk'
 const pageTitle = 'Python App & Game Development Bootcamp — Strive'
-const pageDescription = '8-session 1-on-1 Python bootcamp for ages 8+. Build real apps and games — Flappy Bird, puzzle apps, and more. SGD 680.'
+const pageDescription = '8-session 1-on-1 Python bootcamp for ages 8–18. Build real apps and games — Flappy Bird, puzzle apps, and more. SGD 680.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/python-apps-bootcamp'
 
 const courseJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   name: 'Python App & Game Development Bootcamp',
-  description: 'An 8-session, 1-on-1 online holiday bootcamp for ages 8+. Students build real apps and games from scratch in Python, covering GUI elements, data models, and navigation, and leave with a portfolio project.',
+  description: 'An 8-session, 1-on-1 online holiday bootcamp for ages 8–18. Students build real apps and games from scratch in Python, covering GUI elements, data models, and navigation, and leave with a portfolio project.',
   provider: {
     '@type': 'EducationalOrganization',
     '@id': 'https://www.strivemath.com/#organization',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: 'Are the classes 1 on 1?',
-    answer: 'Yes, all of our classes are 1:1.',
+    answer: 'Yes, all of our online classes are 1:1.',
   },
   {
     question: 'Do the classes expire?',
@@ -83,7 +83,7 @@ export default function MakePythonApps() {
       <main>
         {/* HERO */}
         <header className="hero hero-bootcamp">
-          <div className="hero-tag">8 Classes · Ages 8+ · Online · Most Popular</div>
+          <div className="hero-tag">8 Classes · Ages 8–18 · Online · Most Popular</div>
           <h1>
             Python App &amp;<br />
             <span className="gradient-text">Game Dev</span>
@@ -105,7 +105,7 @@ export default function MakePythonApps() {
               <span className="hero-stat-label">Real Projects Built</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-value">8+</span>
+              <span className="hero-stat-value">8–18</span>
               <span className="hero-stat-label">Ages</span>
             </div>
             <div className="hero-stat">
@@ -126,7 +126,7 @@ export default function MakePythonApps() {
             </p>
             <div className="course-info-strip">
               <span className="course-info-chip">📚 All Levels</span>
-              <span className="course-info-chip">👥 Ages 8+</span>
+              <span className="course-info-chip">👥 Ages 8–18</span>
               <span className="course-info-chip">🧑‍🏫 1 Student · 1 Teacher</span>
               <span className="course-info-chip">🌐 Fully Online</span>
               <span className="course-info-chip">💰 SGD 680</span>
@@ -287,7 +287,7 @@ export default function MakePythonApps() {
             <span className="section-tag">Requirements</span>
             <h2 className="section-title">What you need to get started</h2>
             <ul className="track-list" style={{ fontSize: '15px', lineHeight: 1.7, marginTop: '24px' }}>
-              <li>Ages 8+</li>
+              <li>Ages 8–18</li>
               <li>Comfortable with using a mouse and trackpad</li>
             </ul>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -307,7 +307,7 @@ export default function MakePythonApps() {
           <h2>Ready to build something real?</h2>
           <p>8 flexible 1-on-1 sessions, a portfolio project, and a certificate — for SGD 680.</p>
           <a href={stripeUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }} target="_blank" rel="noopener noreferrer">Sign Up Now</a>
-          <p className="cta-note">8 Classes · 1-on-1 · Ages 8+ · Python · Online</p>
+          <p className="cta-note">8 Classes · 1-on-1 · Ages 8–18 · Python · Online</p>
         </section>
       </main>
 

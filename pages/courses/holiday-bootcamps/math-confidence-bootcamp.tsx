@@ -8,7 +8,7 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
 const stripeUrl = 'https://buy.stripe.com/3cIdR899Zg3r3Ay6mG93y1v'
 const pageTitle = 'Math Confidence Bootcamp — Strive'
-const pageDescription = '8-session 1-on-1 Math Confidence bootcamp for grades 4–9. Diagnostic assessment, curriculum-aligned coaching, and a detailed progress report. SGD 640.'
+const pageDescription = '8-session 1-on-1 Math Confidence bootcamp for grades 3–12. Diagnostic assessment, curriculum-aligned coaching, and a detailed progress report. SGD 640.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/math-confidence-bootcamp'
 
 const courseJsonLd = {
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: 'Are the classes 1 on 1?',
-    answer: 'Yes, all of our classes are 1:1.',
+    answer: 'Yes, all of our online classes are 1:1.',
   },
   {
     question: 'Do the classes expire?',
@@ -49,7 +49,11 @@ const faqs = [
   },
   {
     question: 'How much does it cost?',
-    answer: 'The price of this course is SGD 640. This includes: Diagnostic assessment, 8 Classes (1 on 1), Completion Certificate, and Continuous Support.',
+    answer: 'The price of this course is SGD 640. This includes: Diagnostic assessment, 8 Classes (1 on 1), Homework after each class, Completion Certificate, and Continuous Support.',
+  },
+  {
+    question: 'Is this bootcamp for IB Diploma students?',
+    answer: "No. This bootcamp is for grades 3 to 12 on any curriculum except the IB Diploma Programme (DP). IB Diploma math is taught 1-on-1 by our specialist IB teachers at SGD 85/hr. Get in touch and we'll recommend the right option for your child.",
   },
   {
     question: 'Can parents join classes?',
@@ -83,7 +87,7 @@ export default function MathConfidence() {
       <main>
         {/* HERO */}
         <header className="hero hero-bootcamp">
-          <div className="hero-tag">8 Classes · Ages 10+ · Online</div>
+          <div className="hero-tag">8 Classes · Grades 3–12 · Online</div>
           <h1>
             Math<br />
             <span className="gradient-text">Confidence</span>
@@ -208,7 +212,7 @@ export default function MathConfidence() {
               <span className="section-tag">Who this is for</span>
               <h2 className="section-title">Is this right for your child?</h2>
               <ul className="track-list box-list" style={{ marginTop: '24px', fontSize: '15px', lineHeight: 1.7 }}>
-                <li>Grades 4–9 students at international schools</li>
+                <li>Grades 3–12 students at international schools</li>
                 <li>Kids who say they don&apos;t like math (anymore)</li>
                 <li>Students who are capable but don&apos;t engage</li>
                 <li>Children who get anxious or distracted during math</li>
@@ -267,6 +271,7 @@ export default function MathConfidence() {
                 <ul className="track-list" style={{ textAlign: 'left', marginTop: '20px', marginBottom: '24px' }}>
                   <li>Diagnostic assessment to pinpoint specific gaps (complete at home)</li>
                   <li>8 hours of 1:1 personalised online coaching</li>
+                  <li>Homework after each class to reinforce what was taught</li>
                   <li>All learning materials &amp; visual aids</li>
                   <li>Alignment with your school&apos;s curriculum</li>
                   <li>Flexible scheduling throughout the holidays</li>
@@ -275,7 +280,7 @@ export default function MathConfidence() {
                   <li>30-min parent consultation on how to support at home</li>
                 </ul>
                 <a href={stripeUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
-                <p className="pricing-note">Ages 10+ · Fully online</p>
+                <p className="pricing-note">Grades 3–12 · Not for IB Diploma · Fully online</p>
               </article>
             </div>
           </div>
@@ -331,7 +336,7 @@ export default function MathConfidence() {
             <span className="section-tag">Requirements</span>
             <h2 className="section-title">What you need to get started</h2>
             <ul className="track-list" style={{ fontSize: '15px', lineHeight: 1.7, marginTop: '24px' }}>
-              <li>Ages 10+</li>
+              <li>Grades 3–12</li>
               <li>Comfortable with using a mouse and keyboard</li>
             </ul>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -354,7 +359,7 @@ export default function MathConfidence() {
           <a href={stripeUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }} target="_blank" rel="noopener noreferrer">
             Sign Up Now
           </a>
-          <p className="cta-note">8 Classes · 1-on-1 · Ages 10+ · Online</p>
+          <p className="cta-note">8 Classes · 1-on-1 · Grades 3–12 · Online</p>
         </section>
       </main>
 

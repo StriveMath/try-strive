@@ -7,14 +7,14 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
 const pageTitle = '1-on-1 Math Classes for Kids in Singapore — Strive'
-const pageDescription = 'Live, 1-on-1 math tutoring for students in grades 4–9. Curriculum-aligned, fully online, SGD 80/hr. Serving UWCSEA, SAS, Dover Court and more.'
+const pageDescription = 'Live, 1-on-1 math tutoring for students in grades 3–12, including IB. Curriculum-aligned, fully online, from SGD 80/hr. Serving UWCSEA, SAS, Dover Court and more.'
 const pageUrl = 'https://www.strivemath.com/courses/math'
 
 const courseJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   name: '1-on-1 Math Tutoring',
-  description: "Live, online, private math tutoring for students in grades 4 to 9. Each student works with the same teacher every week through Strive's math platform, with lesson plans aligned to IB, IGCSE, and Singapore curriculum requirements and a written progress report after every session.",
+  description: "Live, online, private math tutoring for students in grades 3 to 12. Each student works with the same teacher every week through Strive's math platform, with lesson plans aligned to IB (PYP, MYP and DP), IGCSE, and Singapore curriculum requirements and a written progress report after every session.",
   provider: {
     '@type': 'EducationalOrganization',
     '@id': 'https://www.strivemath.com/#organization',
@@ -31,11 +31,15 @@ const courseJsonLd = {
 const faqs = [
   {
     question: 'What grades do you teach?',
-    answer: "We primarily teach grades 4 to 9, but we work with younger students who are ready for it and older students who need to consolidate foundations. If you're unsure, book a trial and we'll assess where your child is.",
+    answer: "We teach grades 3 to 12, including the IB curriculum all the way through to IB Diploma maths. Whether your child is building foundations in primary school or preparing for final exams, we match them with a teacher who knows their level. If you're unsure, book a trial and we'll assess where your child is.",
+  },
+  {
+    question: 'How much does IB Diploma math cost?',
+    answer: 'IB Diploma (DP) math, usually grades 11 and 12, is SGD 85/hr and is taught by our specialist IB teachers. Math for every other grade and curriculum is SGD 80/hr.',
   },
   {
     question: "Do you follow my child's school curriculum?",
-    answer: "Yes. We align content to what your child's school actually teaches. We work with students at UWCSEA, SAS, Dover Court, and other international schools in Singapore, and we know their curricula well.",
+    answer: "Yes. We align content to what your child's school actually teaches. We work with students at UWCSEA, SAS, Dover Court, and other international schools in Singapore, and we know their curricula well. Alongside IB, IGCSE and the Singapore syllabus, we also support A-Level students.",
   },
   {
     question: 'How does the teacher matching work?',
@@ -81,7 +85,7 @@ export default function MathClasses() {
       <main>
         {/* HERO */}
         <header className="hero">
-          <div className="hero-tag">1-on-1 · Grades 4–9 · Online</div>
+          <div className="hero-tag">1-on-1 · Grades 3–12 · IB · Online</div>
           <h1>
             Math Classes<br />
             <span className="gradient-text">Built Around Your Child</span>
@@ -125,7 +129,7 @@ export default function MathClasses() {
                 One hour.
               </h2>
               <p className="section-lead">
-                Strive Math is live, 1-on-1 math tutoring for students in grades 4 to 9. Your child works with a matched expert teacher on exactly what they need — nothing more, nothing less.
+                Strive Math is live, 1-on-1 math tutoring for students in grades 3 to 12, including IB. Your child works with a matched expert teacher on exactly what they need — nothing more, nothing less.
               </p>
             </div>
             <aside className="highlight-box">
@@ -159,6 +163,7 @@ export default function MathClasses() {
                   <li>Preparation for math competitions</li>
                   <li>Extension beyond the school curriculum</li>
                   <li>Building the rigour and working habits that matter in high school</li>
+                  <li>IB exam preparation, through to IB Diploma maths</li>
                 </ul>
               </article>
               <article className="track-card foundation">
@@ -338,6 +343,9 @@ export default function MathClasses() {
             <p style={{ textAlign: 'center', marginTop: '28px', fontSize: '14px', color: 'var(--text-muted)' }}>
               Not sure which plan is right? Book a free trial first and we&apos;ll recommend one after.
             </p>
+            <p style={{ textAlign: 'center', marginTop: '8px', fontSize: '14px', color: 'var(--text-muted)' }}>
+              IB Diploma (DP) math is SGD 85/hr. All other math is SGD 80/hr.
+            </p>
           </div>
         </section>
 
@@ -351,8 +359,8 @@ export default function MathClasses() {
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Group Tutoring</th>
-                    <th className="highlight-col" style={{ background: 'var(--accent-purple)' }}>Strive Math</th>
+                    <th>Traditional Group Tutoring</th>
+                    <th className="highlight-col" style={{ background: 'var(--accent-purple)' }}>Strive Math Online 1:1</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -384,7 +392,7 @@ export default function MathClasses() {
                   <tr>
                     <td>Price</td>
                     <td>SGD 100–150/hr for comparable 1-on-1</td>
-                    <td className="highlight-col">SGD 80/hr</td>
+                    <td className="highlight-col">SGD 80/hr (IB Diploma: SGD 85/hr)</td>
                   </tr>
                 </tbody>
               </table>
@@ -472,7 +480,7 @@ export default function MathClasses() {
           <a href={trialUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }}>
             Book a Free Trial Class
           </a>
-          <p className="cta-note">1-on-1 · Online · Grades 4–9 · SGD 80/hr</p>
+          <p className="cta-note">1-on-1 · Online · Grades 3–12 · From SGD 80/hr</p>
         </section>
       </main>
 

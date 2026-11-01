@@ -9,7 +9,7 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 const stripeUrl = 'https://book.stripe.com/eVa5nd4au0CX2mQ14T'
 const pageTitle = 'AI Web Development Bootcamp — Strive'
-const pageDescription = '8-session 1-on-1 AI web development bootcamp for ages 13+. Ship real full-stack apps with React, Tailwind, and AI tools. Python familiarity required. SGD 680.'
+const pageDescription = '8-session 1-on-1 AI web development bootcamp for ages 13–18. Ship real full-stack apps with React, Tailwind, and AI tools. Python familiarity required. SGD 680.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/ai-coding-advanced-bootcamp'
 
 const courseJsonLd = {
@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     question: 'Are the classes 1 on 1?',
-    answer: 'Yes, all of our classes are 1:1.',
+    answer: 'Yes, all of our online classes are 1:1.',
   },
   {
     question: 'Do the classes expire?',
@@ -168,7 +168,7 @@ export default function AIFirstCodingBootcamp() {
       <main>
         {/* HERO */}
         <header className="hero hero-bootcamp">
-          <div className="hero-tag">8 Classes · Ages 13+ · Online · Advanced</div>
+          <div className="hero-tag">8 Classes · Ages 13–18 · Online · Advanced</div>
           <h1>
             AI Web<br />
             <span className="gradient-text">Development</span>
@@ -190,7 +190,7 @@ export default function AIFirstCodingBootcamp() {
               <span className="hero-stat-label">Ship Real Apps</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-value">13+</span>
+              <span className="hero-stat-value">13–18</span>
               <span className="hero-stat-label">Ages</span>
             </div>
             <div className="hero-stat">
@@ -409,7 +409,7 @@ export default function AIFirstCodingBootcamp() {
             <span className="section-tag">Requirements</span>
             <h2 className="section-title">What you need to get started</h2>
             <ul className="track-list" style={{ fontSize: '15px', lineHeight: 1.7, marginTop: '24px' }}>
-              <li>Ages 13+</li>
+              <li>Ages 13–18</li>
               <li>Comfortable with using a mouse and keyboard</li>
               <li>Familiarity with Python coding</li>
             </ul>
@@ -430,7 +430,7 @@ export default function AIFirstCodingBootcamp() {
           <h2>Ready to ship something real?</h2>
           <p>8 flexible 1-on-1 sessions, a deployed full-stack app, and a certificate — for SGD 680.</p>
           <a href={stripeUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }} target="_blank" rel="noopener noreferrer">Sign Up Now</a>
-          <p className="cta-note">8 Classes · 1-on-1 · Ages 13+ · React · Tailwind · Online</p>
+          <p className="cta-note">8 Classes · 1-on-1 · Ages 13–18 · React · Tailwind · Online</p>
         </section>
       </main>
 

@@ -40,7 +40,7 @@ export default function CoursesIndex() {
                 <span className="course-badge badge-live">Live</span>
               </a>
 
-              <Link href="/math" className="course-card">
+              <Link href="/courses/math" className="course-card">
                 <div className="course-card-left">
                   <div className="course-icon">📐</div>
                   <h2 className="course-title">Mathematics</h2>
@@ -58,7 +58,7 @@ export default function CoursesIndex() {
                 <span className="course-badge badge-live">Live</span>
               </Link>
 
-              <Link href="/holidaycamps" className="course-card">
+              <Link href="/courses/holiday-bootcamps" className="course-card">
                 <div className="course-card-left">
                   <div className="course-icon">🏕️</div>
                   <h2 className="course-title">Holiday Bootcamps</h2>

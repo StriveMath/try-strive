@@ -142,6 +142,9 @@ export default function MathConfidence() {
                 <p>Through 1:1 diagnostic assessment, our state-of-the-art Report Card gives you never-before-seen clarity on your child&apos;s standing and progress — not just &ldquo;needs improvement.&rdquo;</p>
               </article>
             </div>
+            <p className="section-lead" style={{ marginTop: '32px' }}>
+              We break every problem into small steps. Most &ldquo;I can&apos;t&rdquo; moments turn into &ldquo;I can&rdquo; once a problem is broken down. We use everyday examples like money, pizza and recipes, so ideas make sense, not just rules. Short daily practice (just 2–3 questions) helps it stick, and homework after each class keeps things moving. Parents can see progress after each class.
+            </p>
           </div>
         </section>
 

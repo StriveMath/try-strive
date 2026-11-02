@@ -135,10 +135,13 @@ export default function MostDifficultMathQuestionsBootcamp() {
               <p className="section-lead">
                 Your child finishes the worksheet first and is bored by the rest. They&apos;re ready for problems that make them stop and think.
               </p>
+              <p className="section-lead" style={{ marginTop: '16px' }}>
+                Challenges can go beyond grade level, using ideas your child already knows.
+              </p>
             </div>
             <aside className="highlight-box">
               <p>Hard problems aren&apos;t about speed. <span className="em">They&apos;re about knowing what to try when you&apos;re stuck.</span></p>
-              <p>Every question in the bank is chosen to teach a strategy your child can use again and again.</p>
+              <p>We teach the method behind each problem, so your child can tackle questions they&apos;ve never seen before.</p>
               <p style={{ marginBottom: 0, color: 'var(--primary)', fontSize: '16px' }}>
                 The aim is the joy of cracking something hard, not more drilling.
               </p>
@@ -160,7 +163,7 @@ export default function MostDifficultMathQuestionsBootcamp() {
               <div className="how-step">
                 <div className="how-step-num">2</div>
                 <h3>Crack the hardest ones together</h3>
-                <p>In class, your child and their teacher tackle the toughest problems. The rest become homework and stretch work.</p>
+                <p>In class, your child and their teacher tackle the toughest problems. Your child explains their method back to the teacher. The rest become homework and stretch work.</p>
               </div>
               <div className="how-step">
                 <div className="how-step-num">3</div>
@@ -189,7 +192,7 @@ export default function MostDifficultMathQuestionsBootcamp() {
               <h2 className="section-title">What changes after 8 sessions</h2>
               <ul className="track-list check-list" style={{ marginTop: '24px', fontSize: '15px', lineHeight: 1.7 }}>
                 <li>Stronger problem-solving when there&apos;s no obvious method</li>
-                <li>A toolkit of strategies to try when stuck: draw it, try smaller cases, work backwards, look for a pattern</li>
+                <li>A toolkit of strategies to try when stuck: draw it, try a simpler version first, test some numbers, look for a pattern (write out the differences), and work backwards</li>
                 <li>A &ldquo;conquered X of 100&rdquo; progress tracker</li>
                 <li>A natural next step into Olympiad tutoring or competitions</li>
               </ul>

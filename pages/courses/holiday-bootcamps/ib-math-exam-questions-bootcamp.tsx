@@ -168,6 +168,23 @@ export default function IbMathExamQuestionsBootcamp() {
           </div>
         </section>
 
+        {/* EXAM TECHNIQUE */}
+        <section style={{ background: 'var(--bg-subtle)' }}>
+          <div className="section-inner">
+            <span className="section-tag">Exam technique</span>
+            <h2 className="section-title">The habits that earn the marks</h2>
+            <ul className="track-list check-list" style={{ maxWidth: '720px', marginTop: '24px', fontSize: '15px', lineHeight: 1.7 }}>
+              <li>Know the common traps for each question type before you start</li>
+              <li>Write the plan line first, then the formula, then the numbers</li>
+              <li>Rearrange so the unknown is on top before solving</li>
+              <li>Write units in every line, and square or cube conversion factors for area and volume</li>
+              <li>Calculator (GDC) habits: check degree/radian mode, use brackets for fractions, keep exact values until the end</li>
+              <li>Use the formula booklet rather than memory</li>
+              <li>Under timed conditions: skip a long question and come back to it; show working for method marks</li>
+            </ul>
+          </div>
+        </section>
+
         {/* WHO IT'S FOR + OUTCOMES */}
         <section style={{ background: 'white' }}>
           <div className="section-inner two-col">

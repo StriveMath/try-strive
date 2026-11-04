@@ -1494,6 +1494,9 @@ footer p {
 .bh-ai-intro         { background: linear-gradient(135deg, #FFA41C 0%, #FF6635 100%); }
 .bh-python           { background: linear-gradient(135deg, #FF4F84 0%, #7058FF 100%); }
 .bh-ai-advanced      { background: linear-gradient(135deg, #FF6635 0%, #0F1574 100%); }
+.bh-silly-mistakes   { background: linear-gradient(135deg, #FF4F84 0%, #FFA41C 100%); }
+.bh-ib-math          { background: linear-gradient(135deg, #0F1574 0%, #7058FF 100%); }
+.bh-most-difficult   { background: linear-gradient(135deg, #00266b 0%, #2C81ED 100%); }
 
 .bootcamp-popular-badge {
   position: absolute;

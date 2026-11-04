@@ -15,9 +15,12 @@ const COURSE_URLS = [
   '/courses/holiday-bootcamps',
   '/courses/holiday-bootcamps/ai-coding-intro-bootcamp',
   '/courses/holiday-bootcamps/ai-coding-advanced-bootcamp',
+  '/courses/holiday-bootcamps/100-most-difficult-math-questions-bootcamp',
+  '/courses/holiday-bootcamps/ib-math-exam-questions-bootcamp',
   '/courses/holiday-bootcamps/math-confidence-bootcamp',
   '/courses/holiday-bootcamps/math-performance-bootcamp',
   '/courses/holiday-bootcamps/python-apps-bootcamp',
+  '/courses/holiday-bootcamps/silly-mistakes-bootcamp',
 ]
 
 const STATIC_URLS = [

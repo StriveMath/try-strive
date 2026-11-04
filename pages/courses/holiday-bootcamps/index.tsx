@@ -94,6 +94,46 @@ export default function HolidayCamps() {
             <h2 className="section-title">Math Bootcamps</h2>
             <p className="bootcamp-section-sub">Choose the track that matches your child&apos;s goals and learning style</p>
             <div className="bootcamp-grid bootcamp-grid-2">
+              <Link href="/courses/holiday-bootcamps/silly-mistakes-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                <article className="bootcamp-card">
+                  <div className="bootcamp-card-header bh-silly-mistakes">
+                    <span className="bootcamp-card-header-icon">✏️</span>
+                    <p className="bootcamp-card-header-name">Silly Mistakes</p>
+                    <span className="bootcamp-card-header-tag">Mathematics</span>
+                  </div>
+                  <div className="bootcamp-card-body">
+                    <h3>Silly Mistakes</h3>
+                    <p className="bootcamp-card-tagline">Knows the work, still loses marks? Let&apos;s fix that.</p>
+                    <div className="bootcamp-card-meta">
+                      <span className="bootcamp-meta-chip">👥 Grades 3–12</span>
+                      <span className="bootcamp-meta-chip">⏱ 8 Hours</span>
+                      <span className="bootcamp-meta-chip">🌐 Fully Online</span>
+                      <span className="bootcamp-meta-chip">💰 SGD 640</span>
+                    </div>
+                    <p className="bootcamp-curriculum">Lessons and content brought to you by a team from NUS and Stanford University</p>
+                  </div>
+                </article>
+              </Link>
+              <Link href="/courses/holiday-bootcamps/ib-math-exam-questions-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                <article className="bootcamp-card">
+                  <div className="bootcamp-card-header bh-ib-math">
+                    <span className="bootcamp-card-header-icon">🎓</span>
+                    <p className="bootcamp-card-header-name">IB Math Exam Questions</p>
+                    <span className="bootcamp-card-header-tag">Mathematics</span>
+                  </div>
+                  <div className="bootcamp-card-body">
+                    <h3>100 Most Common IB Math Exam Questions</h3>
+                    <p className="bootcamp-card-tagline">The IB math questions that come up again and again</p>
+                    <div className="bootcamp-card-meta">
+                      <span className="bootcamp-meta-chip">👥 Grades 11–12 (IB DP)</span>
+                      <span className="bootcamp-meta-chip">⏱ 8 Hours</span>
+                      <span className="bootcamp-meta-chip">🌐 Fully Online</span>
+                      <span className="bootcamp-meta-chip">💰 SGD 680</span>
+                    </div>
+                    <p className="bootcamp-curriculum">Lessons and content brought to you by a team from NUS and Stanford University</p>
+                  </div>
+                </article>
+              </Link>
               <Link href="/courses/holiday-bootcamps/math-confidence-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <article className="bootcamp-card">
                   <div className="bootcamp-card-header bh-math-confidence">
@@ -114,16 +154,16 @@ export default function HolidayCamps() {
                   </div>
                 </article>
               </Link>
-              <Link href="/courses/holiday-bootcamps/math-performance-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+              <Link href="/courses/holiday-bootcamps/100-most-difficult-math-questions-bootcamp" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <article className="bootcamp-card">
-                  <div className="bootcamp-card-header bh-math-performance">
-                    <span className="bootcamp-card-header-icon">🏆</span>
-                    <p className="bootcamp-card-header-name">Math Performance</p>
+                  <div className="bootcamp-card-header bh-most-difficult">
+                    <span className="bootcamp-card-header-icon">🧠</span>
+                    <p className="bootcamp-card-header-name">100 Most Difficult</p>
                     <span className="bootcamp-card-header-tag">Mathematics</span>
                   </div>
                   <div className="bootcamp-card-body">
-                    <h3>Math Performance</h3>
-                    <p className="bootcamp-card-tagline">8 hours of elite math coaching</p>
+                    <h3>100 Most Difficult Math Questions</h3>
+                    <p className="bootcamp-card-tagline">For kids who find school math too easy and want a real challenge</p>
                     <div className="bootcamp-card-meta">
                       <span className="bootcamp-meta-chip">👥 Grades 3–12</span>
                       <span className="bootcamp-meta-chip">⏱ 8 Hours</span>

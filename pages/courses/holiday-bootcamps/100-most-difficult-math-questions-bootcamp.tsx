@@ -4,10 +4,13 @@ import Footer from '@/components/Footer'
 import FaqSection from '@/components/FaqSection'
 import OrganizationSchema from '@/components/OrganizationSchema'
 
-// DRAFT: noindex, not linked from /courses/holiday-bootcamps or the sitemap yet.
-// Swap signUpUrl for the Stripe payment link before launch.
+// Sign Up Now → Stripe; Ask a Question → WhatsApp to Lauren.
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
-const signUpUrl = 'mailto:hello@strivemath.com?subject=100%20Most%20Difficult%20Math%20Questions%20Bootcamp'
+const WHATSAPP_NUMBER = '6589204220'
+const askMessage = "Hi Lauren! I have a question about the 100 Most Difficult Math Questions Bootcamp."
+const askUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(askMessage)}`
+// Shared 'Strive Math Bootcamps' SGD 640 Stripe link (same as Math Confidence)
+const signUpUrl = 'https://buy.stripe.com/3cIdR899Zg3r3Ay6mG93y1v'
 const gradeRange = 'Grades 3–12'
 const pageTitle = '100 Most Difficult Math Questions Bootcamp — Strive'
 const pageDescription = '8-session 1-on-1 holiday math bootcamp for strong students who want a real challenge. Work through 100 hard problems and the strategies behind them. SGD 640.'
@@ -69,7 +72,6 @@ export default function MostDifficultMathQuestionsBootcamp() {
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        <meta name="robots" content="noindex, nofollow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={pageTitle} />
@@ -99,7 +101,8 @@ export default function MostDifficultMathQuestionsBootcamp() {
             Can your child crack the 100 hardest math questions? 8 hours of 1:1 coaching for kids who find school math too easy and are ready for a real challenge.
           </p>
           <div className="hero-actions">
-            <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+            <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+            <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
             <a href="#how-it-works" className="btn-outline-dark">How It Works</a>
           </div>
           <div className="hero-stats">
@@ -167,8 +170,8 @@ export default function MostDifficultMathQuestionsBootcamp() {
               </div>
               <div className="how-step">
                 <div className="how-step-num">3</div>
-                <h3>Boss round and report</h3>
-                <p>A final round of the hardest questions, a &ldquo;conquered X of 100&rdquo; tracker, and a parent report with a next step.</p>
+                <h3>Tracker and report</h3>
+                <p>A &ldquo;conquered X of 100&rdquo; tracker throughout, and a parent report with a next step at the end.</p>
               </div>
             </div>
           </div>
@@ -221,7 +224,10 @@ export default function MostDifficultMathQuestionsBootcamp() {
                   <li>Flexible scheduling throughout the holidays</li>
                   <li>Progress tracker and parent report</li>
                 </ul>
-                <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+                  <a href={askUrl} className="btn-outline-white" target="_blank" rel="noopener noreferrer">Ask a Question</a>
+                </div>
                 <p className="pricing-note">{gradeRange} · Not for IB Diploma · Fully online</p>
               </article>
             </div>
@@ -244,7 +250,8 @@ export default function MostDifficultMathQuestionsBootcamp() {
               </div>
             </div>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+              <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+              <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
               <a href={trialUrl} className="btn-outline-dark">Try a Free Math Class</a>
             </div>
           </div>
@@ -257,9 +264,14 @@ export default function MostDifficultMathQuestionsBootcamp() {
         <section className="cta-section">
           <h2>How many of the 100 can your child crack?</h2>
           <p>8 flexible 1-on-1 sessions, 100 hard problems, and a progress tracker, all for SGD 640.</p>
-          <a href={signUpUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }}>
-            Sign Up Now
-          </a>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer" style={{ fontSize: '18px', padding: '18px 44px' }}>
+              Sign Up Now
+            </a>
+            <a href={askUrl} className="btn-outline-white" style={{ fontSize: '18px', padding: '16px 40px' }} target="_blank" rel="noopener noreferrer">
+              Ask a Question
+            </a>
+          </div>
           <p className="cta-note">8 Classes · 1-on-1 · {gradeRange} · Online</p>
         </section>
       </main>

@@ -1,23 +1,27 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import FaqSection from '@/components/FaqSection'
 import OrganizationSchema from '@/components/OrganizationSchema'
 
-// DRAFT: noindex, not linked from /courses/holiday-bootcamps or the sitemap yet.
-// Swap signUpUrl for the Stripe payment link before launch.
+// Sign Up Now → Stripe; Ask a Question → WhatsApp to Lauren.
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
-const signUpUrl = 'mailto:hello@strivemath.com?subject=Silly%20Mistakes%20Bootcamp'
+const WHATSAPP_NUMBER = '6589204220'
+const askMessage = "Hi Lauren! I have a question about the Silly Mistakes Bootcamp."
+const askUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(askMessage)}`
+// Shared 'Strive Math Bootcamps' SGD 640 Stripe link (same as Math Confidence)
+const signUpUrl = 'https://buy.stripe.com/3cIdR899Zg3r3Ay6mG93y1v'
 const gradeRange = 'Grades 3–12'
 const pageTitle = 'Silly Mistakes Math Bootcamp — Strive'
-const pageDescription = '8-session 1-on-1 holiday math bootcamp for kids who know the work but still lose marks. A timed diagnostic, methods that don\'t go wrong, and a before-and-after parent report. SGD 640.'
+const pageDescription = '8-session 1-on-1 holiday math bootcamp for kids who know the work but still lose marks. A timed diagnostic, methods that don\'t go wrong, and a parent progress report. SGD 640.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/silly-mistakes-bootcamp'
 
 const courseJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   name: 'Silly Mistakes Math Bootcamp',
-  description: 'An 8-hour, 1-on-1 online holiday bootcamp for students who understand the work but lose marks on silly mistakes. Starts with a timed diagnostic paper, teaches safe methods and clear written working, and ends with a before-and-after parent report.',
+  description: 'An 8-hour, 1-on-1 online holiday bootcamp for students who understand the work but lose marks on silly mistakes. Starts with a timed diagnostic paper, teaches safe methods and clear written working, and ends with a parent progress report.',
   provider: {
     '@type': 'EducationalOrganization',
     '@id': 'https://www.strivemath.com/#organization',
@@ -35,11 +39,11 @@ const courseJsonLd = {
 const faqs = [
   {
     question: 'What is the diagnostic?',
-    answer: "A short timed paper your child completes at home, in their own time, before the first class. The teacher sorts every lost mark into three types: misread the question, risky method, or forgotten basics. That tells us exactly where to focus, and no paid class time is spent on testing.",
+    answer: "A short timed paper your child completes at home, in their own time, before the first class. In session 1 the teacher goes through it with your child, who learns to spot their own mistakes. No paid class time is spent on testing.",
   },
   {
     question: 'Is every child taught the same 8 sessions?',
-    answer: "No. Session 1 always goes through the diagnostic together and sets goals, and session 8 is always a re-check paper and parent report. Sessions 2–7 are fully personalised to what your child's diagnostic finds.",
+    answer: "No. Session 1 always goes through the diagnostic together and sets goals. Sessions 2–8 are fully personalised to your child.",
   },
   {
     question: 'How and when do I schedule the classes?',
@@ -73,7 +77,6 @@ export default function SillyMistakesBootcamp() {
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        <meta name="robots" content="noindex, nofollow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={pageTitle} />
@@ -103,7 +106,8 @@ export default function SillyMistakesBootcamp() {
             Silly mistakes aren&apos;t carelessness. We teach the methods that don&apos;t go wrong.
           </p>
           <div className="hero-actions">
-            <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+            <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+            <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
             <a href="#how-it-works" className="btn-outline-dark">How It Works</a>
           </div>
           <div className="hero-stats">
@@ -112,8 +116,8 @@ export default function SillyMistakesBootcamp() {
               <span className="hero-stat-label">Hours 1-on-1</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-value">🔍</span>
-              <span className="hero-stat-label">Mistake Diagnostic</span>
+              <span className="hero-stat-value">📅</span>
+              <span className="hero-stat-label">Daily Practice</span>
             </div>
             <div className="hero-stat">
               <span className="hero-stat-value">✏️</span>
@@ -121,7 +125,7 @@ export default function SillyMistakesBootcamp() {
             </div>
             <div className="hero-stat">
               <span className="hero-stat-value">📊</span>
-              <span className="hero-stat-label">Before &amp; After Report</span>
+              <span className="hero-stat-label">Parent Report</span>
             </div>
           </div>
         </header>
@@ -142,7 +146,7 @@ export default function SillyMistakesBootcamp() {
               </p>
             </div>
             <aside className="highlight-box">
-              <p>Silly mistakes aren&apos;t carelessness. <span className="em">They come from misreading the question, a risky method, or a forgotten basic.</span></p>
+              <p>Silly mistakes aren&apos;t carelessness. <span className="em">They usually have a cause your child can learn to spot.</span></p>
               <p>We find which ones your child makes, then teach methods that don&apos;t go wrong.</p>
               <p style={{ marginBottom: 0, color: 'var(--primary)', fontSize: '16px' }}>
                 When the method is safe, math feels calm and fun again, and the marks follow.
@@ -157,7 +161,7 @@ export default function SillyMistakesBootcamp() {
             <span className="section-tag">How it works</span>
             <h2 className="section-title">How the 8 sessions work</h2>
             <p className="section-lead">
-              Before the first class, your child does a short timed paper in their own time. The teacher sorts every lost mark into three types: misread the question, risky method, or forgotten basics. That tells us exactly where to focus.
+              Before the first class, your child does a short timed paper in their own time. The teacher uses it to see where marks are being lost.
             </p>
             <div className="how-steps-grid">
               <div className="how-step">
@@ -166,31 +170,16 @@ export default function SillyMistakesBootcamp() {
                 <p>We go through the diagnostic together and set goals. Your child finds their own mistakes first.</p>
               </div>
               <div className="how-step">
-                <div className="how-step-num">2–7</div>
+                <div className="how-step-num">2–8</div>
                 <h3>Focused on your child</h3>
-                <p>Sessions focus on what the diagnostic found. Your child&apos;s sessions are fully personalised to their needs.</p>
+                <p>Sessions focus on what the diagnostic found, fully personalised to your child, with short homework after each class.</p>
               </div>
               <div className="how-step">
-                <div className="how-step-num">8</div>
-                <h3>Re-check and report</h3>
-                <p>A re-check paper and a parent report showing the before and after.</p>
+                <div className="how-step-num">✓</div>
+                <h3>Parent report</h3>
+                <p>At the end, a parent report on your child&apos;s progress and next steps.</p>
               </div>
             </div>
-            <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--primary)', margin: '48px 0 8px' }}>What sessions 2–7 might cover</h3>
-            <p style={{ fontSize: '15px', color: 'var(--text-dark)', marginBottom: '16px' }}>
-              This is an example. Your child&apos;s sessions are fully personalised to their needs after the diagnostic.
-            </p>
-            <ul className="track-list check-list" style={{ maxWidth: '640px', fontSize: '15px', lineHeight: 1.7 }}>
-              <li>Reading the question: draw it, key words, try a simpler version</li>
-              <li>Safe methods with decimals and fractions</li>
-              <li>Simplifying first and using fewer steps</li>
-              <li>Writing it out: the plan line and every step</li>
-              <li>Units and conversions (including squared and cubed units)</li>
-              <li>Spot-the-mistake practice; for grades 7 and up, timed past-paper practice</li>
-            </ul>
-            <p style={{ fontSize: '15px', color: 'var(--text-dark)', marginTop: '16px' }}>
-              Homework: short practice after each class.
-            </p>
           </div>
         </section>
 
@@ -224,6 +213,35 @@ export default function SillyMistakesBootcamp() {
           </div>
         </section>
 
+        {/* WHY DAILY PRACTICE */}
+        <section style={{ background: 'var(--gradient-navy)' }}>
+          <div className="section-inner two-col">
+            <div>
+              <span className="section-tag" style={{ color: 'var(--accent-green)' }}>Why daily practice</span>
+              <h2 className="section-title" style={{ color: 'white' }}>Short daily practice beats forgetting</h2>
+              <p className="section-lead" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                New math skills fade fast. Forgetting is steepest in the first day or two after a lesson, a pattern first measured by Hermann Ebbinghaus. Each short practice session brings the skill back and slows how quickly it fades.
+              </p>
+              <p className="section-lead" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                That&apos;s why we ask for a few minutes of practice every day between classes, so safe methods become automatic.
+              </p>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.6)', marginTop: '16px' }}>
+                <Link href="/blog/why-daily-math-practice-works" style={{ color: 'white', textDecoration: 'underline' }}>Read the science behind daily practice →</Link>
+              </p>
+            </div>
+            <figure style={{ margin: 0 }}>
+              <img
+                src="/images/blog/why-daily-math-practice-works/forgetting-curve.webp"
+                alt="Forgetting curve chart: retention drops to about 60% a day after an online class. Each practice session (online practice on day 1, a worksheet on day 3, practice on day 6) resets retention to 100%, and after each one it fades more slowly."
+                width={1600}
+                height={1195}
+                loading="lazy"
+                style={{ width: '100%', height: 'auto', borderRadius: '16px' }}
+              />
+            </figure>
+          </div>
+        </section>
+
         {/* WHO IT'S FOR + OUTCOMES */}
         <section style={{ background: 'white' }}>
           <div className="section-inner two-col">
@@ -242,7 +260,7 @@ export default function SillyMistakesBootcamp() {
               <h2 className="section-title">What changes after 8 sessions</h2>
               <ul className="track-list check-list" style={{ marginTop: '24px', fontSize: '15px', lineHeight: 1.7 }}>
                 <li>Fewer marks lost to silly mistakes</li>
-                <li>A before-and-after count by mistake type in the parent report</li>
+                <li>A parent report on progress and next steps</li>
                 <li>Methods your child keeps using in school tests</li>
               </ul>
             </div>
@@ -265,12 +283,15 @@ export default function SillyMistakesBootcamp() {
                 <ul className="track-list" style={{ textAlign: 'left', marginTop: '20px', marginBottom: '24px' }}>
                   <li>Timed diagnostic paper (complete at home)</li>
                   <li>8 hours of 1:1 online coaching</li>
-                  <li>Every lost mark sorted by mistake type</li>
+                  <li>Help spotting and fixing their own mistakes</li>
                   <li>Homework after each class</li>
                   <li>Flexible scheduling throughout the holidays</li>
-                  <li>Before-and-after parent report</li>
+                  <li>Parent progress report</li>
                 </ul>
-                <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+                  <a href={askUrl} className="btn-outline-white" target="_blank" rel="noopener noreferrer">Ask a Question</a>
+                </div>
                 <p className="pricing-note">{gradeRange} · Not for IB Diploma · Fully online</p>
               </article>
             </div>
@@ -293,7 +314,8 @@ export default function SillyMistakesBootcamp() {
               </div>
             </div>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+              <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+              <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
               <a href={trialUrl} className="btn-outline-dark">Try a Free Math Class</a>
             </div>
           </div>
@@ -305,10 +327,15 @@ export default function SillyMistakesBootcamp() {
         {/* CTA */}
         <section className="cta-section">
           <h2>Make this the last term of silly mistakes</h2>
-          <p>8 flexible 1-on-1 sessions, methods that don&apos;t go wrong, and a before-and-after report, all for SGD 640.</p>
-          <a href={signUpUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }}>
-            Sign Up Now
-          </a>
+          <p>8 flexible 1-on-1 sessions, methods that don&apos;t go wrong, and a parent progress report, all for SGD 640.</p>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer" style={{ fontSize: '18px', padding: '18px 44px' }}>
+              Sign Up Now
+            </a>
+            <a href={askUrl} className="btn-outline-white" style={{ fontSize: '18px', padding: '16px 40px' }} target="_blank" rel="noopener noreferrer">
+              Ask a Question
+            </a>
+          </div>
           <p className="cta-note">8 Classes · 1-on-1 · {gradeRange} · Online</p>
         </section>
       </main>

@@ -4,11 +4,14 @@ import Footer from '@/components/Footer'
 import FaqSection from '@/components/FaqSection'
 import OrganizationSchema from '@/components/OrganizationSchema'
 
-// DRAFT: noindex, not linked from /courses/holiday-bootcamps or the sitemap yet.
-// Swap signUpUrl for the Stripe payment link before launch.
+// Sign Up Now → Stripe; Ask a Question → WhatsApp to Lauren.
 // Use our own IB-style questions only; IB past papers are IB copyright.
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
-const signUpUrl = 'mailto:hello@strivemath.com?subject=IB%20Math%20Exam%20Questions%20Bootcamp'
+const WHATSAPP_NUMBER = '6589204220'
+const askMessage = "Hi Lauren! I have a question about the 100 Most Common IB Math Exam Questions Bootcamp."
+const askUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(askMessage)}`
+// IB Diploma math bootcamp SGD 680 Stripe link (85/hr)
+const signUpUrl = 'https://buy.stripe.com/5kQ00i4TJ2cB3Ay26q93y1K'
 const gradeRange = 'Grades 11–12 (IB DP)'
 const pageTitle = '100 Most Common IB Math Exam Questions Bootcamp — Strive'
 const pageDescription = '8-session 1-on-1 holiday bootcamp for IB Diploma math students. The 100 most common IB exam question types, markscheme technique and GDC skills. SGD 680.'
@@ -52,7 +55,7 @@ const faqs = [
   },
   {
     question: 'Do the classes expire?',
-    answer: "No, the classes don't expire. We do recommend finishing within the holiday so your child goes into mocks with a clear revision plan.",
+    answer: "No, the classes don't expire. We do recommend finishing within the holiday so your child goes into mocks feeling prepared.",
   },
   {
     question: 'How much does it cost?',
@@ -66,7 +69,6 @@ export default function IbMathExamQuestionsBootcamp() {
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        <meta name="robots" content="noindex, nofollow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={pageTitle} />
@@ -96,7 +98,8 @@ export default function IbMathExamQuestionsBootcamp() {
             The 100 IB math questions that come up again and again. 8 hours of 1:1 coaching to get your child exam-ready for school tests, mocks and finals.
           </p>
           <div className="hero-actions">
-            <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+            <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+            <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
             <a href="#how-it-works" className="btn-outline-dark">How It Works</a>
           </div>
           <div className="hero-stats">
@@ -113,8 +116,8 @@ export default function IbMathExamQuestionsBootcamp() {
               <span className="hero-stat-label">All 5 IB Topics</span>
             </div>
             <div className="hero-stat">
-              <span className="hero-stat-value">📈</span>
-              <span className="hero-stat-label">Revision Plan</span>
+              <span className="hero-stat-value">📊</span>
+              <span className="hero-stat-label">Parent Report</span>
             </div>
           </div>
         </header>
@@ -161,8 +164,8 @@ export default function IbMathExamQuestionsBootcamp() {
               </div>
               <div className="how-step">
                 <div className="how-step-num">3</div>
-                <h3>Mock and revision plan</h3>
-                <p>A timed mini-paper with markscheme review, a parent report, and a revision plan for after the bootcamp.</p>
+                <h3>Parent report</h3>
+                <p>At the end, a parent report on your child&apos;s progress and next steps.</p>
               </div>
             </div>
           </div>
@@ -173,14 +176,11 @@ export default function IbMathExamQuestionsBootcamp() {
           <div className="section-inner">
             <span className="section-tag">Exam technique</span>
             <h2 className="section-title">The habits that earn the marks</h2>
+            {/* TODO: add screenshot of the Strive platform showing an IB-style exam question */}
             <ul className="track-list check-list" style={{ maxWidth: '720px', marginTop: '24px', fontSize: '15px', lineHeight: 1.7 }}>
-              <li>Know the common traps for each question type before you start</li>
-              <li>Write the plan line first, then the formula, then the numbers</li>
-              <li>Rearrange so the unknown is on top before solving</li>
-              <li>Write units in every line, and square or cube conversion factors for area and volume</li>
-              <li>Calculator (GDC) habits: check degree/radian mode, use brackets for fractions, keep exact values until the end</li>
-              <li>Use the formula booklet rather than memory</li>
-              <li>Under timed conditions: skip a long question and come back to it; show working for method marks</li>
+              <li>Show working that earns method marks</li>
+              <li>Use the GDC and formula booklet with confidence</li>
+              <li>Pace a timed paper and know when to move on</li>
             </ul>
           </div>
         </section>
@@ -204,7 +204,6 @@ export default function IbMathExamQuestionsBootcamp() {
                 <li>A personal question-type tracker</li>
                 <li>More confident exam technique and GDC use</li>
                 <li>A clear understanding of how marks are awarded</li>
-                <li>A revision plan for after the bootcamp</li>
               </ul>
             </div>
           </div>
@@ -229,9 +228,12 @@ export default function IbMathExamQuestionsBootcamp() {
                   <li>The 100 most common IB question types</li>
                   <li>Markscheme technique and GDC skills</li>
                   <li>Flexible scheduling throughout the holidays</li>
-                  <li>Parent report and revision plan</li>
+                  <li>Parent report</li>
                 </ul>
-                <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+                  <a href={askUrl} className="btn-outline-white" target="_blank" rel="noopener noreferrer">Ask a Question</a>
+                </div>
                 <p className="pricing-note">{gradeRange} · Fully online</p>
               </article>
             </div>
@@ -254,7 +256,8 @@ export default function IbMathExamQuestionsBootcamp() {
               </div>
             </div>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <a href={signUpUrl} className="btn-primary">Sign Up Now</a>
+              <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+              <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
               <a href={trialUrl} className="btn-outline-dark">Try a Free Math Class</a>
             </div>
           </div>
@@ -266,10 +269,15 @@ export default function IbMathExamQuestionsBootcamp() {
         {/* CTA */}
         <section className="cta-section">
           <h2>Go into mocks having seen it before</h2>
-          <p>8 flexible 1-on-1 sessions, the 100 most common IB question types, and a revision plan, all for SGD 680.</p>
-          <a href={signUpUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }}>
-            Sign Up Now
-          </a>
+          <p>8 flexible 1-on-1 sessions, the 100 most common IB question types, and a personal question-type tracker, all for SGD 680.</p>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer" style={{ fontSize: '18px', padding: '18px 44px' }}>
+              Sign Up Now
+            </a>
+            <a href={askUrl} className="btn-outline-white" style={{ fontSize: '18px', padding: '16px 40px' }} target="_blank" rel="noopener noreferrer">
+              Ask a Question
+            </a>
+          </div>
           <p className="cta-note">8 Classes · 1-on-1 · {gradeRange} · Online</p>
         </section>
       </main>

@@ -7,6 +7,10 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://www.strivemath.com/?show_form=true&plan=navbar'
 const stripeUrl = 'https://book.stripe.com/9AQ02T22m2L57Ha9Bk'
+// Ask a Question → WhatsApp to Lauren.
+const WHATSAPP_NUMBER = '6589204220'
+const askMessage = "Hi Lauren! I have a question about the Python App & Game Development Bootcamp."
+const askUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(askMessage)}`
 const pageTitle = 'Python App & Game Development Bootcamp — Strive'
 const pageDescription = '8-session 1-on-1 Python bootcamp for ages 8–18. Build real apps and games — Flappy Bird, puzzle apps, and more. SGD 680.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/python-apps-bootcamp'
@@ -93,6 +97,7 @@ export default function MakePythonApps() {
           </p>
           <div className="hero-actions">
             <a href={stripeUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+            <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
             <a href="#curriculum" className="btn-outline-dark">See Curriculum</a>
           </div>
           <div className="hero-stats">
@@ -292,9 +297,10 @@ export default function MakePythonApps() {
             </ul>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <a href={stripeUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+              <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
             </div>
             <p style={{ marginTop: '20px', fontSize: '14px', color: 'var(--text-muted)' }}>
-              We are here for your questions. <a href="mailto:hello@strivemath.com" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Contact us</a>
+              We are here for your questions. <a href="mailto:hello@strivemath.com" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Email us</a>
             </p>
           </div>
         </section>
@@ -306,7 +312,10 @@ export default function MakePythonApps() {
         <section className="cta-section">
           <h2>Ready to build something real?</h2>
           <p>8 flexible 1-on-1 sessions, a portfolio project, and a certificate — for SGD 680.</p>
-          <a href={stripeUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }} target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href={stripeUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }} target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+            <a href={askUrl} className="btn-outline-white" style={{ fontSize: '18px', padding: '16px 40px' }} target="_blank" rel="noopener noreferrer">Ask a Question</a>
+          </div>
           <p className="cta-note">8 Classes · 1-on-1 · Ages 8–18 · Python · Online</p>
         </section>
       </main>

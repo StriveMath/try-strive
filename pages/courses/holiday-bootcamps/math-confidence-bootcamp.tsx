@@ -7,6 +7,10 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
 const stripeUrl = 'https://buy.stripe.com/3cIdR899Zg3r3Ay6mG93y1v'
+// Ask a Question → WhatsApp to Lauren.
+const WHATSAPP_NUMBER = '6589204220'
+const askMessage = "Hi Lauren! I have a question about the Math Confidence Bootcamp."
+const askUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(askMessage)}`
 const pageTitle = 'Math Confidence Bootcamp — Strive'
 const pageDescription = '8-session 1-on-1 Math Confidence bootcamp for grades 3–12. Diagnostic assessment, curriculum-aligned coaching, and a detailed progress report. SGD 640.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/math-confidence-bootcamp'
@@ -97,6 +101,7 @@ export default function MathConfidence() {
           </p>
           <div className="hero-actions">
             <a href={stripeUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+            <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
             <a href="#how-it-works" className="btn-outline-dark">How It Works</a>
           </div>
           <div className="hero-stats">
@@ -282,7 +287,10 @@ export default function MathConfidence() {
                   <li>Certificate of completion</li>
                   <li>30-min parent consultation on how to support at home</li>
                 </ul>
-                <a href={stripeUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <a href={stripeUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+                  <a href={askUrl} className="btn-outline-white" target="_blank" rel="noopener noreferrer">Ask a Question</a>
+                </div>
                 <p className="pricing-note">Grades 3–12 · Not for IB Diploma · Fully online</p>
               </article>
             </div>
@@ -319,8 +327,9 @@ export default function MathConfidence() {
               <p className="section-lead" style={{ marginTop: '16px' }}>
                 Give your child 8 hours to rebuild their foundation before the stakes get higher.
               </p>
-              <div style={{ marginTop: '32px' }}>
+              <div style={{ marginTop: '32px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                 <a href={stripeUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+                <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
               </div>
             </div>
             <aside className="highlight-box">
@@ -344,10 +353,11 @@ export default function MathConfidence() {
             </ul>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <a href={stripeUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+              <a href={askUrl} className="btn-outline-dark" target="_blank" rel="noopener noreferrer">Ask a Question</a>
               <a href={trialUrl} className="btn-outline-dark">Try a Free Math Class</a>
             </div>
             <p style={{ marginTop: '20px', fontSize: '14px', color: 'var(--text-muted)' }}>
-              We are here for your questions. <a href="mailto:hello@strivemath.com" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Contact us</a>
+              We are here for your questions. <a href="mailto:hello@strivemath.com" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Email us</a>
             </p>
           </div>
         </section>
@@ -359,9 +369,12 @@ export default function MathConfidence() {
         <section className="cta-section">
           <h2>Ready to rebuild your child&apos;s math confidence?</h2>
           <p>8 flexible 1-on-1 sessions, a diagnostic report card, and a certificate — all for SGD 640.</p>
-          <a href={stripeUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }} target="_blank" rel="noopener noreferrer">
-            Sign Up Now
-          </a>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href={stripeUrl} className="btn-primary" style={{ fontSize: '18px', padding: '18px 44px' }} target="_blank" rel="noopener noreferrer">
+              Sign Up Now
+            </a>
+            <a href={askUrl} className="btn-outline-white" style={{ fontSize: '18px', padding: '16px 40px' }} target="_blank" rel="noopener noreferrer">Ask a Question</a>
+          </div>
           <p className="cta-note">8 Classes · 1-on-1 · Grades 3–12 · Online</p>
         </section>
       </main>

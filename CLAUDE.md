@@ -56,7 +56,9 @@ pages/
     custom/
       data-science-machine-learning-intro.tsx  — Hidden/custom course page
     holiday-bootcamps/
-      index.tsx                   — Holiday bootcamps landing
+      index.tsx                   — Holiday bootcamps landing (renders components/holiday-bootcamps/HolidayBootcampsLanding.tsx)
+      math.tsx, coding.tsx        — WhatsApp share links: same landing page with its own og:image, scrolled to #math/#coding, noindex.
+                                    They exist because link previews ignore #anchors — do not delete as duplicates.
       ai-coding-intro-bootcamp.tsx
       ai-coding-advanced-bootcamp.tsx
       math-confidence-bootcamp.tsx

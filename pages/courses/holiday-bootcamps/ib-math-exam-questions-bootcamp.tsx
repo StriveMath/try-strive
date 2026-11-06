@@ -16,6 +16,8 @@ const gradeRange = 'Grades 11–12 (IB DP)'
 const pageTitle = 'IB Math: Master the Most-Tested Questions — Strive'
 const pageDescription = '8-session 1-on-1 holiday bootcamp for IB Diploma math students. The 100 most common IB exam question types, markscheme technique and GDC skills. SGD 680.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/ib-math-exam-questions-bootcamp'
+// 1200×630 WhatsApp/social preview, served from the images domain like blog OG images
+const ogImage = 'https://images.strivemath.com/images/social/og-ib-math-bootcamp.jpg'
 
 const courseJsonLd = {
   '@context': 'https://schema.org',
@@ -74,9 +76,14 @@ export default function IbMathExamQuestionsBootcamp() {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:url" content={pageUrl} />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Strive IB Math Bootcamp: master the most-tested questions, 1-on-1 online, IB Diploma" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImage} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}

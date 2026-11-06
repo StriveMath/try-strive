@@ -88,8 +88,8 @@ export default function HolidayCamps() {
         </header>
         <hr className="rainbow-rule" />
 
-        {/* MATH BOOTCAMPS */}
-        <section style={{ background: 'white' }}>
+        {/* MATH BOOTCAMPS — linkable as /courses/holiday-bootcamps#math */}
+        <section id="math" style={{ background: 'white' }}>
           <div className="section-inner">
             <h2 className="section-title">Math Bootcamps</h2>
             <p className="bootcamp-section-sub">Choose the track that matches your child&apos;s goals and learning style</p>
@@ -178,8 +178,8 @@ export default function HolidayCamps() {
           </div>
         </section>
 
-        {/* CODING BOOTCAMPS */}
-        <section style={{ background: 'var(--bg-subtle)' }}>
+        {/* CODING BOOTCAMPS — linkable as /courses/holiday-bootcamps#coding */}
+        <section id="coding" style={{ background: 'var(--bg-subtle)' }}>
           <div className="section-inner">
             <h2 className="section-title">Coding Bootcamps</h2>
             <p className="bootcamp-section-sub">Build real projects and develop in-demand programming skills</p>
@@ -254,39 +254,22 @@ export default function HolidayCamps() {
           <div className="section-inner">
             <span className="section-tag">Scheduling</span>
             <h2 className="section-title">How Scheduling Works</h2>
+            <p className="section-lead">
+              Tell us about your child&apos;s interests, learning style and goals. We&apos;ll match them with a teacher they&apos;ll click with, then build a schedule around your family, wherever you are in the world.
+            </p>
             <div className="scheduling-cards">
               <div className="scheduling-card">
                 <h3>Fits around your holiday plans</h3>
-                <p>Traveling? Visiting family? Sessions fit around your holiday plans — not the other way around. You can book your 8 classes at any time during the holidays.</p>
+                <p>Travelling? Visiting family? Sessions fit around your holiday plans, not the other way around. Book your 8 classes at any time during the holidays.</p>
               </div>
               <div className="scheduling-card">
                 <h3>Classes never expire</h3>
                 <p>If some classes remain unscheduled after the holidays, they can still be used throughout the school year.</p>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* OUR SCHEDULE IS FLEXIBLE */}
-        <section style={{ background: 'var(--bg-subtle)' }}>
-          <div className="section-inner two-col">
-            <div>
-              <span className="section-tag">Flexible by design</span>
-              <h2 className="section-title">Our Schedule<br />is Flexible</h2>
-              <p className="section-lead">
-                Contact us, and we&apos;ll pair your child with the ideal teacher based on their personality. We&apos;ll schedule classes on times and dates that work for you.
-              </p>
-              <div style={{ marginTop: '36px' }}>
-                <a href={trialUrl} className="btn-primary">Get in Touch</a>
-              </div>
+            <div style={{ marginTop: '36px' }}>
+              <a href={trialUrl} className="btn-primary">Get in Touch</a>
             </div>
-            <aside className="highlight-box">
-              <p>We don&apos;t just assign a teacher. <span className="em">We find the right match for your child.</span></p>
-              <p>Tell us about your child&apos;s interests, learning style, and goals — and we&apos;ll find someone they&apos;ll genuinely click with.</p>
-              <p style={{ marginBottom: 0, color: 'var(--primary)', fontSize: '16px' }}>
-                Then we build a schedule around your family&apos;s availability, wherever you are in the world.
-              </p>
-            </aside>
           </div>
         </section>
 

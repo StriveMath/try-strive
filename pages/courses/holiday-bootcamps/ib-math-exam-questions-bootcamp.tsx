@@ -8,12 +8,12 @@ import OrganizationSchema from '@/components/OrganizationSchema'
 // Use our own IB-style questions only; IB past papers are IB copyright.
 const trialUrl = 'https://calendly.com/strive-trial-class/try-a-math-class'
 const WHATSAPP_NUMBER = '6589204220'
-const askMessage = "Hi Lauren! I have a question about the 100 Most Common IB Math Exam Questions Bootcamp."
+const askMessage = "Hi Lauren! I have a question about the IB Math Bootcamp."
 const askUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(askMessage)}`
 // IB Diploma math bootcamp SGD 680 Stripe link (85/hr)
 const signUpUrl = 'https://buy.stripe.com/5kQ00i4TJ2cB3Ay26q93y1K'
 const gradeRange = 'Grades 11–12 (IB DP)'
-const pageTitle = '100 Most Common IB Math Exam Questions Bootcamp — Strive'
+const pageTitle = 'IB Math: Master the Most-Tested Questions — Strive'
 const pageDescription = '8-session 1-on-1 holiday bootcamp for IB Diploma math students. The 100 most common IB exam question types, markscheme technique and GDC skills. SGD 680.'
 const pageUrl = 'https://www.strivemath.com/courses/holiday-bootcamps/ib-math-exam-questions-bootcamp'
 
@@ -21,7 +21,7 @@ const courseJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   name: '100 Most Common IB Math Exam Questions Bootcamp',
-  description: 'An 8-hour, 1-on-1 online holiday bootcamp for IB Diploma math students preparing for school tests, mocks and final exams. Covers the 100 most common IB exam question types across all five IB math topics, with markscheme technique and GDC skills.',
+  description: 'An 8-hour, 1-on-1 online holiday bootcamp for IB Diploma math students preparing for school tests and final exams. Covers the 100 most common IB exam question types across all five IB math topics, with markscheme technique and GDC skills.',
   provider: {
     '@type': 'EducationalOrganization',
     '@id': 'https://www.strivemath.com/#organization',
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     question: 'Do the classes expire?',
-    answer: "No, the classes don't expire. We do recommend finishing within the holiday so your child goes into mocks feeling prepared.",
+    answer: "No, the classes don't expire. We do recommend finishing within the holiday so your child goes into their next tests and exams feeling prepared.",
   },
   {
     question: 'How much does it cost?',
@@ -91,11 +91,11 @@ export default function IbMathExamQuestionsBootcamp() {
         <header className="hero hero-bootcamp">
           <div className="hero-tag">8 Classes · {gradeRange} · Online</div>
           <h1>
-            100 Most Common<br />
-            <span className="gradient-text">IB Math Exam Questions</span>
+            IB Math: Master the<br />
+            <span className="gradient-text">Most-Tested Questions</span>
           </h1>
           <p className="hero-sub">
-            The 100 IB math questions that come up again and again. 8 hours of 1:1 coaching to get your child exam-ready for school tests, mocks and finals.
+            Half the marks in IB Math come from a small set of skills. 8 hours of 1:1 coaching on the ones that matter most for school tests and final exams.
           </p>
           <div className="hero-actions">
             <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
@@ -140,9 +140,37 @@ export default function IbMathExamQuestionsBootcamp() {
               <p>IB exams reward technique as much as knowledge. <span className="em">The same question types come up again and again.</span></p>
               <p>We find the types your child finds hardest and teach them until they&apos;re routine.</p>
               <p style={{ marginBottom: 0, color: 'var(--primary)', fontSize: '16px' }}>
-                Mocks and finals feel very different when you&apos;ve seen the question before.
+                Tests and exams feel very different when you&apos;ve seen the question before.
               </p>
             </aside>
+          </div>
+        </section>
+
+        {/* WHAT THE PAST PAPERS SHOW (from Strive's IB Maths Exam Map, May 2024 – May 2026) */}
+        <section style={{ background: 'var(--gradient-navy)' }}>
+          <div className="section-inner">
+            <span className="section-tag" style={{ color: 'var(--accent-green)' }}>What the past papers show</span>
+            <h2 className="section-title" style={{ color: 'white' }}>We mapped every IB Math paper since May 2024</h2>
+            <div className="outcome-grid">
+              <article className="platform-card">
+                <div className="platform-icon">🎯</div>
+                <h3>A few skills carry the marks</h3>
+                <p>Half the marks come from a small set of skills. We practise those first.</p>
+              </article>
+              <article className="platform-card">
+                <div className="platform-icon">🔁</div>
+                <h3>They come back every session</h3>
+                <p>The top skills turn up paper after paper. It&apos;s not a fluke.</p>
+              </article>
+              <article className="platform-card">
+                <div className="platform-icon">⚖️</div>
+                <h3>AA and AI test different things</h3>
+                <p>AI leans on statistics, AA on calculus and algebra. Coaching follows your child&apos;s course.</p>
+              </article>
+            </div>
+            <p className="section-lead" style={{ marginTop: '32px', fontSize: '15px', color: 'rgba(255,255,255,0.8)' }}>
+              Most-tested skills include sequences in context, function notation, hypothesis tests, the normal distribution, optimisation and stationary points.
+            </p>
           </div>
         </section>
 
@@ -193,7 +221,7 @@ export default function IbMathExamQuestionsBootcamp() {
               <h2 className="section-title">Is this right for your child?</h2>
               <ul className="track-list box-list" style={{ marginTop: '24px', fontSize: '15px', lineHeight: 1.7 }}>
                 <li>IB Diploma math students (AA or AI, SL or HL)</li>
-                <li>Students preparing for school tests, mocks or final exams</li>
+                <li>Students preparing for school tests or final exams</li>
                 <li>Students who understand the content but lose marks in exams</li>
               </ul>
             </div>
@@ -252,7 +280,7 @@ export default function IbMathExamQuestionsBootcamp() {
               </div>
               <div className="scheduling-card">
                 <h3>Classes never expire</h3>
-                <p>If some classes remain unscheduled after the holidays, they can still be used in the run-up to mocks and finals.</p>
+                <p>If some classes remain unscheduled after the holidays, they can still be used in the run-up to tests and exams.</p>
               </div>
             </div>
             <div style={{ marginTop: '36px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -268,7 +296,7 @@ export default function IbMathExamQuestionsBootcamp() {
 
         {/* CTA */}
         <section className="cta-section">
-          <h2>Go into mocks having seen it before</h2>
+          <h2>Go into exams having seen it before</h2>
           <p>8 flexible 1-on-1 sessions, the 100 most common IB question types, and a personal question-type tracker, all for SGD 680.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer" style={{ fontSize: '18px', padding: '18px 44px' }}>

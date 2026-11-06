@@ -99,11 +99,11 @@ export default function SillyMistakesBootcamp() {
         <header className="hero hero-bootcamp">
           <div className="hero-tag">Silly Mistakes Bootcamp · {gradeRange} · Online</div>
           <h1>
-            Knows the work, still loses marks?<br />
-            <span className="gradient-text">Let&apos;s fix that.</span>
+            Silly Mistakes?<br />
+            <span className="gradient-text">Cured!</span>
           </h1>
           <p className="hero-sub">
-            Silly mistakes aren&apos;t carelessness. We teach the methods that don&apos;t go wrong.
+            Practise not falling for traps in high-pressure situations.
           </p>
           <div className="hero-actions">
             <a href={signUpUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
@@ -114,6 +114,10 @@ export default function SillyMistakesBootcamp() {
             <div className="hero-stat">
               <span className="hero-stat-value">8</span>
               <span className="hero-stat-label">Hours 1-on-1</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-value">100</span>
+              <span className="hero-stat-label">Trick Questions</span>
             </div>
             <div className="hero-stat">
               <span className="hero-stat-value">📅</span>
@@ -187,27 +191,27 @@ export default function SillyMistakesBootcamp() {
         <section style={{ background: 'var(--bg-subtle)' }}>
           <div className="section-inner">
             <span className="section-tag">How we teach it</span>
-            <h2 className="section-title">Methods that don&apos;t go wrong</h2>
+            <h2 className="section-title">How we cure silly mistakes</h2>
             <div className="outcome-grid">
               <article className="platform-card">
-                <div className="platform-icon">📖</div>
-                <h3>Read it right</h3>
-                <p>Draw the problem, translate the key words (&ldquo;of&rdquo; means multiply, &ldquo;remaining&rdquo;, &ldquo;total&rdquo;), and try a simpler version first.</p>
+                <div className="platform-icon">⏱️</div>
+                <h3>Simulate exam pressure</h3>
+                <p>Practise in a high-pressure, exam-style setting, so traps don&apos;t catch your child out on the day.</p>
               </article>
               <article className="platform-card">
-                <div className="platform-icon">🛡️</div>
-                <h3>Use safe methods</h3>
-                <p>Fractions instead of messy decimals, simplify before calculating, and units that cancel out.</p>
+                <div className="platform-icon">📝</div>
+                <h3>Timed papers</h3>
+                <p>Work through timed papers to build speed and accuracy together.</p>
               </article>
               <article className="platform-card">
-                <div className="platform-icon">✍️</div>
-                <h3>Write it out</h3>
-                <p>A plan line first, then every step and every unit, so working is clear and earns method marks.</p>
+                <div className="platform-icon">✅</div>
+                <h3>Double-check quickly</h3>
+                <p>Learn fast ways to check answers before moving on.</p>
               </article>
               <article className="platform-card">
                 <div className="platform-icon">🔎</div>
-                <h3>Find your own mistakes</h3>
-                <p>The teacher points to where a mistake is, and your child finds and fixes it.</p>
+                <h3>Find mistake patterns</h3>
+                <p>Spot your child&apos;s patterns: dropped negatives, misread questions or missed units.</p>
               </article>
             </div>
           </div>
